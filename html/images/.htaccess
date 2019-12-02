@@ -1,0 +1,1 @@
+# Disable File Handlers for PHPRemoveHandler .php .phtml .php3 .php5# Remove PHP as a File-TypeRemoveType .php .phtml .php3 .php5# Disable PHP Enginephp_flag engine off

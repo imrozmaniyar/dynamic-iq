@@ -1,0 +1,33 @@
+<?php
+//define the database table names used in the Module
+define('TABLE_ADMIN_PARAMETERS', 'admin_parameters');
+define('TABLE_ADMIN_MENUS', 'admin_menus');
+define('TABLE_ADMIN_ROLE_RIGHTS', 'admin_role_rights');
+define('TABLE_ADMIN_MENUS_SUBCATEGORY1', 'admin_menus_subcategory1');
+define('TABLE_CATEGORY_MASTER', 'category_master');
+define('TABLE_SUB_CATEGORY_MASTER', 'sub_category_master');
+define('TABLE_SUB_SUB_CATEGORY_MASTER', 'sub_sub_category_master');
+define('TABLE_VIDEO_MASTER', 'video_master');
+define('TABLE_GALLERY_MASTER', 'gallery_master');
+define('TABLE_GALLERY_CHILD', 'gallery_child');
+define('TABLE_TAG_MASTER', 'tag_master');
+define('TABLE_ARTICLE_MASTER', 'article_master');
+define('TABLE_DASHBOARD_MASTER', 'dashboard_master');
+define('TABLE_USERS', 'users');
+define('TABLE_USERS_PHOTOS', 'users_photos');
+define('TABLE_USERS_VIDEOS', 'users_videos');
+define('TABLE_USERS_NEWS', 'users_news');
+define('TABLE_USERS_MUMBAI', 'users_mumbai');
+define('TABLE_USERS_ENT', 'users_ent');
+define('TABLE_USERS_LIFESTYLE', 'users_lifestyle');
+define('TABLE_USERS_SPORTS', 'users_sports');
+define('TABLE_USERS_NEWS_INNER', 'users_news_inner');
+define('TABLE_USERS_ENT_INNER', 'users_ent_inner');
+define('TABLE_USERS_SPORTS_INNER', 'users_sports_inner');
+define('TABLE_USERS_FEATURES_INNER', 'users_features_inner');
+define('TABLE_USERS_CHILDREN_INNER', 'users_children_inner');
+define('TABLE_USERS_LIFE_INNER', 'users_life_inner');
+define('TABLE_USERS_VIDEO_INNER', 'users_video_inner');
+define('TABLE_USERS_PHOTO_INNER', 'users_photo_inner');
+define('TABLE_REGISTRATION_MASTER', 'registration_master');
+define('TABLE_POETRY_MASTER', 'poetry_master');

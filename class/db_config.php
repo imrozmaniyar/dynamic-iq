@@ -1,0 +1,1 @@
+<?php $mysqli = new mysqli("192.168.1.17", "vmrc_dbuser", "D6Rz4axBzQ4Ny7SK!", "iq");?>
