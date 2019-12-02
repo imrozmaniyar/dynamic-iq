@@ -22,8 +22,8 @@
             <div class="col-md-4 mt-3 order-2 order-md-0">
               <a href="<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
               <div class="card-shadow zoom">
-                <img src="<?php echo $domain?><?php echo htmlspecialchars($pImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block" alt="">
-                <i class="fa fa-play video-play-icon" aria-hidden="true"></i>
+                <img src="<?php echo $domain?><?php echo htmlspecialchars($pImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="">
+                <i class="fa fa-play video-play-icon-single-mobile-grid" aria-hidden="true"></i>
                 <p class="first-section-sub-desc"><?php echo htmlspecialchars($pahp,ENT_QUOTES, 'UTF-8')?></p>
               </div>
             </a>
