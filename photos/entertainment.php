@@ -30,10 +30,8 @@ $entvFour    = $objentvFour->selectAll($strWhere, 10, 9);
 ?>     
     <section class="mt-3">
     	 <div class="container clearfix" id="load_data_table">
-      <div class="container clearfix">
-        <h2 class="article-news-listing-title"><a href="#" class="article-news-listing-title"> کھیل  </a></h2>
-  
-        <div class="row mt-4">
+        <h2 class="article-news-listing-title mb-0"><a href="#" class="article-news-listing-title"> کھیل  </a></h2>
+        <div class="row">
 		<?php
 
       if ($entvFour[0] > 0):
@@ -46,11 +44,11 @@ $entvFour    = $objentvFour->selectAll($strWhere, 10, 9);
         $aImage       = $objentvFours->gallery_image;          
        $i=$i+1;  
         ?>        	
-          <div class="col-md-4 order-2 order-md-0">
+          <div class="col-md-4 order-2 order-md-0 mt-4">
               <a href="<?php echo $domain?>entertainment/photos/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>" class="home-href">
               <div class="card-shadow zoom">
-                <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block" alt="">
-                <i class="fa fa-camera video-play-icon-grid-3" aria-hidden="true"></i>
+                <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="">
+                <i class="fa fa-camera photo-camera-icon-single-mobile-grid" aria-hidden="true"></i>
                 <p class="first-section-sub-desc"><?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?></p>
               </div>
             </a>
@@ -60,9 +58,8 @@ $entvFour    = $objentvFour->selectAll($strWhere, 10, 9);
     	endif;	
         ?>          
         </div>
-      <?php if ($entvFour[0] != 9) { ?><div class="mt-5 mb-5"><div id="remove_row"><img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center" data-bid="<?php echo $aID; ?>" id="btn_more"></div></div><?php } ?>   
+      <?php if ($entvFour[0] != 9) { ?><div id="remove_row"><div class="mt-5 mb-5"><img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center" data-bid="<?php echo $aID; ?>" id="btn_more"></div></div><?php } ?>   
 
-      </div>  
   </div>
     </section>
     <!-- Entertainment Photos Section -->

@@ -31,10 +31,8 @@
           ?>
          
         </div>
-        <div class="row">
-          <div class="col-md-12 text-left  mt-3">
+        <div class="row col-md-12 mt-3">
             <a href="<?php echo $domain?>photos/news" class=" read-more clearfix">مزید </a>
-          </div>
         </div>
         <div class="horizontal-border mt-3"></div>
       </div>  

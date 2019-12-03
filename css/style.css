@@ -282,6 +282,7 @@ position: relative;
 }
 .zoom {
   transition: transform .2s; /* Animation */
+  position: relative;
 }
 .font-weight-600{
     font-weight: 600

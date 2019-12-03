@@ -17,12 +17,14 @@ $entfOne    = $objentfOne->selectAll($strWhere, 0, 6);
         $aImage       = $objentfOnes->gallery_image;          
        $i=$i+1;  
   ?>
-    <div class="col-md-4 zoom col-6 mt-3 mt-md-3">
+    <div class="col-md-4  col-6 mt-3 mt-md-3">
+      <div class="zoom">
       <a href="<?php echo $domain?>entertainment/photos/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>" class="home-href">
-        <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
-         <i class="fa fa-camera video-play-icon-grid-3" aria-hidden="true"></i>
+        <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
+         <i class="fa fa-camera photo-camera-icon-single-mobile-grid" aria-hidden="true"></i>
         <p class="first-section-sub-desc"><?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?></p>
       </a>
+    </div>
     </div>
   <?php
     endwhile;

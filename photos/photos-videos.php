@@ -37,6 +37,5 @@ endif;
           <a href="<?php echo $domain?>videos" class="text-left read-more mt-3 clearfix">مزید </a>
         </div>
         </div>
-        <div class="horizontal-border"></div>
       </div>  
     </section>
