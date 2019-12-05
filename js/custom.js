@@ -30,4 +30,27 @@
                     // On page load
                     stickyToggle(sticky, stickyWrapper, $(window));
                 });
+
+
+    $('a[href="#toggle-search"], .bootsnipp-search > .btn[type="reset"]').on('click', function(event) {
+        event.preventDefault();
+        $('.bootsnipp-search  > input').val('');
+        $('.bootsnipp-search').toggleClass('open');
+        $('a[href="#toggle-search"]').closest('li').toggleClass('active');
+        if($('a[href="#toggle-search"] > span').hasClass('fa-search')) {
+            $('a[href="#toggle-search"] > span').removeClass('fa-search');
+            $('a[href="#toggle-search"] > span').addClass('fa-times');
+        } else if ($('a[href="#toggle-search"] > span').hasClass('fa-times')) {
+            $('a[href="#toggle-search"] > span').addClass('fa-search');
+            $('a[href="#toggle-search"] > span').removeClass('fa-times');
+        }
+        //$('a[href="#toggle-search"] > span').toggle();
+
+        if ($('.bootsnipp-search').hasClass('open')) {
+            /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
+            setTimeout(function() { 
+                $('.bootsnipp-search .form-control').focus();
+            }, 100);
+        }           
+    });
             });

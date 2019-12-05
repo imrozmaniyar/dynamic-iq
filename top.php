@@ -33,6 +33,67 @@ include("loginc.php");
     <?php include("seo-meta-data.php");?>
     <?php include("gacom.php");?>
     <script>var domain_name="<?php echo mysql_escape_mimic($domain)?>search/" </script> 
+    <style type="text/css">
+      .animate {
+    -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+ .bootsnipp-search {
+  display: none;
+}
+ .bootsnipp-search .form-control {
+  background-color: #fff;
+    border-radius: 0px;
+    border-width: 0px;
+    font-size: 16px;
+    padding: 15px 0px 15px 10px;
+    border: 1px solid #e5e5e5;
+}
+ .bootsnipp-search .form-control:focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+   .bootsnipp-search {
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    -o-transform: rotateX(-90deg);
+    -ms-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+    -webkit-transform-origin: 0 0 0;
+    -moz-transform-origin: 0 0 0;
+    -o-transform-origin: 0 0 0;
+    -ms-transform-origin: 0 0 0;
+    transform-origin: 0 0 0;
+    visibility: hidden;
+  }
+   .bootsnipp-search.open {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -o-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    visibility: visible;  
+  }
+   .bootsnipp-search > .container {
+    padding: 0px;
+  }    
+  .btn-search {
+    color: #fff;
+    background-color: #023e86;
+    border-color: #023e86;
+    text-transform: uppercase;
+}
+    </style>
   </head>
   <body>
     <section id="topbar" class="d-none d-lg-block">
@@ -61,7 +122,7 @@ include("loginc.php");
                   <input class="search_input" type="text" name="search" id='songs-search-text' placeholder="Search..." required="required">
                   <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
                 </div>
-               </form>   
+               </form>
               </div>
             </li>
           </ul>
@@ -74,7 +135,13 @@ include("loginc.php");
       <header>
         <nav class="navbar navbar-expand-lg" data-toggle="sticky-onscroll">
           <div class="container">
-              <a class="navbar-brand d-lg-none mobile-logo-width" href="#"><img src="images/footer-logo.png" class="img-fluid" alt=""></a>
+              <div class="navbar-brand d-lg-none">
+                <ul class="list-inline mt-2 mb-2 animate">
+                  <li class="list-inline-item hidden-xs"><a href="#toggle-search" class="animate"><span class="fa fa-search text-white"></span></a></li>
+                  <li class="list-inline-item"><a href="<?php echo $domain?>login"><button type="button" class="btn btn-login text-white">Login</button></a></li>
+                  <li class="list-inline-item"><a href="<?php echo $domain?>"><img src="<?php echo $domain?>images/footer-logo.png" class="img-fluid" alt="" style="width: 140px;"></a></li>
+                </ul>
+              </div>
               <button class="navbar-toggler nav-toggle-icon" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="fa fa-bars text-white"></span>
                   <span class="sr-only">Toggle navigation</span>
@@ -137,8 +204,23 @@ include("loginc.php");
                       </li>
                   </ul>
               </div>
+              <div class="bootsnipp-search animate">
+        <div class="container">
+          <div class="col-md-12 mt-1">
+          <form action="" method="GET" role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" name="q" placeholder="Search">
+              <span class="input-group-append">
+                <button class="btn btn-search font-family-roboto" type="submit">Search</button>
+              </span>
+            </div>
+          </form>
+        </div>
+        </div>
+      </div>
           </div>
         </nav>
       </header>
+
     </section>
     <!-- first section -->
