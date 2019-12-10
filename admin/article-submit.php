@@ -6,7 +6,7 @@ require_once('../commonfunctions/function.php');
 include_once(DIR_WS_CLASS . "database.php");
 include(DIR_WS_CLASS."db_article_master.php");
 include(DIR_WS_CLASS."db_dashboard_master.php");
-
+date_default_timezone_set('Asia/Kolkata'); 
 define ("WIDTH","670");////for original image
 define ("HEIGHT","440");////for original image
 
@@ -54,8 +54,10 @@ $article_date             = mysql_real_escape_string($_POST['txtDate'], $link);
 else:
 $article_date             = mysql_real_escape_string($_POST['txtdate'], $link);
 endif;  
-$mdate                    = date('Y-m-d H:i:s');
-$article_time             = mysql_real_escape_string($_POST['txttime'], $link);
+$mdate = $article_date;
+$mdate = date("Y-m-d", strtotime($mdate) );
+$article_time = mysql_real_escape_string($_POST['txttime'], $link);
+$epochtime = strtotime($mdate.$article_time);
 $article_location         = mysql_real_escape_string($_POST['txtlocation'], $link);
 $article_page_title       = mysql_real_escape_string($_POST['txttitle'], $link);
 $article_meta_description = mysql_real_escape_string($_POST['txtdesc'], $link);
@@ -177,6 +179,7 @@ switch($mode):
             $objpk->Set_article_date($article_date);
             $objpk->Set_article_date1($mdate);
             $objpk->Set_article_time($article_time);
+            $objpk->Set_article_epoch($epochtime);
             $objpk->Set_article_location($article_location);
             $objpk->Set_article_page_title($article_page_title);
             $objpk->Set_article_meta_description($article_meta_description);
@@ -278,6 +281,7 @@ switch($mode):
         $objpk->Set_article_date($olddate);
         $objpk->Set_article_date1($mdate);
         $objpk->Set_article_time($article_time);
+        $objpk->Set_article_epoch($epochtime);
         $objpk->Set_article_location($article_location);
         $objpk->Set_article_page_title($article_page_title);
         $objpk->Set_article_meta_description($article_meta_description);

@@ -79,7 +79,7 @@ $akeywords        = $objMainArticle->Get_article_keywords();
                 $array = explode(',', $atags);
                 for ($i = 0; $i < count($array); $i++) {
               ?>      
-                <span class="btn-tag btn"><a href="#" style="text-decoration: none;"><?php echo htmlspecialchars($array[$i],ENT_QUOTES, 'UTF-8')?></a></span>
+                <span class="btn-tag btn"><a href="<?php echo $domain?>search/<?php echo str_replace(" ", "-", $array[$i])?>-all" style="text-decoration: none;"><?php echo htmlspecialchars($array[$i],ENT_QUOTES, 'UTF-8')?></a></span>
             <?php
               }      
             ?>

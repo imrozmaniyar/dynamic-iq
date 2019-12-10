@@ -13,26 +13,27 @@ endif;
 $objbmaster 		 = new db_gallery_master($id);
 $gallery_random_id 	 = $objbmaster->get_gallery_random_id();
 $gallery_name 		 = $objbmaster->get_gallery_name();
-$gallery_name_home 		 = $objbmaster->get_gallery_name_home();
-$gallery_url 		     = $objbmaster->get_gallery_url();
-$gallery_description   = $objbmaster->get_gallery_description();
-$gallery_keywords      = $objbmaster->get_gallery_keywords();
-$gallery_tags         = $objbmaster->get_gallery_tags();
+$gallery_name_home 	 = $objbmaster->get_gallery_name_home();
+$gallery_url 		 = $objbmaster->get_gallery_url();
+$gallery_description = $objbmaster->get_gallery_description();
+$gallery_keywords    = $objbmaster->get_gallery_keywords();
+$gallery_tags        = $objbmaster->get_gallery_tags();
 $category_id 		 = $objbmaster->get_category_id();
 $sub_category_id 	 = $objbmaster->get_sub_category_id();
 $sub_sub_category_id = $objbmaster->get_sub_sub_category_id();
 $admin_name 		 = $objbmaster->get_admin_name();
 $admin_name1 		 = $objbmaster->get_admin_name1();
 $gallery_date 		 = $objbmaster->get_gallery_date();
-$time          = strtotime($gallery_date);
-$month         = date("M",$time);
-$year          = date("Y",$time);
-
+$time          		 = strtotime($gallery_date);
+$month               = date("M",$time);
+$year                = date("Y",$time);
 $gallery_date1 		 = $objbmaster->get_gallery_date1();
+$gallery_date1 		 = date("m/d/Y", strtotime($gallery_date1) );
 $gallery_time 		 = $objbmaster->get_gallery_time();
+$gallery_time  	     = date("g:i a", strtotime($gallery_time));
 $gallery_image 		 = $objbmaster->get_gallery_image();
-$gallery_image1 		 = $objbmaster->get_gallery_image1();
-$gallery_image2 		 = $objbmaster->get_gallery_image2();
+$gallery_image1 	 = $objbmaster->get_gallery_image1();
+$gallery_image2 	 = $objbmaster->get_gallery_image2();
 $stractive			 = $objbmaster->Get_active();
 ?>
 <section role="main" class="content-body">
@@ -128,7 +129,7 @@ $stractive			 = $objbmaster->Get_active();
 											<i class="fa fa-calendar"></i>
 										</span>
 										<?php if($mode=="Edit"):?>
-										<input type="text" name="txtDate" id="txtDate"  required="required" readonly value="<?php echo htmlspecialchars($gallery_date,ENT_QUOTES, 'UTF-8');?>">
+										<input type="text" name="txtDate" id="txtDate"  required="required" readonly value="<?php echo htmlspecialchars($gallery_date1,ENT_QUOTES, 'UTF-8');?>">
 										<?php else:?>
 										<input type='text' id='txtdate' name='txtdate' required="required" readonly/>
 										<?php endif;?>
@@ -143,7 +144,11 @@ $stractive			 = $objbmaster->Get_active();
 									<span class="input-group-addon">
 										<i class="fa fa-clock-o"></i>
 									</span>
+									<?php if($mode=='Edit'):?>
 									<input type="text" data-plugin-timepicker class="form-control" name="txttime" id="txttime" value="<?php echo htmlspecialchars($gallery_time,ENT_QUOTES, 'UTF-8');?>">
+									<?php else:?>
+									<input type="text" data-plugin-timepicker class="form-control" name="txttime" id="txttime">
+									<?php endif;?>
 								</div>
 							</div>
 						</div>

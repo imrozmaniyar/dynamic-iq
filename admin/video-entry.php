@@ -23,14 +23,15 @@ $category_id 		 = $objbmaster->get_category_id();
 $sub_category_id 	 = $objbmaster->get_sub_category_id();
 $sub_sub_category_id = $objbmaster->get_sub_sub_category_id();
 $admin_name 		 = $objbmaster->get_admin_name();
-$admin_name1 			   = $objbmaster->get_admin_name1();
+$admin_name1 	     = $objbmaster->get_admin_name1();
 $video_date 		 = $objbmaster->get_video_date();
-$time          = strtotime($video_date);
-$month         = date("M",$time);
-$year          = date("Y",$time);
-
+$time          		 = strtotime($video_date);
+$month         		 = date("M",$time);
+$year          		 = date("Y",$time);
 $video_date1 		 = $objbmaster->get_video_date1();
+$video_date1 		 = date("m/d/Y", strtotime($video_date1) );
 $video_time 		 = $objbmaster->get_video_time();
+$video_time  	     = date("g:i a", strtotime($video_time));
 $video_image 		 = $objbmaster->get_video_image();
 $video_image1 		 = $objbmaster->get_video_image1();
 $video_image2 		 = $objbmaster->get_video_image2();
@@ -130,7 +131,7 @@ $stractive			 = $objbmaster->Get_active();
 											<i class="fa fa-calendar"></i>
 										</span>
 										<?php if($mode=="Edit"):?>
-										<input type="text" name="txtDate" id="txtDate"  required="required" readonly value="<?php echo htmlspecialchars($video_date,ENT_QUOTES, 'UTF-8');?>">
+										<input type="text" name="txtDate" id="txtDate"  required="required" readonly value="<?php echo htmlspecialchars($video_date1,ENT_QUOTES, 'UTF-8');?>">
 										<?php else:?>
 										<input type='text' id='txtdate' name='txtdate' required="required" readonly/>
 										<?php endif;?>										
@@ -144,7 +145,11 @@ $stractive			 = $objbmaster->Get_active();
 									<span class="input-group-addon">
 										<i class="fa fa-clock-o"></i>
 									</span>
-									<input type="text" data-plugin-timepicker class="form-control" name="txttime" id="txttime" value="<?php echo htmlspecialchars($video_time,ENT_QUOTES, 'UTF-8');?>">
+									<?php if($mode=='Edit'):?>
+									<input type="text" data-plugin-timepicker class="form-control"  name="txttime" id="txttime" value="<?php echo htmlspecialchars($video_time,ENT_QUOTES, 'UTF-8');?>">
+									<?php else:?>
+									<input type="text" data-plugin-timepicker class="form-control" name="txttime" id="txttime">
+									<?php endif;?>								
 								</div>
 							</div>
 						</div>

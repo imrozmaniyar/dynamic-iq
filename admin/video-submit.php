@@ -6,7 +6,7 @@ require_once('../commonfunctions/function.php');
 include_once(DIR_WS_CLASS . "database.php");
 include(DIR_WS_CLASS."db_video_master.php");
 include(DIR_WS_CLASS."db_dashboard_master.php");
-
+date_default_timezone_set('Asia/Kolkata'); 
 define ("WIDTH","670");////for original image
 define ("HEIGHT","440");////for original image
 
@@ -49,8 +49,26 @@ $video_date = mysql_real_escape_string($_POST['txtDate'], $link);
 else:
 $video_date = mysql_real_escape_string($_POST['txtdate'], $link);
 endif;  
-$mdate                    = date('Y-m-d H:i:s');
+//echo $video_date;
+//return;
+
+$mdate = $video_date;
+$mdate = date("Y-m-d", strtotime($mdate) );
+//echo $mdate;
+//return;
+
+//$mdate       = date('Y-m-d');
+
+//echo $mdate;
+
 $video_time = mysql_real_escape_string($_POST['txttime'], $link);
+//$video_time             = str_replace(':','',date("H:i", strtotime($video_time1)));
+
+$epochtime = strtotime($mdate.$video_time);
+//echo $epochtime;
+//return;
+//$old_date_timestamp = strtotime($old_date);
+
 $video_youtube_id = mysql_real_escape_string($_POST['txtyoutubeid'], $link);
 $video_image1 = mysql_real_escape_string($_POST['txtPreviousImage1'], $link);
 $video_image2 = mysql_real_escape_string($_POST['txtPreviousImage2'], $link);
@@ -170,6 +188,7 @@ switch($mode):
             $objpk->Set_video_date($video_date);
             $objpk->Set_video_date1($mdate);
             $objpk->Set_video_time($video_time);
+            $objpk->Set_video_epoch($epochtime);
             $objpk->Set_video_image($pathname.$video_image);
             $objpk->Set_video_image1($pathname1.$video_image1);
             $objpk->Set_video_image2($pathname2.$video_image2);
@@ -265,6 +284,7 @@ switch($mode):
         $objpk->set_admin_name1($aname1);
         $objpk->Set_video_date($olddate);
         $objpk->Set_video_date1($mdate);
+        $objpk->Set_video_epoch($epochtime);
         $objpk->Set_video_time($video_time);
         $objpk->Set_video_image($pathname.$video_image);
         $objpk->Set_video_image1($pathname1.$video_image1);

@@ -1,6 +1,6 @@
 <?php
 $objcricketOne = new db_article_master;
-$strWhere = "category_id=16 and sub_category_id=18 and active='Y'";
+$strWhere = "category_id=16 and sub_category_id=18 and article_date1 <='$shedate' and article_epoch<=$timestamp and active='Y'";
 $cricketOne    = $objcricketOne->selectAll($strWhere, 0, 6);
 ?>
 <div class="article-listing-border p-2 mt-3">
@@ -23,7 +23,7 @@ $cricketOne    = $objcricketOne->selectAll($strWhere, 0, 6);
   ?>
     <div class="col-md-4 zoom col-6 mt-3 mt-md-3">
       <a href="<?php echo $domain?>sports/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>" class="home-href">
-        <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
+        <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" Title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
         <p class="first-section-sub-desc"><?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?></p>
       </a>
     </div>

@@ -20,6 +20,7 @@ class db_article_master{
 	var $_article_date;
     var $_article_date1;
 	var $_article_time;
+    var $_article_epoch;
 	var $_article_location;
 	var $_article_page_title;
 	var $_article_meta_description;
@@ -49,6 +50,7 @@ function db_article_master($id    	  = NULL){
 	$this->_article_date  			  = NULL;
     $this->_article_date1              = NULL;
 	$this->_article_time  			  = NULL;
+    $this->_article_epoch              = NULL;
 	$this->_article_location  		  = NULL;
 	$this->_article_page_title  	  = NULL;
 	$this->_article_meta_description  = NULL;
@@ -82,6 +84,7 @@ function db_article_master($id    	  = NULL){
         $this->_article_date              = $o_result["article_date"];
         $this->_article_date1              = $o_result["article_date1"];
         $this->_article_time              = $o_result["article_time"];
+        $this->_article_epoch              = $o_result["article_epoch"];
         $this->_article_location          = $o_result["article_location"];
         $this->_article_page_title        = $o_result["article_page_title"];
         $this->_article_meta_description  = $o_result["article_meta_description"];
@@ -117,6 +120,7 @@ function db_article_master($id    	  = NULL){
             "article_date          		='" . replace_spl_chr($this->_article_date) . "'," .
             "article_date1               ='" . replace_spl_chr($this->_article_date1) . "'," .
             "article_time          		='" . replace_spl_chr($this->_article_time) . "'," .
+            "article_epoch               =" . replace_spl_chr($this->_article_epoch) . "," .
             "article_location          	='" . replace_spl_chr($this->_article_location) . "'," .
             "article_page_title         ='" . replace_spl_chr($this->_article_page_title) . "'," .
             "article_meta_description   ='" . replace_spl_chr($this->_article_meta_description) . "'," .
@@ -148,6 +152,7 @@ function db_article_master($id    	  = NULL){
 				article_date,
                 article_date1,
 				article_time,
+                article_epoch,
 				article_location,
 				article_page_title,
 				article_meta_description,
@@ -177,6 +182,7 @@ function db_article_master($id    	  = NULL){
 				'" . replace_spl_chr($this->_article_date) . "',
                 '" . replace_spl_chr($this->_article_date1) . "',
 				'" . replace_spl_chr($this->_article_time) . "',
+                " . replace_spl_chr($this->_article_epoch) . ",
 				'" . replace_spl_chr($this->_article_location) . "',
 				'" . replace_spl_chr($this->_article_page_title) . "',
 				'" . replace_spl_chr($this->_article_meta_description) . "',
@@ -280,6 +286,7 @@ function db_article_master($id    	  = NULL){
     function Get_article_date(){return $this->_article_date;}
     function Get_article_date1(){return $this->_article_date1;}
     function Get_article_time(){return $this->_article_time;}
+    function Get_article_epoch(){return $this->_article_epoch;}
     function Get_article_location(){return $this->_article_location;}
     function Get_article_page_title(){return $this->_article_page_title;}
     function Get_article_meta_description(){return $this->_article_meta_description;}
@@ -308,6 +315,7 @@ function db_article_master($id    	  = NULL){
     function Set_article_date($_article_date){$this->_article_date = $_article_date;}
     function Set_article_date1($_article_date1){$this->_article_date1 = $_article_date1;}
     function Set_article_time($_article_time){$this->_article_time = $_article_time;}
+    function Set_article_epoch($_article_epoch){$this->_article_epoch = $_article_epoch;}
     function Set_article_location($_article_location){$this->_article_location = $_article_location;}
 	function Set_article_page_title($_article_page_title){$this->_article_page_title = $_article_page_title;}
 	function Set_article_meta_description($_article_meta_description){$this->_article_meta_description = $_article_meta_description;}

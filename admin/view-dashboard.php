@@ -173,14 +173,13 @@ endif;
                                         endif;  
      
                                         ///for admin
-                                        /*if($strsadmin !== ""):
-                                            if($sSqlkiss1==""):
-                                                $sSqlkiss1 .= "SELECT count(*) FROM dashboard_master where category_id=$categoryid and dashboard_name='Articles' and dashboard_published LIKE '%$strsadmin%'";
-                                                
+                                        if($strsadmin !== ""):
+                                            if($sSqlkiss1!=""):
+                                                $sSqlkiss1 .= "and dashboard_published LIKE '%$strsadmin%'";
                                             else:    
                                                 $sSqlkiss1 .= "SELECT count(*) FROM dashboard_master where category_id=$categoryid and dashboard_name='Articles' and dashboard_date BETWEEN '$newfdate1' AND '$newtdate1' and dashboard_published LIKE '%$strsadmin%'";
                                             endif;
-                                        endif; */
+                                        endif; 
                                        //echo $sSqlkiss1; 
                                         $res1 = mysql_query($sSqlkiss1);
                                         $num_records1 = mysql_fetch_row($res1);   
@@ -233,8 +232,8 @@ endif;
                                         <td><?php echo htmlspecialchars($objinternet->category_master_name,ENT_QUOTES, 'UTF-8')?></td>
                                         <td><?php echo $num_records1[0];?></td>
                                         <td><?php echo $num_records2[0];?></td>
-                                        <td><?php echo $num_records2[0];?></td>
-                                        <td><font color="red"><?php echo ($num_records1[0] + $num_records2[0] + $num_records2[0]);?></font></td>
+                                        <td><?php echo $num_records3[0];?></td>
+                                        <td><font color="red"><?php echo ($num_records1[0] + $num_records2[0] + $num_records3[0]);?></font></td>
 
                                     <?php
                                     endwhile;

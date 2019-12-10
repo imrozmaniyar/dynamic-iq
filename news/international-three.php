@@ -1,11 +1,11 @@
 <?php
 $objnewsnationalThreeInter = new db_article_master;
-$strWhere = "category_id=14 and sub_category_id=12 and active='Y'";
+$strWhere = "category_id=14 and sub_category_id=12 and article_date1 <='$shedate' and article_epoch<=$timestamp and active='Y'";
 $newsnationalThreeInter    = $objnewsnationalThreeInter->selectAll($strWhere, 10, 3);
 ?>
 <section class="mt-3">
   <div class="container clearfix">
-    <h2 class="article-news-listing-title"> بین اقوامی </h2>
+    <h2 class="article-news-listing-title" alt="International" title="International"> عالم  </h2>
 <?php
   if ($newsnationalThreeInter[0] > 0):
     $i = 1;
@@ -40,7 +40,7 @@ $newsnationalThreeInter    = $objnewsnationalThreeInter->selectAll($strWhere, 10
         <?php endif;?>
       </div>
       <div class="col-md-3 order-0 order-md-1">
-      <a href="<?php echo $domain?>news/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center news-business-img"></div></a>
+      <a href="<?php echo $domain?>news/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center news-business-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>"></div></a>
       </div>
     </div>
 <?php

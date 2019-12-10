@@ -28,8 +28,9 @@ $entfPaging     = $objentfPaging->selectAll($strWhere1, 0, 3);
     $da           = strtotime($aDate1);
     $month1       = date('F', $da);
     $year1        = date("Y",$da);
-    $day1         = date("d",$da)            
+    $day1         = date("d",$da);           
     $aTime        = $objentfPagings->article_time;
+     $aTime           = date("g:i a", strtotime($aTime));
     $last_blog_id = $blog_master_id;
    $i=$i+1;  
  ?>    
@@ -44,17 +45,17 @@ $entfPaging     = $objentfPaging->selectAll($strWhere1, 0, 3);
         <?php endif;?>        
           
         </div>
-        <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>features/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center"></div></a></div>
+        <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>features/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center news-business-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>"></div></a></div>
       </div>
 <?php
   endwhile;
 endif;
 ?>
 
- <?php if ($entfPaging[0] > 3) { ?><div class="mt-5 mb-5"><div id="remove_row"><img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center" data-bid="<?php echo $aID; ?>" id="btn_more"></div>
+ <?php if ($entfPaging[0] > 3) { ?><div id="remove_row"><div class="mt-5 mb-5"><img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center" data-bid="<?php echo $aID; ?>" id="btn_more"></div>
  </div>
 <?php }else{ ?>
-<?php echo "<div class='mt-5 mb-5'><div id='remove_row' align='center'><font color='Red'><b>No More Data</b></font></div></div>" ?>
+<?php echo "<div class='mt-5 mb-5'><div id='remove_row' align='center' class='font-family-roboto'><font color='Red'><b>No More Data</b></font></div></div>" ?>
 <?php } ?>   
 <?php
 }

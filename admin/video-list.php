@@ -255,7 +255,7 @@ $objMsg = new message ($msgId);
                             <td><?php echo htmlspecialchars($catName,ENT_QUOTES, 'UTF-8')?></td>
                             <td><?php echo htmlspecialchars($objinternet->admin_name,ENT_QUOTES, 'UTF-8')?></td>
                             <td><?php echo htmlspecialchars($objinternet->admin_name1,ENT_QUOTES, 'UTF-8')?></td>
-                            <td><?php echo htmlspecialchars($cdate,ENT_QUOTES, 'UTF-8')?> <?php echo htmlspecialchars($video_time,ENT_QUOTES, 'UTF-8')?></td>
+                            <td><?php echo htmlspecialchars($cdate,ENT_QUOTES, 'UTF-8')?> <!-- <?php echo htmlspecialchars($video_time,ENT_QUOTES, 'UTF-8')?> --></td>
                             <td><?php echo htmlspecialchars($mdate,ENT_QUOTES, 'UTF-8')?></td>
                             <td align="center"><a href="<?php echo $domain?>admin/video-entry.php?vid=<?php echo htmlspecialchars($objinternet->video_id,ENT_QUOTES, 'UTF-8')?>"><img src="<?php echo htmlspecialchars($objinternet->video_image,ENT_QUOTES, 'UTF-8');?>" border="0" width="100"></a></td>
                             <td><?php echo $stractive?></td>

@@ -6,7 +6,7 @@ require_once('../commonfunctions/function.php');
 include_once(DIR_WS_CLASS . "database.php");
 include(DIR_WS_CLASS."db_gallery_master.php");
 include(DIR_WS_CLASS."db_dashboard_master.php");
-
+date_default_timezone_set('Asia/Kolkata'); 
 define ("WIDTH","670");////for original image
 define ("HEIGHT","440");////for original image
 
@@ -48,8 +48,10 @@ $gallery_date = mysql_real_escape_string($_POST['txtDate'], $link);
 else:
 $gallery_date = mysql_real_escape_string($_POST['txtdate'], $link);
 endif;  
-$mdate                    = date('Y-m-d H:i:s');
+$mdate = $gallery_date;
+$mdate = date("Y-m-d", strtotime($mdate) );
 $gallery_time = mysql_real_escape_string($_POST['txttime'], $link);
+$epochtime = strtotime($mdate.$gallery_time);
 $gallery_image1 = mysql_real_escape_string($_POST['txtPreviousImage1'], $link);
 $gallery_image2 = mysql_real_escape_string($_POST['txtPreviousImage2'], $link);
 $chkactive = mysql_real_escape_string($_POST['cbostatus'], $link);
@@ -159,6 +161,7 @@ switch($mode):
             $objpk->Set_gallery_date($gallery_date);
             $objpk->Set_gallery_date1($mdate);
             $objpk->Set_gallery_time($gallery_time);
+            $objpk->Set_gallery_epoch($epochtime);
             $objpk->Set_gallery_image($pathname.$gallery_image);
             $objpk->Set_gallery_image1($pathname1.$gallery_image1);
             $objpk->Set_gallery_image2($pathname2.$gallery_image2);
@@ -254,6 +257,7 @@ switch($mode):
         $objpk->Set_gallery_date($olddate);
         $objpk->Set_gallery_date1($mdate);
         $objpk->Set_gallery_time($gallery_time);
+        $objpk->Set_gallery_epoch($epochtime);
         $objpk->Set_gallery_image($pathname.$gallery_image);
         $objpk->Set_gallery_image1($pathname1.$gallery_image1);
         $objpk->Set_gallery_image2($pathname2.$gallery_image2);

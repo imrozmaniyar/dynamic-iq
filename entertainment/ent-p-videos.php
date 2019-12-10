@@ -1,6 +1,6 @@
 <?php
 $objentVideosP = new db_video_master;
-$strWhere = "category_id=15 and active='Y' and video_id!=$id";
+$strWhere = "category_id=15 and active='Y' and video_date1<='$shedate' and video_epoch<=$timestamp and video_id!=$id";
 $entVideosP    = $objentVideosP->selectAll($strWhere, 0, 3);
 ?>
 <section class="mt-3">

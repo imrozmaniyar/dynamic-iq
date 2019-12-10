@@ -52,6 +52,10 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
           </div>  
         </div>
         <div class="horizontal-border mt-4"></div> 
+            <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
+    <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
+    <div class="horizontal-border mt-4"></div>
+    <?php endif;?>
       </div>  
     </section>
     <!-- first section -->
@@ -62,7 +66,11 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
         <!-- <h2 class="article-news-listing-title"><a href="#" class="article-news-listing-title">کھیل  ویڈیوز</a></h2> -->
         <div class="row mt-4">
         <?php include('news-p-videos.php');?>
-       
+           <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
+           <div class="horizontal-border mt-3"></div>
+    <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushA3"></div></div></div>
+    
+    <?php endif;?> 
         </div>
         <div class="horizontal-border mt-4"></div>
       </div>  
@@ -73,3 +81,31 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
 <?php include('news-photos.php');?>
     <!-- photo section -->
   <?php include('../bottom.php'); ?>  
+  <?php if($uid==""):?>
+    <script>
+        var counter = 0;
+        function showalert() {
+            if (localStorage.clickcount > 2) {
+                alert("Login to read more news");
+                window.location="<?php echo $domain?>login";
+            return;
+            }else{
+                clickCounter()
+            }
+            counter++;
+        }
+        function clickCounter() {
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.clickcount < 3) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                // document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+        }
+        showalert();
+    </script>
+<?php endif;?> 

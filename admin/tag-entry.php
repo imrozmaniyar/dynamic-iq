@@ -67,7 +67,7 @@ $stractive			 = $objbmaster->Get_active();
 						<div class="form-group" align="left">
 							<label class="col-md-3 control-label" for="inputDefault">Upload Image</label>
 							<?php if($mode=="New"):?>
-							<div class="col-md-6"><input type="file" class="form-control" name="txtimage" id="txtimage" value="" required="required"></div>
+							<div class="col-md-6"><input type="file" class="form-control" name="txtimage" id="txtimage" value=""></div>
 						<?php else:?>
 							<div class="col-md-6"><input type="file" class="form-control" name="txtimage" id="txtimage" value=""></div>
 						<?php endif?>

@@ -1,5 +1,5 @@
 <div class="col-md-4 vertical-border-content-seperator order-0 order-md-1">
-	<h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domain?>news">خبریں </a></h1>
+	<h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domain?>news" alt="News" Title="News">  خبریں </a></h1>
 	<?php
 	      if ($newsPhoto[0] > 0):
         $i = 1;
@@ -54,7 +54,7 @@
           endif;     
         $i=$i+1;        
 	?>
-	<img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid other-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
+	<img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid other-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
 	<a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href"><p class="horizontal-border-content-seperator mt-3 pb-3 lifestyle-section-desc"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p></a>
 	<?php
 		endwhile;
@@ -117,10 +117,10 @@
           endif;     
         $i=$i+1;      	
 	?>
-	<a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href"><p class="horizontal-border-content-seperator mt-3 pb-3 lifestyle-section-desc"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p></a>
+	<a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>"><p class="horizontal-border-content-seperator mt-3 pb-3 lifestyle-section-desc"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p></a>
 	<?php
 		endwhile;
 	endif;	
 	?>
-	<a href="<?php echo $domain?>news" class="float-left read-more mt-3">مزید </a>
+	<a href="<?php echo $domain?>news" class="float-left read-more mt-3" alt="More" title="More">مزید </a>
 </div>

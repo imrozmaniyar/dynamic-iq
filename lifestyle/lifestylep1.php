@@ -64,7 +64,7 @@
       <p class="text-right first-section-desc"><?php echo $hd;?></p>
     </a>
   </div>  
-  <div class="col-md-6 order-1 order-md-2"><a href="<?php echo $domain?>lifestyle/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href"><img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid d-block mx-auto" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" width="525px;" height="300px;"></a></div>
+  <div class="col-md-6 order-1 order-md-2"><a href="<?php echo $domain?>lifestyle/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href"><img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid d-block mx-auto first-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" Title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>"></a></div>
 </div>
 <?php
   endwhile;

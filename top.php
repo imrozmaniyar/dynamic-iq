@@ -16,7 +16,15 @@ if(isset($_SESSION['Sflag'])):
 endif;
 $urllogin = "http://" . mysql_escape_mimic($_SERVER['HTTP_HOST']). mysql_escape_mimic($_SERVER['REQUEST_URI']);
 //$params = explode( "/",  mysql_real_escape_string($url));-----for some use do not delete
- 
+
+$string = $Ffullname;
+
+function initials($str) {
+    $ret = '';
+    foreach (explode(' ', $str) as $word)
+        $ret .= strtoupper($word[0]);
+    return $ret;
+}
 include("loginc.php");
 ?>
 <!doctype html>
@@ -25,14 +33,15 @@ include("loginc.php");
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <?php include_once("seo-meta-data.php");?>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $domain?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $domain?>css/style.css">
     <link rel="stylesheet" href="<?php echo $domain?>css/font-awesome.min.css">
-    <?php include("seo-meta-data.php");?>
     <?php include("gacom.php");?>
     <script>var domain_name="<?php echo mysql_escape_mimic($domain)?>search/" </script> 
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="330923446263-u77b5tghhfukfk0ael26dd6bprpjc1cs.apps.googleusercontent.com">
     <style type="text/css">
       .animate {
     -webkit-transition: all 0.3s ease-in-out;
@@ -94,8 +103,70 @@ include("loginc.php");
     text-transform: uppercase;
 }
     </style>
+    <!--Google Ads tag-->    
+     <!--  <script async="async" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+      <script> window.googletag = window.googletag || {cmd: []};</script> -->
+  <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+  <script>
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function(){
+        googletag.defineSlot('/13276288/Inquilab/Desktop/home/pagepush_980x50', [[980, 270], [728, 90], [980, 60], [980, 50]], 'iq_pagepush').addService(googletag.pubads());
+        googletag.defineSlot('/13276288/Inquilab/mobile/detail/top_300x250', [[300, 250], [336, 280]], 'iq_pagepushM').addService(googletag.pubads());
+        googletag.defineSlot('/13276288/Inquilab/Desktop/home/pagepush_980x50', [[980, 270], [728, 90], [980, 60], [980, 50]], 'iq_pagepushB').addService(googletag.pubads());
+        googletag.defineSlot('/13276288/Inquilab/mobile/detail/top_300x250', [[300, 250], [336, 280]], 'iq_pagepushMB').addService(googletag.pubads());        
+        googletag.defineSlot('/13276288/Inquilab/mobile/detail/medium_300x250', [[300, 250], [336, 280]], 'iq_pagepushVM').addService(googletag.pubads());
+        googletag.defineSlot('/13276288/Inquilab/mobile/home/bottom_300x250', [[300, 250], [336, 280]], 'iq_pagepushSM').addService(googletag.pubads());
+        googletag.defineSlot('/13276288/Inquilab/mobile/home/medium_300x250', [[300, 250], [336, 280]], 'iq_pagepushA3').addService(googletag.pubads());
+        googletag.pubads().set("page_url", "https://www.inquilab.com");
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+        googletag.display("iq_pagepush");
+        googletag.display("iq_pagepushM");
+        googletag.display("iq_pagepushB");
+        googletag.display("iq_pagepushMB");
+        googletag.display("iq_pagepushVM");
+        googletag.display("iq_pagepushSM");
+        googletag.display("iq_pagepushA3");
+    }); 
+    </script>      
+    <!--Google Ads tag-->    
   </head>
   <body>
+<!-- <script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+FB.init(
+  {
+    appId: '289797971716379', cookie: true,
+    status: true, xfbml: true
+  }
+);
+</script>
+<script>
+  function FBlogin(){
+    FB.api('/me', function(response){
+        alert("You are logged in now to your account.");
+        var profile_fbid = response.id;
+        var profile_fname = response.first_name;
+        var profile_lname = response.last_name;
+        var profile_email = response.email;
+        var profile_gender = response.gender;
+        window.location="<?php //echo $domain?>registration/checkmember_fb.php?p_fname=" + profile_fname + "&p_lname=" + profile_lname + "&p_fbid=" + profile_fbid + "&p_email=" + profile_email + "&p_gender=" + profile_gender;
+      }
+    );
+  }
+</script> -->  
+<!-- <script type="text/javascript">
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}  
+</script> -->    
     <section id="topbar" class="d-none d-lg-block">
       <div class="container clearfix">
         <div class="left-topbar float-left mt-2">
@@ -117,10 +188,11 @@ include("loginc.php");
             <li class="list-inline-item mr-3"><a href="https://epaper.inquilab.com/epaper/" class="home-href" target="_blank"><p class="">EPAPER</p></a></li>
             <li class="list-inline-item">
               <div class="d-flex justify-content-center h-50">
+              <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" />                
                 <form method="post" id="songs-search-form">                            
                 <div class="searchbar">
-                  <input class="search_input" type="text" name="search" id='songs-search-text' placeholder="Search..." required="required">
-                  <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+                  <input class="search_input" type="text" name="songs-search-text" id="songs-search-text" placeholder="Search..." required="required">
+                  <button type="submit" class="search_icon"><i class="fa fa-search"></i></button>
                 </div>
                </form>
               </div>
@@ -138,7 +210,20 @@ include("loginc.php");
               <div class="navbar-brand d-lg-none">
                 <ul class="list-inline mt-2 mb-2 animate">
                   <li class="list-inline-item hidden-xs"><a href="#toggle-search" class="animate"><span class="fa fa-search text-white"></span></a></li>
+                   <?php if($uid==""):?>
                   <li class="list-inline-item"><a href="<?php echo $domain?>login"><button type="button" class="btn btn-login text-white">Login</button></a></li>
+                  <?php else:?>
+                  <li class="list-inline-item mr-3">
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-login text-white dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo initials($string);?></button>
+                      <div class="dropdown-menu font-family-roboto" aria-labelledby="dropdownMenu2">
+                          <a href="<?php echo $domain?>myprofile"><button class="dropdown-item text-black" type="button">My Profile</button></a>
+                          <a href="<?php echo $domain?>changepassword"><button class="dropdown-item text-black" type="button">Change Password</button></a>
+                          <a href="<?php echo $domain?>logout"><button class="dropdown-item text-black" type="button">Logout</button></a>
+                        </div>
+                    </div>
+                  </li>                    
+                  <?php endif;?>  
                   <li class="list-inline-item"><a href="<?php echo $domain?>"><img src="<?php echo $domain?>images/footer-logo.png" class="img-fluid" alt="" style="width: 140px;"></a></li>
                 </ul>
               </div>
@@ -164,52 +249,54 @@ include("loginc.php");
                       </li>
 
                       <li class="nav-item active">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>students" alt="Students" title="Students">بچے۔ / طلباء۔ <span class="sr-only">(current)</span></a>
+                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>students" alt="Students" title="Students">   طلبہ
+  <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item d-none d-lg-block">
                           <span class="nav-link text-white font-weight-bold">|</span>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>lifestyle" alt="Lifestyle" title="Lifestyle">طرز زندگی۔</a>
+                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>lifestyle" alt="Lifestyle" title="Lifestyle">  طرزِ زندگی  </a>
                       </li>
                       <li class="nav-item d-none d-lg-block">
                           <span class="nav-link text-white font-weight-bold">|</span>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>features" alt="Features" title="Features">- خصوصیات</a>
+                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>features" alt="Features" title="Features"> فیچرس  </a>
                       </li>
                       <li class="nav-item d-none d-lg-block">
                           <span class="nav-link text-white font-weight-bold">|</span>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>sports" alt="Sports" title="Sports">کھیل</a>
+                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>sports" alt="Sports" title="Sports">  کھیل کود  </a>
                       </li>
                       <li class="nav-item d-none d-lg-block">
                           <span class="nav-link text-white font-weight-bold">|</span>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>entertainment" alt="Entertainment" title="Entertainment">تفریح</a>
+                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>entertainment" alt="Entertainment" title="Entertainment">  تفریحات   </a>
                       </li>
                       <li class="nav-item d-none d-lg-block">
                           <span class="nav-link text-white font-weight-bold">|</span>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news" alt="News" title="News">خبریں</a>
+                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news" alt="News" title="News">  خبریں  </a>
                       </li>
                       <li class="nav-item d-none d-lg-block">
                           <span class="nav-link text-white font-weight-bold">|</span>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news/mumbai" alt="Mumbai" title="Mumbai">ممبئی۔</a>
+                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news/mumbai" alt="Mumbai" title="Mumbai">  ممبئی  </a>
                       </li>
                   </ul>
               </div>
               <div class="bootsnipp-search animate">
         <div class="container">
           <div class="col-md-12 mt-1">
-          <form action="" method="GET" role="search">
+          <form method="post" id="songsM-search-form">  
             <div class="input-group">
-              <input type="text" class="form-control" name="q" placeholder="Search">
+              <!-- <input type="text" class="form-control" name="q" placeholder="Search"> -->
+              <input class="form-control" type="text" name="songsM-search-text" id="songsM-search-text" placeholder="Search..." required="required">
               <span class="input-group-append">
                 <button class="btn btn-search font-family-roboto" type="submit">Search</button>
               </span>
@@ -223,4 +310,9 @@ include("loginc.php");
       </header>
 
     </section>
+     <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
+ <div class="container clearfix"><div style="margin-top: 5px; margin-right: 19px;"><div id="iq_pagepushM"></div></div></div>
+ <?php else:?>
+<div class="container clearfix"><div style="margin-top: 5px; margin-right: 200px; margin-bottom: -7px;"><div id="iq_pagepush"></div></div></div>             
+<?php endif;?>
     <!-- first section -->

@@ -1,11 +1,11 @@
 <?php
 $objentttThree = new db_article_master;
-$strWhere = "category_id=15 and sub_category_id=16 and active='Y'";
+$strWhere = "category_id=15 and sub_category_id=16 and article_date1 <='$shedate' and article_epoch<=$timestamp and active='Y'";
 $entttThree    = $objentttThree->selectAll($strWhere, 10, 3);
 ?>
 <section class="mt-3">
   <div class="container clearfix">
-    <h2 class="article-news-listing-title"> تھیٹر۔  </h2>
+    <h2 class="article-news-listing-title" Alt="Theatre" title="Theatre">  تھئیٹر  </h2>
 <?php
   if ($entttThree[0] > 0):
     $i = 1;
@@ -27,6 +27,7 @@ $entttThree    = $objentttThree->selectAll($strWhere, 10, 3);
     $year1        = date("Y",$da);
     $day1         = date("d",$da);    
     $aTime        = $objentttThrees->article_time;
+    $aTime           = date("g:i a", strtotime($aTime));
    $i=$i+1;  
  ?>    
     <div class="row mt-3">
@@ -40,7 +41,7 @@ $entttThree    = $objentttThree->selectAll($strWhere, 10, 3);
         <?php endif;?>
       </div>
       <div class="col-md-3 order-0 order-md-1">
-      <a href="<?php echo $domain?>entertainment/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center"></div></a>
+      <a href="<?php echo $domain?>entertainment/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center news-business-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>"></div></a>
       </div>
     </div>
 <?php

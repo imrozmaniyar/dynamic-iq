@@ -1,6 +1,6 @@
 <?php include('../top.php');
-$url=basename(mysql_escape_mimic($_SERVER['REQUEST_URI']));
-$explodeResultArray = end(explode("-", $url)); 
+$urlg=basename(mysql_escape_mimic($_SERVER['REQUEST_URI']));
+$explodeResultArray = end(explode("-", $urlg)); 
 $id = intval($explodeResultArray);
 $objMaingallery    = new db_gallery_master($id);
 //$GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
@@ -183,3 +183,31 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
     </section>
     <!-- Related News -->
     <?php include('../bottom.php'); ?>  
+    <?php if($uid==""):?>
+    <script>
+        var counter = 0;
+        function showalert() {
+            if (localStorage.clickcount > 2) {
+                alert("Login to read more news");
+                window.location="<?php echo $domain?>login";
+            return;
+            }else{
+                clickCounter()
+            }
+            counter++;
+        }
+        function clickCounter() {
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.clickcount < 3) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                // document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+        }
+        showalert();
+    </script>
+<?php endif;?> 

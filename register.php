@@ -9,6 +9,13 @@ endif;
 $id = intval($params[2]);
 $objMsg = new message($id);
 ?>
+<style type="text/css">
+    .tooltip-inner {
+      background-color: #fff; 
+      color: red;
+      border: 1px solid #000;
+  }
+</style>
 <section>
   <div class="container">
     <h1 class="mt-5 mb-2 text-center text-black font-weight-normal font-family-roboto">Register</h1>
@@ -21,7 +28,7 @@ $objMsg = new message($id);
         <form class="register-placeholder" id="registration" method="post" action="registration_submit" enctype="multipart/form-data">
           <div class="form-group mt-3"><input type="text" name="txtname" required="required" class="form-control register-form-control" placeholder="Name"></div>
           <div class="form-group mt-3"><input type="email" name="txtemail" required="required" class="form-control register-form-control" placeholder="Email"></div>
-          <div class="form-group mt-3"><input type="password" name="txtpass" title="Password must contain: Minimum 8 characters atleast 1 Alphabet and 1 Number" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" class="form-control register-form-control" placeholder="Password"></div>
+          <div class="form-group mt-3"><input type="password" name="txtpass" title="Password must contain: Minimum 8 characters atleast 1 Capital Letter and 1 Number" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" class="form-control register-form-control" placeholder="Password" data-placement="right" title="Tooltip Text"></div>
           <div class="form-group mt-3"><input type="number" name="txtmobile"  required="required" title="10 Numbers Only" pattern="^\d{10}$" class="form-control register-form-control" placeholder="Mobile"></div>
           <div class="form-group">
               <select name="cbocountry" id="country" required="required" class="custom-select text-black font-family-roboto register-select-dropdown">
@@ -117,3 +124,8 @@ $objMsg = new message($id);
   </div>
 </section>
 <?php include('bottom.php');?>
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('input').tooltip();
+});
+</script>

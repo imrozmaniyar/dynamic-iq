@@ -4,9 +4,9 @@
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#">  تیلیمی انکیلاب۔  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>students" class="text-black"> بچے / طلباء۔  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black"> گھر</a></li>
+            <li class="breadcrumb-item font-weight-bold"><a href="#" alt="Taleemi Inquilab" title="Taleemi Inquilab">  تعلیمی انقلاب  </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>students" class="text-black" alt="Student" title="Student"> طلبہ </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" alt="Home" title="Home" >  اداریہ </a></li>
           </ol>
           </ol>
         </nav>
@@ -30,12 +30,12 @@
      <?php //include('national-four.php'); ?>
 <?php
 $objentfFour = new db_article_master;
-$strWhere = "category_id=19 and sub_category_id=29 and active='Y'";
+$strWhere = "category_id=19 and sub_category_id=29 and article_date1 <='$shedate' and article_epoch<=$timestamp and active='Y'";
 $entfFour    = $objentfFour->selectAll($strWhere, 7, 3);
 ?>    
 <section class="mt-3">
   <div class="container clearfix" id="load_data_table">
-    <h2 class="article-news-listing-title">تیلیمی انکیلاب۔</h2>
+    <h2 class="article-news-listing-title" alt="Taleemi Inquilab" title="Taleemi Inquilab">  تعلیمی انقلاب  </h2>
 <?php
   if ($entfFour[0] > 0):
     $i = 1;
@@ -57,6 +57,7 @@ $entfFour    = $objentfFour->selectAll($strWhere, 7, 3);
     $year1        = date("Y",$da);
     $day1         = date("d",$da);        
     $aTime        = $objentfFours->article_time;
+    $aTime           = date("g:i a", strtotime($aTime));
    $i=$i+1;  
  ?>    
       <div class="row mt-3">
@@ -70,25 +71,19 @@ $entfFour    = $objentfFour->selectAll($strWhere, 7, 3);
         <?php endif;?>
           
         </div>
-        <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>students/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center"></div></a></div>
+        <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>students/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center news-business-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>"></div></a></div>
       </div>
 <?php
   endwhile;
 endif;
 ?>      
-      <!--div class="mt-5 mb-5">
-        <a href="#">
-          <img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center">
-        </a>
-      </div-->  
-
-      <?php if ($entfFour[0] != 3) { ?><div class="mt-5 mb-5"><div id="remove_row"><img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center" data-bid="<?php echo $aID; ?>" id="btn_more"></div></div><?php } ?>   
+ <?php if ($entfFour[0] != 3) { ?><div id="remove_row"><div class="mt-5 mb-5"><img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center" data-bid="<?php echo $aID; ?>" id="btn_more"></div></div><?php } ?>   
 </section>
 
 
     <!-- article-news-listing Section -->
     <?php include('../bottom.php'); ?>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
 <script>  
 $(document).ready(function(){  
     $(document).on('click', '#btn_more', function(){  

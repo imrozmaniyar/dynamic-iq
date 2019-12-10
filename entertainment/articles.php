@@ -16,6 +16,7 @@ $month1       = date('F', $da);
 $year1        = date("Y",$da);
 $day1         = date("d",$da);
 $aTime        = $objMainArticle->Get_article_time();
+$aTime           = date("g:i a", strtotime($aTime));
 $aName        = $objMainArticle->Get_admin_name();
 $aShortDesc   = $objMainArticle->Get_article_short_description();
 $aImage       = str_replace('../','',$objMainArticle->Get_article_image());
@@ -79,7 +80,7 @@ $akeywords        = $objMainArticle->Get_article_keywords();
                 $array = explode(',', $atags);
                 for ($i = 0; $i < count($array); $i++) {
               ?>      
-                <span class="btn-tag btn"><a href="#" style="text-decoration: none;"><?php echo htmlspecialchars($array[$i],ENT_QUOTES, 'UTF-8')?></a></span>
+                <span class="btn-tag btn"><a href="<?php echo $domain?>/search/<?php echo str_replace(" ","-",$array[$i])?>-all" style="text-decoration: none;"><?php echo htmlspecialchars($array[$i],ENT_QUOTES, 'UTF-8')?></a></span>
             <?php
               }      
             ?>
@@ -95,4 +96,32 @@ $akeywords        = $objMainArticle->Get_article_keywords();
 <?php include('releated-news.php'); ?>
     <!-- Related News -->
 <?php include('../bottom.php'); ?>
+  <?php if($uid==""):?>
+    <script>
+        var counter = 0;
+        function showalert() {
+            if (localStorage.clickcount > 2) {
+                alert("Login to read more news");
+                window.location="<?php echo $domain?>login";
+            return;
+            }else{
+                clickCounter()
+            }
+            counter++;
+        }
+        function clickCounter() {
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.clickcount < 3) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                // document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+        }
+        showalert();
+    </script>
+<?php endif;?> 
    

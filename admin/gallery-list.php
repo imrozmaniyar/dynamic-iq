@@ -265,7 +265,7 @@ $objMsg = new message ($msgId);
                             <td><?php echo htmlspecialchars($objinternet->gallery_id,ENT_QUOTES, 'UTF-8')?></td>
                             <td><?php echo htmlspecialchars($objinternet->gallery_name,ENT_QUOTES, 'UTF-8')?></td>
                             <td><?php echo htmlspecialchars($catName,ENT_QUOTES, 'UTF-8')?></td>
-                            <td><?php echo htmlspecialchars($cdate,ENT_QUOTES, 'UTF-8')?> <?php echo htmlspecialchars($gallery_time,ENT_QUOTES, 'UTF-8')?></td>
+                            <td><?php echo htmlspecialchars($cdate,ENT_QUOTES, 'UTF-8')?> <!-- <?php echo htmlspecialchars($gallery_time,ENT_QUOTES, 'UTF-8')?> --></td>
                             <td><?php echo htmlspecialchars($mdate,ENT_QUOTES, 'UTF-8')?></td>
                             <td><?php echo htmlspecialchars($objinternet->admin_name,ENT_QUOTES, 'UTF-8')?></td>
                             <td><?php echo htmlspecialchars($objinternet->admin_name1,ENT_QUOTES, 'UTF-8')?></td>

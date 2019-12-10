@@ -18,6 +18,7 @@ class db_gallery_master{
   var $_gallery_date;
   var $_gallery_date1;  
   var $_gallery_time;
+  var $_gallery_epoch;
   var $_gallery_image;
   var $_gallery_image1;
   var $_gallery_image2;
@@ -41,6 +42,7 @@ function db_gallery_master($id  = NULL){
   $this->_gallery_date          = NULL;
   $this->_gallery_date1          = NULL;
   $this->_gallery_time          = NULL;
+  $this->_gallery_epoch          = NULL;
   $this->_gallery_image         = NULL;
   $this->_gallery_image1        = NULL;
   $this->_gallery_image2        = NULL;
@@ -69,6 +71,7 @@ function db_gallery_master($id  = NULL){
         $this->_gallery_date          = $o_result["gallery_date"];
         $this->_gallery_date1          = $o_result["gallery_date1"];
         $this->_gallery_time          = $o_result["gallery_time"];
+        $this->_gallery_epoch          = $o_result["gallery_epoch"];
         $this->_gallery_image         = $o_result["gallery_image"];
         $this->_gallery_image1        = $o_result["gallery_image1"];
         $this->_gallery_image2        = $o_result["gallery_image2"];
@@ -98,6 +101,7 @@ function db_gallery_master($id  = NULL){
             "gallery_date          ='" . replace_spl_chr($this->_gallery_date) . "'," .
             "gallery_date1          ='" . replace_spl_chr($this->_gallery_date1) . "'," .
             "gallery_time          ='" . replace_spl_chr($this->_gallery_time) . "'," .
+            "gallery_epoch          =" . replace_spl_chr($this->_gallery_epoch) . "," .
             "gallery_image         ='" . replace_spl_chr($this->_gallery_image) . "'," .
             "gallery_image1        ='" . replace_spl_chr($this->_gallery_image1) . "'," .
             "gallery_image2        ='" . replace_spl_chr($this->_gallery_image2) . "'," .
@@ -123,6 +127,7 @@ function db_gallery_master($id  = NULL){
                   gallery_date,
                   gallery_date1,
                   gallery_time,
+                  gallery_epoch,
                   gallery_image,
                   gallery_image1,
                   gallery_image2,
@@ -146,6 +151,7 @@ function db_gallery_master($id  = NULL){
                 '" . replace_spl_chr($this->_gallery_date) . "',
                 '" . replace_spl_chr($this->_gallery_date1) . "',
                 '" . replace_spl_chr($this->_gallery_time) . "',
+                " . replace_spl_chr($this->_gallery_epoch) . ",
                 '" . replace_spl_chr($this->_gallery_image) . "',
                 '" . replace_spl_chr($this->_gallery_image1) . "',
                 '" . replace_spl_chr($this->_gallery_image2) . "',
@@ -223,6 +229,7 @@ function selectAllGroup($strWhere = NULL, $cur = NULL, $max = NULL){
     function Get_gallery_date(){return $this->_gallery_date;}
     function Get_gallery_date1(){return $this->_gallery_date1;}
     function Get_gallery_time(){return $this->_gallery_time;}
+    function Get_gallery_epoch(){return $this->_gallery_epoch;}
     function Get_gallery_image(){return $this->_gallery_image;}
     function Get_gallery_image1(){return $this->_gallery_image1;}
     function Get_gallery_image2(){return $this->_gallery_image2;}
@@ -245,6 +252,7 @@ function selectAllGroup($strWhere = NULL, $cur = NULL, $max = NULL){
     function Set_gallery_date($_gallery_date){$this->_gallery_date = $_gallery_date;}
     function Set_gallery_date1($_gallery_date1){$this->_gallery_date1 = $_gallery_date1;}
     function Set_gallery_time($_gallery_time){$this->_gallery_time = $_gallery_time;}
+    function Set_gallery_epoch($_gallery_epoch){$this->_gallery_epoch = $_gallery_epoch;}
     function Set_gallery_image($_gallery_image){$this->_gallery_image = $_gallery_image;}
     function Set_gallery_image1($_gallery_image1){$this->_gallery_image1 = $_gallery_image1;}
     function Set_gallery_image2($_gallery_image2){$this->_gallery_image2 = $_gallery_image2;}

@@ -1,6 +1,6 @@
 <?php
 $objSportsPVideos = new db_video_master;
-$strWhere = "category_id=16 and active='Y' and video_id !=$id";
+$strWhere = "category_id=16 and active='Y' and video_date1<='$shedate' and and video_epoch<=$timestamp and video_id !=$id";
 $SportsPVideos    = $objSportsPVideos->selectAll($strWhere, 0, 3);
 ?>
 <section class="mt-3">

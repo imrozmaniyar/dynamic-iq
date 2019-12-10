@@ -3,7 +3,6 @@ $url=basename(mysql_escape_mimic($_SERVER['REQUEST_URI']));
 $explodeResultArray = end(explode("-", $url)); 
 $id = intval($explodeResultArray);
 $objMaingallery    = new db_gallery_master($id);
-//$GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
 $GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
 $GDate             = $objMaingallery->Get_gallery_date();         
 $time              = strtotime($GDate);
@@ -169,7 +168,7 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
                 $x=$x+1;           
           ?>          
             <div class="col-md-3 zoom col-6">
-              <a href="<?php echo $domain?>sports/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
+              <a href="<?php echo $domain?>entertainment/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
                 <img src="<?php echo $domain?><?php echo htmlspecialchars($GCImageR,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block" alt="">
                 <p class="first-section-sub-desc"><?php echo htmlspecialchars($gallery_nameR,ENT_QUOTES, 'UTF-8');?></p>
             </a>
@@ -183,3 +182,31 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
     </section>
     <!-- Related News -->
     <?php include('../bottom.php'); ?>  
+      <?php if($uid==""):?>
+    <script>
+        var counter = 0;
+        function showalert() {
+            if (localStorage.clickcount > 2) {
+                alert("Login to read more news");
+                window.location="<?php echo $domain?>login";
+            return;
+            }else{
+                clickCounter()
+            }
+            counter++;
+        }
+        function clickCounter() {
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.clickcount < 3) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                // document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+        }
+        showalert();
+    </script>
+<?php endif;?> 

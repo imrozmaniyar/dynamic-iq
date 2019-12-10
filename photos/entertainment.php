@@ -4,9 +4,9 @@ include('../top.php'); ?>
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#"> کھیل  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>photos" class="text-black">  ویڈیوز </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black"> گھر</a></li>
+            <li class="breadcrumb-item font-weight-bold"><a href="#" alt="Entertainment" title="Entertainment"> تفریحات  </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>photos" class="text-black" alt="Photos" title="Photos">  ویڈیوز </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" alt="Home" title="Home">  ابتداء   </a></li>
           </ol>
           </ol>
         </nav>
@@ -17,6 +17,10 @@ include('../top.php'); ?>
 
     <!-- Entertainment Photos Section -->
     <?php include('pent-two.php'); ?>
+            <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
+    <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
+    <div class="horizontal-border mt-3"></div>
+    <?php endif;?>
     <!-- Entertainment Photos Section -->
 
     <!-- photo section -->
@@ -25,12 +29,12 @@ include('../top.php'); ?>
     <!-- Entertainment Photos Section -->
 <?php
 $objentvFour = new db_gallery_master;
-$strWhere = "category_id=15 and active='Y'";
+$strWhere = "category_id=15 and gallery_date1<='$shedate' and gallery_epoch<=$timestamp and active='Y'";
 $entvFour    = $objentvFour->selectAll($strWhere, 10, 9);
 ?>     
     <section class="mt-3">
     	 <div class="container clearfix" id="load_data_table">
-        <h2 class="article-news-listing-title mb-0"><a href="#" class="article-news-listing-title"> کھیل  </a></h2>
+        <h2 class="article-news-listing-title mb-0" alt="Entertainment" title="Entertainment"> کھیل </h2>
         <div class="row">
 		<?php
 
@@ -47,7 +51,7 @@ $entvFour    = $objentvFour->selectAll($strWhere, 10, 9);
           <div class="col-md-4 order-2 order-md-0 mt-4">
               <a href="<?php echo $domain?>entertainment/photos/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>" class="home-href">
               <div class="card-shadow zoom">
-                <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="">
+                <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
                 <i class="fa fa-camera photo-camera-icon-single-mobile-grid" aria-hidden="true"></i>
                 <p class="first-section-sub-desc"><?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?></p>
               </div>
@@ -64,7 +68,7 @@ $entvFour    = $objentvFour->selectAll($strWhere, 10, 9);
     </section>
     <!-- Entertainment Photos Section -->
 <?php include('../bottom.php'); ?>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
 <script>  
 $(document).ready(function(){  
     $(document).on('click', '#btn_more', function(){  

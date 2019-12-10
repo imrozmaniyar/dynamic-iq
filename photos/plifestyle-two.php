@@ -1,11 +1,11 @@
 <?php
 $objentvTwo = new db_gallery_master;
-$strWhere = "category_id=18 and active='Y'";
+$strWhere = "category_id=18 and gallery_date1<='$shedate' and gallery_epoch<=$timestamp and active='Y'";
 $entvTwo    = $objentvTwo->selectAll($strWhere, 7, 3);
 ?>
     <section class="mt-3">
       <div class="container clearfix">
-        <h2 class="article-news-listing-title"><a href="#" class="article-news-listing-title"> کھیل  </a></h2>
+        <h2 class="article-news-listing-title mb-0" alt="Lifestyle" title="Lifestyle"> کطرزِ زندگی  </h2>
         <div class="row mt-4">
         <?php
 
