@@ -25,7 +25,7 @@
         $i=$i+1;  
 ?>            
 
-            <div class="col-md-4 mt-3">
+            <div class="col-md-4 mt-3 pb-2">
               <a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
               <div class="card-shadow zoom">
                 <img src="<?php echo htmlspecialchars($article_image1,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="<?php echo htmlspecialchars($article_homepage_headline,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($article_homepage_headline,ENT_QUOTES, 'UTF-8')?>">
@@ -38,7 +38,7 @@
   endwhile;
 endif;  
 ?>            
-            <a href="<?php echo $domain?>students/taleemi-inquilab" class="text-left read-more mt-3" alt="More" title="More">مزید </a>
+            <a href="<?php echo $domain?>students/taleemi-inquilab" class="text-left read-more mt-3" alt="Taleemi Inquilab" title="Taleemi Inquilab">مزید </a>
           </div>
         </div>
       </div>  

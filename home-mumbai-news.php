@@ -1,5 +1,5 @@
 <div class="col-md-4 vertical-border-content-seperator order-1 order-md-1">
-<h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domain?>news/mumbai" Alt="Mumbai" title="Mumbai">  ممبئی  </a></h1>
+<h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domain?>news/mumbai" Alt="Mumbai News" title="Mumbai News">  ممبئی  </a></h1>
 <?php
  if ($MumbaiPhoto[0] > 0):
         $i = 1;
@@ -54,7 +54,7 @@
           endif;     
         $i=$i+1; 
 ?>
-	<img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid other-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" Title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
+	<a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>"><img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid other-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" Title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>"></a>
 	<a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href"><p class="horizontal-border-content-seperator mt-3 pb-3 lifestyle-section-desc"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p></a>
 <?php
 	endwhile;
@@ -123,5 +123,5 @@ endif;
 	endwhile;
 endif;	
 ?>	
-	<a href="<?php echo $domain?>news/mumbai" class="float-left read-more mt-3" alt="More" title="More">مزید </a>
+	<a href="<?php echo $domain?>news/mumbai" class="float-left read-more mt-3" alt="Mumbai News" title="Mumbai News">مزید </a>
 </div>

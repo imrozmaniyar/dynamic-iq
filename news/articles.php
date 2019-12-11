@@ -55,7 +55,7 @@ $akeywords        = $objMainArticle->Get_article_keywords();
             </div>
             <p><?php echo $aMainDesc?></p>
           </div>
-          <div class="col-md-1 text-center order-0 order-md-1 mb-3 mb-md-0">
+          <div class="col-md-1 text-right order-0 order-md-1 mb-3 mb-md-0">
             <a href="https://www.facebook.com/sharer.php?u=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/fb-icon.png" class="img-fluid mx-auto"></a>
             <a href="https://twitter.com/share?url=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>&amp;text=<?php echo htmlspecialchars($articleHeadline,ENT_QUOTES, 'UTF-8')?>!&amp;amp;via=The Inquilab&amp;amp;" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/tweet-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
                         <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile) :?>

@@ -71,6 +71,9 @@ body {
     align-items: center;
     border-radius: 50%;
     color: #000;
+    border: 0;
+    padding: 0;
+    background: #fff;
 }
 .right-topbar a {
     color: #555;
@@ -198,10 +201,20 @@ body {
     border-radius: 50%;
 }
 
+.photo-camera-icon-grid-3{
+    position: absolute;
+    top: 170px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px !important;
+    background: rgb(0, 0, 0, 0.6);
+    padding: 12px 12px 12px 12px;
+    border-radius: 50%;
+}
 .video-play-icon-grid-3 {
     position: absolute;
-    bottom: 100px;
-    right: 40px;
+    top: 170px;
+    right: 10px;
     color: #fff;
     font-size: 20px !important;
     background: rgb(0, 0, 0, 0.6);
@@ -244,6 +257,8 @@ body {
     font-weight: 600;
     line-height: 24px;
     text-decoration: underline;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .read-more-sports-entertainment {
@@ -575,13 +590,7 @@ position: relative;
 .first-section-desc{
     line-height: 30px;
 }
-.video-play-icon-grid-3 {
-    bottom: 135px;
-    right: 20px;
-    color: #fff;
-    font-size: 10px !important;
-    padding: 6px 6px 6px 10px;
-}
+
 .first-section-img{
     height: auto;
     width: auto;}

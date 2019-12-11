@@ -69,7 +69,7 @@
   endwhile;
 endif;  
 ?>    
-    <div class="d-flex"><a href="<?php echo $domain?>sports" class="float-left read-more-sports-entertainment" alt="More" title="More">مزید </a></div>
+    <div class="d-flex"><a href="<?php echo $domain?>sports" class="float-left read-more mt-3" alt="Sports News" title="Sports News">مزید </a></div>
   </div>
 </div>
 <!-- Sports Section -->

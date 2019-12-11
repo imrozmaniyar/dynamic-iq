@@ -1,6 +1,5 @@
 <?php
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
 if(($actual_link == $domain) && (basename($_SERVER['PHP_SELF'])== 'index.php' )):
 ?>	
 <title> خبریں ، تازہ ترین خبریں ، بریکنگ نیو - The Inquilab</title>
@@ -8,17 +7,41 @@ if(($actual_link == $domain) && (basename($_SERVER['PHP_SELF'])== 'index.php' ))
 " />
 <meta name="keywords" content="  اردو نیوز, اردو میں خبریں News in Urdu, Urdu News, latest news in Urdu" />
 <?php elseif($actual_link == $domain.'videos/'):?>
-<title> Video Index</title>
-<meta name="description" content="Video Index" />
-<meta name="keywords" content=" Video Index" />	
+<title>   تازہ ترین آن لائن ویڈیوز | Watch Popular Videos and Latest Video Clips Online       </title>
+<meta name="description" content=" تازہ ترین آن لائن ویڈیوز: Watch latest entertainment videos, popular sports video, life and style videos, top Bollywood, Hollywood and weird videos clips at Inquilab.com.   " />
+<meta name="keywords" content=" Videos, Videos Latest, Top Entertainment videos, News videos, Popular videos" />	
 <?php elseif($actual_link == $domain.'photos/'):?>
-<title>Photo Index</title>
-<meta name="description" content="Photo Index" />
-<meta name="keywords" content=" Photo Index" />	
+<title>  تازہ ترین فوٹو گیلریوں | Latest Photo Gallery | Celebrity Hot Pictures | Celebrity Photoshoots    </title>
+<meta name="description" content="  تازہ ترین فوٹو گیلریوں - Get the latest photo galleries on celebrities from Bollywood, News, Sports and events. Also, get the hot pictures of your favourite celebrities with Inquilab.com   " />
+<meta name="keywords" content=" تازہ ترین فوٹو گیلریوں, Online Photos, Fashion Photos, News Photos, Sports Photos, Entertainment Photos, Entertainment Photo Galleries, Sports Photo Galleries, Life and Style Photo Galleries, News Photo Galleries " />	
 <?php elseif($actual_link == $domain.'photos/entertainment'):?>
-<title>Photo Enter</title>
-<meta name="description" content="Photo Photo Enter" />
-<meta name="keywords" content=" Photo Photo Enter" />	
+<title>  تازہ ترین   فریحات   فوٹو گیلری |   </title>
+<meta name="description" content=" خبریں  Entertainment photos, خبریں  photos, Latest Entertainment photos, Top Entertainment Photos, Entertainment popular photo gallery " />
+<meta name="keywords" content="  تازہ ترین فوٹو گیلریوں, Online Photos, Fashion Photos, News Photos, Sports Photos, Entertainment Photos, Entertainment Photo Galleries, Sports Photo Galleries, Life and Style Photo Galleries, News Photo Galleries  " />	
+<?php elseif($actual_link == $domain.'photos/news'):?>
+<title>  تازہ ترین     خبریں   فوٹو گیلری |   </title>
+<meta name="description" content="   خبریں    News photos,   خبریں   photos, Latest News photos, Top News Photos, News popular photo gallery " />
+<meta name="keywords" content="  تازہ ترین فوٹو گیلریوں, Online Photos, Fashion Photos, News Photos, Sports Photos, News Photos, News Photo Galleries, Sports Photo Galleries, Life and Style Photo Galleries, News Photo Galleries  " />	
+<?php elseif($actual_link == $domain.'photos/sports'):?>
+<title>  تازہ ترین       کھیل کود    فوٹو گیلری |   </title>
+<meta name="description" content="   خ  کھیل کود     Sports photos,     کھیل کود     photos, Latest Sports photos, Top Sports Photos, Sports popular photo gallery " />
+<meta name="keywords" content="  تازہ ترین فوٹو گیلریوں, Online Photos, Fashion Photos, News Photos, Sports Photos, News Photos, News Photo Galleries, Sports Photo Galleries, Life and Style Photo Galleries, News Photo Galleries  " />	
+<?php elseif($actual_link == $domain.'photos/lifestyle'):?>
+<title>  تازہ ترین       طرزِ زندگی    فوٹو گیلری |   </title>
+<meta name="description" content="   خطرزِ زندگی     Lifestyle photos,     طرزِ زندگی    photos, Latest Lifestyle photos, Top Lifestyle Photos, Lifestyle popular photo gallery " />
+<meta name="keywords" content="  تازہ ترین فوٹو گیلریوں, Online Photos, Fashion Photos, News Photos, Sports Photos, News Photos, News Photo Galleries, Sports Photo Galleries, Life and Style Photo Galleries, News Photo Galleries  " />	
+<?php elseif($actual_link == $domain.'videos/entertainment'):?>
+<title> تفریحات   videos: Top best entertainment videos online in Urdu</title>
+<meta name="description" content="  تفریحات  : Watch best entertainment videos, special coverage and popular videos." />
+<meta name="keywords" content=" تفریحات  , Entertainment videos, Entertainment Videos, Latest Entertainment Videos, Top Entertainment videos, Entertainment news videos, Entertainment popular videos  " />	
+<?php elseif($actual_link == $domain.'videos/news'):?>
+<title> خبریں  videos: Top best News videos online in Urdu</title>
+<meta name="description" content="  بریں  : Watch best News videos, special coverage and popular videos." />
+<meta name="keywords" content="  بریں  , News videos, News Videos, Latest News Videos, Top News videos, News news videos, News popular videos " />	
+<?php elseif($actual_link == $domain.'videos/sports'):?>
+<title> کھیل کود  videos: Top best Sports videos online in Urdu</title>
+<meta name="description" content="  کھیل کود : Watch best Sports videos, special coverage and popular videos." />
+<meta name="keywords" content="  کھیل کود , Sports videos, Sports Videos, Latest Sports Videos, Top Sports videos, Sports news videos, Sports popular videos " />	
 <?php endif;?>
 <?php
 // News //

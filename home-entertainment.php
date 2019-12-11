@@ -54,7 +54,7 @@
           endif;     
         $i=$i+1; 
 ?>
-	<img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid other-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
+	<a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>"><img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid other-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>"></a>
 	<a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href"><p class="horizontal-border-content-seperator mt-3 pb-3 lifestyle-section-desc"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p></a>
 <?php
 	endwhile;
@@ -122,5 +122,5 @@ endif;
 	endwhile;
 endif;	
 ?>	
-	<a href="<?php echo $domai?>entertainment" class="float-left read-more mt-3" alt="More" title="More">مزید </a>
+	<a href="<?php echo $domai?>entertainment" class="float-left read-more mt-3" alt="Entertainment News" title="Entertainment News">مزید </a>
 </div>

@@ -58,15 +58,17 @@
 ?>    
     <div class="col-md-6 col-6">
       <div class="pl-lg-4">
+        <a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
         <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block lifestyle-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
-        <a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href"><p class="lifestyle-section-desc pr-1 pt-2"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p></a>
+        <p class="lifestyle-section-desc pr-1 pt-2"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p>
+        </a>
       </div>
     </div>
 <?php
   endwhile;
 endif;
 ?>    
-    <a href="<?php echo $domain?>lifestyle" class="float-left read-more-sports-entertainment pr-md-4 pl-md-4" alt="More" title="More">مزید </a>
+    <a href="<?php echo $domain?>lifestyle" class="float-left read-more pr-md-4 pl-md-4 float-left read-more mt-3" alt="Lifestyle News" title="Lifestyle News">مزید </a>
   </div>
 </div>
 <!-- Entertainment Section -->

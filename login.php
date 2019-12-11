@@ -12,6 +12,7 @@
            <div class="form-group mt-3"><p class="text-center font-family-roboto font-weight-bold mt-4 mb-4 login-text"><a href="<?php echo $domain?>forgot-password" class="login-text">Forgot Password</a></p></div>
           <h5 class="text-center text-black font-family-roboto font-weight-normal mt-4 mb-4">OR</h5>
           <!-- ----Login with facebook button will come here-------- -->
+          <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
           <h4 class="text-center text-black font-family-roboto font-weight-bold mt-4 mb-4">New to Inquilab?</h4>
           <p class="text-center font-family-roboto font-weight-bold mt-4 mb-4 login-text"><a href="<?php echo $domain?>register" class="login-text">Sign Up</a></p>
         </form>  

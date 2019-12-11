@@ -24,9 +24,10 @@
             $objcatV             = new db_category_master($cid);
             $catname             = strtolower($objcatV->Get_category_master_name());
             $url                 = $catname.'/videos/'.$hu.'-'.$hid;             
-        $i=$i+1;        
+        $i=$i+1;
+        $j = $i--;
         ?>
-        <div class="col-md-4 mt-3 order-2 order-md-0">
+        <div class="col-md-4 mt-3 order-<?php echo $j?> order-md-<?php echo $i?> pb-2">
           <a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
             <div class="card-shadow zoom">
               <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
@@ -40,7 +41,7 @@
         endif;  
         ?>
       </div>
-      <div class="row"><a href="<?php echo $domain?>videos" class="text-left read-more mt-3" alt="More" title="More">مزید </a></div>  
+      <div class="row"><a href="<?php echo $domain?>videos" class="text-left read-more mt-3" alt="More Videos" title="More Videos">مزید </a></div>  
     </div>
     <div class="horizontal-border"></div>
   </div>  

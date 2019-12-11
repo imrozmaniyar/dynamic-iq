@@ -119,7 +119,6 @@ include("loginc.php");
         googletag.defineSlot('/13276288/Inquilab/mobile/detail/top_300x250', [[300, 250], [336, 280]], 'iq_pagepushMB').addService(googletag.pubads());        
         googletag.defineSlot('/13276288/Inquilab/mobile/detail/medium_300x250', [[300, 250], [336, 280]], 'iq_pagepushVM').addService(googletag.pubads());
         googletag.defineSlot('/13276288/Inquilab/mobile/home/bottom_300x250', [[300, 250], [336, 280]], 'iq_pagepushSM').addService(googletag.pubads());
-        googletag.defineSlot('/13276288/Inquilab/mobile/home/medium_300x250', [[300, 250], [336, 280]], 'iq_pagepushA3').addService(googletag.pubads());
         googletag.pubads().set("page_url", "https://www.inquilab.com");
         googletag.pubads().collapseEmptyDivs();
         googletag.enableServices();
@@ -129,7 +128,6 @@ include("loginc.php");
         googletag.display("iq_pagepushMB");
         googletag.display("iq_pagepushVM");
         googletag.display("iq_pagepushSM");
-        googletag.display("iq_pagepushA3");
     }); 
     </script>      
     <!--Google Ads tag-->    
@@ -166,7 +164,7 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }  
-</script> -->    
+</script>     -->
     <section id="topbar" class="d-none d-lg-block">
       <div class="container clearfix">
         <div class="left-topbar float-left mt-2">
@@ -231,65 +229,55 @@ function onSignIn(googleUser) {
                   <span class="fa fa-bars text-white"></span>
                   <span class="sr-only">Toggle navigation</span>
               </button>
+              <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mr-3 mr-lg-0">
+                  <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news/mumbai" alt="Mumbai" title="Mumbai">  ممبئی  </a></li>
+                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                  <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news" alt="News" title="News">  خبریں  </a></li>
+                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                  <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>entertainment" alt="Entertainment" title="Entertainment">  تفریحات   </a></li>
+                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                  <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>sports" alt="Sports" title="Sports">  کھیل کود  </a></li>
+                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                  <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>features" alt="Features" title="Features"> فیچرس  </a></li>
+                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                  <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>lifestyle" alt="Lifestyle" title="Lifestyle">  طرزِ زندگی  </a></li>
+                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                  <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>students" alt="Students" title="Students">   طلبہ
+                    <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                  <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>photos" alt="Photos" title="Photos">  تصویریں <span class="sr-only">(current)</span></a></li>
+                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                  <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>videos" alt="Videos" title="Videos">    ویڈیوز   <span class="sr-only">(current)</span></a></li>                  
+                </ul>
+              </div>              
+              <?php else:?>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto mr-3 mr-lg-0">
-
-                      <li class="nav-item active">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>photos" alt="Photos" title="Photos">  تصویریں <span class="sr-only">(current)</span></a>
+                      <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>videos" alt="Videos" title="Videos">    ویڈیوز   <span class="sr-only">(current)</span></a></li>
+                      <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                      <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>photos" alt="Photos" title="Photos">  تصویریں <span class="sr-only">(current)</span></a></li>
+                      <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                      <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>students" alt="Students" title="Students">   طلبہ
+                          <span class="sr-only">(current)</span></a>
                       </li>
-                      <li class="nav-item d-none d-lg-block">
-                          <span class="nav-link text-white font-weight-bold">|</span>
-                      </li>
-
-                      <li class="nav-item active">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>videos" alt="Videos" title="Videos">    ویڈیوز   <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item d-none d-lg-block">
-                          <span class="nav-link text-white font-weight-bold">|</span>
-                      </li>
-
-                      <li class="nav-item active">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>students" alt="Students" title="Students">   طلبہ
-  <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item d-none d-lg-block">
-                          <span class="nav-link text-white font-weight-bold">|</span>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>lifestyle" alt="Lifestyle" title="Lifestyle">  طرزِ زندگی  </a>
-                      </li>
-                      <li class="nav-item d-none d-lg-block">
-                          <span class="nav-link text-white font-weight-bold">|</span>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>features" alt="Features" title="Features"> فیچرس  </a>
-                      </li>
-                      <li class="nav-item d-none d-lg-block">
-                          <span class="nav-link text-white font-weight-bold">|</span>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>sports" alt="Sports" title="Sports">  کھیل کود  </a>
-                      </li>
-                      <li class="nav-item d-none d-lg-block">
-                          <span class="nav-link text-white font-weight-bold">|</span>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>entertainment" alt="Entertainment" title="Entertainment">  تفریحات   </a>
-                      </li>
-                      <li class="nav-item d-none d-lg-block">
-                          <span class="nav-link text-white font-weight-bold">|</span>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news" alt="News" title="News">  خبریں  </a>
-                      </li>
-                      <li class="nav-item d-none d-lg-block">
-                          <span class="nav-link text-white font-weight-bold">|</span>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news/mumbai" alt="Mumbai" title="Mumbai">  ممبئی  </a>
-                      </li>
+                      <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                      <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>lifestyle" alt="Lifestyle" title="Lifestyle">  طرزِ زندگی  </a></li>
+                      <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                      <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>features" alt="Features" title="Features"> فیچرس  </a></li>
+                      <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                      <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>sports" alt="Sports" title="Sports">  کھیل کود  </a></li>
+                      <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                      <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>entertainment" alt="Entertainment" title="Entertainment">  تفریحات   </a></li>
+                      <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                      <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news" alt="News" title="News">  خبریں  </a></li>
+                      <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+                      <li class="nav-item"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>news/mumbai" alt="Mumbai News" title="Mumbai News">  ممبئی  </a></li>
                   </ul>
               </div>
+            <?php endif;?>
               <div class="bootsnipp-search animate">
         <div class="container">
           <div class="col-md-12 mt-1">
