@@ -64,8 +64,8 @@ $newsnationalFour    = $objnewsnationalFour->selectAll($strWhere, 13, 3);
     $month1       = date('F', $da);
     $year1        = date("Y",$da);
     $day1         = date("d",$da);
-         
     $aTime        = $objnewsnationalFours->article_time;
+    $aTime           = date("g:i a", strtotime($aTime));
    $i=$i+1;  
  ?>    
       <div class="row mt-3">

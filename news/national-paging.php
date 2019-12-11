@@ -32,6 +32,7 @@ $nationalPaging     = $objnationalPaging->selectAll($strWhere1, 0, 3);
     $year1        = date("Y",$da);
     $day1         = date("d",$da);
     $aTime        = $objnationalPagings->article_time;
+    $aTime           = date("g:i a", strtotime($aTime));
     $last_blog_id = $blog_master_id;
    $i=$i+1;  
  ?>    
