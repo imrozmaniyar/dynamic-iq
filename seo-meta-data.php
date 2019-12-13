@@ -392,7 +392,7 @@ $pagekeywords= $INOSS->sub_category_master_meta_keywords;
  <?php 
  // features/opinion News //
 $actual_link1 = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-if($actual_link1 == $domain.'features/opinion'):
+if($actual_link1 == $domain.'features/editorial'):
 $objINop = new db_sub_category_master;
 $strWhere="category_master_id=17 and sub_category_master_id=19";
 $INop=$objINop->selectAll($strWhere,0,1);

@@ -1,7 +1,7 @@
     <!-- Entertainment Photos Section -->
     <section class="mt-3">
       <div class="container clearfix">
-        <h2 class="article-news-listing-title"><a href="<?php echo $domain?>photos/entertainment" class="article-news-listing-title" alt="Entertainment" title="Entertainment">   تفریحات </a></h2>
+        <h2 class="article-news-listing-title" class="article-news-listing-title" alt="Entertainment" title="Entertainment"><!-- <a href="<?php echo $domain?>photos/entertainment" > -->   تفریحات <!-- </a> --></h2>
         <div class="row mt-4">
           <?php
             if ($photosenthome[0] > 0):
@@ -33,8 +33,8 @@
         </div>
         <div class="row">
           <div class="col-md-12 text-left  mt-3">
-            <a href="<?php echo $domain?>photos/entertainment" class=" read-more clearfix" alt="More" title="More">مزید </a>
-          </div>
+<!--             <a href="<?php echo $domain?>photos/entertainment" class=" read-more clearfix" alt="More" title="More">مزید </a>
+ -->          </div>
         </div>
         <div class="horizontal-border mt-3"></div>
       </div>  

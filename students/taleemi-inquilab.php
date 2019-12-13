@@ -4,9 +4,9 @@
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" alt="Taleemi Inquilab" title="Taleemi Inquilab">  تعلیمی انقلاب  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>students" class="text-black" alt="Student" title="Student"> طلبہ </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" alt="Home" title="Home" >  اداریہ </a></li>
+            <li class="breadcrumb-item font-weight-bold text-black" alt="Taleemi Inquilab" title="Taleemi Inquilab">  تعلیمی انقلاب  </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>students" alt="Student" title="Student"> طلبہ </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>"  alt="Home" title="Home" >  ابتداء</a></li>
           </ol>
           </ol>
         </nav>

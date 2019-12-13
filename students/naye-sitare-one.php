@@ -4,7 +4,7 @@ $strWhere = "category_id=19 and sub_category_id=28 and article_date1 <='$shedate
 $entfOne    = $objentfOne->selectAll($strWhere, 0, 6);
 ?>
 <div class="article-listing-border p-2 mt-3">
-  <div class="article-listing-p1-icon">تفریحی تصاویر</div>
+  <!-- <div class="article-listing-p1-icon">تفریحی تصاویر</div> -->
   <div class="row">
     <?php
       if ($entfOne[0] > 0):

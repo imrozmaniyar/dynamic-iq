@@ -5,7 +5,7 @@ $newsBusinessThree    = $objnewsBusinessThree->selectAll($strWhere, 10, 3);
 ?>
 <section class="mt-3">
   <div class="container clearfix">
-    <h2 class="article-news-listing-title" alt="Business" title="Business"> زنس   </h2>
+    <h2 class="article-news-listing-title" alt="Business" title="Business"> بزنس </h2>
 <?php
   if ($newsBusinessThree[0] > 0):
     $i = 1;

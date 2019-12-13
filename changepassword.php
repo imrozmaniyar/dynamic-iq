@@ -14,8 +14,10 @@ $objMsg = new message($id);
     <h1 class="mt-5 mb-2 text-center text-black font-weight-normal font-family-roboto">Change Password</h1>
     <div class="row">
       <div class="col-md-5 mx-auto text-left">
-          <?php if($objMsg->get_message()!=""):?>
-            <p class="need_talk new_user" align="center" style="text-transform:none; color:#FF0000; font-size:18px;"><?php echo htmlspecialchars($objMsg->get_message(),ENT_QUOTES, 'UTF-8')?></p>
+          <?php if($id==1):?>
+            <p class="need_talk new_user" align="center" style="text-transform:none; color:#FF0000; font-size:18px;" class='font-family-roboto'>Password Changed Successfully</p>
+            <?php elseif($id==116):?>
+            <p class="need_talk new_user" align="center" style="text-transform:none; color:#FF0000; font-size:18px;" class='font-family-roboto'>Incorrect Old Password. Try Again</p>
           <?php endif;?>        
         <form class="register-placeholder" id="registration" method="post" action="change-password-submit" enctype="multipart/form-data">
           <div class="form-group mt-3"><input type="password" name="txtoldpassword" required="required" class="form-control register-form-control" placeholder="Old Password"></div>

@@ -31,16 +31,16 @@
               <li class="list-inline-item mt-1 mt-md-0"><a href="https://www.inquilab.com" title="The Inquilab"><img src="<?php echo $domain?>images/footer-logo.png" class="img-fluid mx-auto" alt=""></a></li>
               <li class="list-inline-item ml-4 mt-5 mt-md-0"><a href="https://www.facebook.com/theinquilabin/" title="Facebook" target="_blank"><img src="<?php echo $domain?>images/facebook-icon.png" class="img-fluid mx-auto" alt=""></a></li>
               <li class="list-inline-item ml-4 mt-5 mt-md-0"><a href="https://twitter.com/theinquilabin" title="Twitter" target="_blank"><img src="<?php echo $domain?>images/twitter-icon.png" class="img-fluid mx-auto" alt=""></a></li>
-              <li class="list-inline-item ml-4 mt-5 mt-md-0"><a href="#"><img src="<?php echo $domain?>images/insta-icon.png" class="img-fluid mx-auto" alt=""></a></li>
+              <li class="list-inline-item ml-4 mt-5 mt-md-0"><a href="https://www.youtube.com/channel/UCn6dyhupxktN8sgBMRGaO_w" target="_blank"><img src="<?php echo $domain?>images/youtube-icon.png" class="img-fluid mx-auto" alt=""></a></li>
             </ul>
              <ul class="list-inline text-center mt-5 clearfix mb-5">
               <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>aboutus" title="About Us">About Us</a></li>
               <li class="list-inline-item text-white text-left mt-3 mt-md-0">|</li>
-              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>aboutus" title="Privacy Policy">Privacy Policy</a></li>
+              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
               <li class="list-inline-item text-white text-left mt-3 mt-md-0">|</li>
-              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>aboutus" title="Terms & Conditions">Terms & Conditions</a></li>
+              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>terms" title="Terms & Conditions">Terms & Conditions</a></li>
               <li class="list-inline-item text-white text-left mt-3 mt-md-0">|</li>
-              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>aboutus" title="Contact Us">Contact Us</a></li>
+              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>contact" title="Contact Us">Contact Us</a></li>
             </ul>
           </div>  
         </div>  
@@ -106,8 +106,9 @@
       });
     </script>  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" />
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" /> -->
+        <link rel="stylesheet" type="text/css" href="<?php echo $domain?>css/jquery-ui.css" />
  <?php 
       $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile');
       if ($isMobile):    

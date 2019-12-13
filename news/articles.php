@@ -23,18 +23,26 @@ $aImage       = str_replace('../','',$objMainArticle->Get_article_image());
 $aCaption     = $objMainArticle->Get_article_image_caption();
 $aMainDesc    = $objMainArticle->Get_article_description();
 $atags        = $objMainArticle->Get_article_tags();
-$akeywords        = $objMainArticle->Get_article_keywords();
-//$parttags     = explode( ",", $atags );
-//echo $parttags;
+$akeywords    = $objMainArticle->Get_article_keywords();
+$atags        = $objMainArticle->Get_article_tags();
+$acat         = $objMainArticle->Get_category_id();
+$ojjcc        = new db_category_master($acat);
+$Ename        = $ojjcc->Get_category_master_name();
+$Uname        = $ojjcc->Get_category_master_name_urdu();
+$subcat       = $objMainArticle->Get_sub_category_id();
+$ojjsc        = new db_sub_category_master($subcat);
+$SEname        = $ojjsc->Get_sub_category_master_name();
+$SUname        = $ojjsc->Get_sub_category_master_name_urdu();
+$article_byline =  $objMainArticle->Get_article_byline();
 ?>
     <!-- first section -->
     <section>
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#">کاروباری خبریں</a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="#" class="text-black">ممبئی۔</a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="#" class="text-black"> گھر</a></li>
+            <li class="breadcrumb-item font-weight-bold" alt="<?php echo htmlspecialchars($SEname,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($SEname,ENT_QUOTES, 'UTF-8')?>"><a href="<?php echo $domain?>news/<?php echo strtolower($SEname);?>" alt="<?php echo htmlspecialchars($SEname,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($SEname,ENT_QUOTES, 'UTF-8')?>"><?php echo htmlspecialchars($SUname,ENT_QUOTES, 'UTF-8')?></a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>news" alt="<?php echo htmlspecialchars($Ename,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($Ename,ENT_QUOTES, 'UTF-8')?>"> <?php echo htmlspecialchars($Uname,ENT_QUOTES, 'UTF-8')?>  </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" title="Home"  alt="Home">  ابتداء  </a></li>
           </ol>
           </ol>
         </nav>
@@ -42,9 +50,19 @@ $akeywords        = $objMainArticle->Get_article_keywords();
           <div class="col-md-11 news-details order-1 order-md-0">
             <h1 class="news-details-title font-weight-bold"><?php echo htmlspecialchars($articleHeadline,ENT_QUOTES, 'UTF-8')?></h1>
             <?php if($aDate1==''):?>
-            <p class="news-details-author mt-3">Updated: <?php echo htmlspecialchars($month,ENT_QUOTES, 'UTF-8')?> <?php echo  htmlspecialchars($day,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($year,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($aTime,ENT_QUOTES, 'UTF-8')?> IST | <span><?php echo  htmlspecialchars($aName,ENT_QUOTES, 'UTF-8')?></span></p>
+            <p class="news-details-author mt-3">Updated: <?php echo htmlspecialchars($month,ENT_QUOTES, 'UTF-8')?> <?php echo  htmlspecialchars($day,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($year,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($aTime,ENT_QUOTES, 'UTF-8')?> IST 
+                                <?php if($article_byline!=''):?>
+                | <span><?php echo  htmlspecialchars($article_byline,ENT_QUOTES, 'UTF-8')?>
+                <?php endif;?>
+                </span></p>
+
             <?php else:?>
-            <p class="news-details-author mt-3">Updated: <?php echo htmlspecialchars($month1,ENT_QUOTES, 'UTF-8')?> <?php echo  htmlspecialchars($day1,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($year1,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($aTime,ENT_QUOTES, 'UTF-8')?> IST | <span><?php echo  htmlspecialchars($aName,ENT_QUOTES, 'UTF-8')?></span></p>  
+            <p class="news-details-author mt-3">Updated: <?php echo htmlspecialchars($month1,ENT_QUOTES, 'UTF-8')?> <?php echo  htmlspecialchars($day1,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($year1,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($aTime,ENT_QUOTES, 'UTF-8')?> IST 
+                                <?php if($article_byline!=''):?>
+                | <span><?php echo  htmlspecialchars($article_byline,ENT_QUOTES, 'UTF-8')?>
+                <?php endif;?>
+                </span></p>
+
             <?php endif;?>  
             <p><?php echo htmlspecialchars($aShortDesc,ENT_QUOTES, 'UTF-8')?></p>
             <div class="card card-inverse text-center col-md-8 mx-auto mb-3">
@@ -76,6 +94,9 @@ $akeywords        = $objMainArticle->Get_article_keywords();
         <div class="col-md-12 mt-3">
           <div class="news-details-tag-border-vertical">
             <div class="text-right p-4">
+            <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile): ?> 
+            <span class="btn-tag btn">Tags</span>
+            <?php endif;?>               
             <?php  
                 $array = explode(',', $atags);
                 for ($i = 0; $i < count($array); $i++) {
@@ -84,7 +105,9 @@ $akeywords        = $objMainArticle->Get_article_keywords();
             <?php
               }      
             ?>
+             <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile): else:?> 
             <span class="btn-tag btn">Tags</span>
+        <?php endif;?>
           </div>
           </div>
         </div>  

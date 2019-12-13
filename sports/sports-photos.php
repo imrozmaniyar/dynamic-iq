@@ -1,7 +1,9 @@
 <section class="mt-3">
   <div class="container clearfix">
     <div class="photo-section-bg p-3">
-      <div class="col-md-12"><h1 class="photo-section-title"><a href="<?php echo $domain?>photos" class="text-white" alt="Photos" title="Photos"> کرکٹ۔  </a></h1></div>
+      <div class="col-md-12"><h1 class="photo-section-title" class="text-white" alt="Photos" title="Photos">  
+کھیل کود
+ </h1></div>
       <div class="row">
         <?php
             if ($SportsPhotos[0] > 0):
@@ -36,7 +38,7 @@
           endif;  
         ?>
       </div>
-      <div class="row"><a href="<?php echo $domain?>photos" class="text-left read-more mt-3 clearfix" alt="More" title="More">مزید </a></div>
+      <!-- <div class="row"><a href="<?php echo $domain?>photos" class="text-left read-more mt-3 clearfix" alt="More" title="More">مزید </a></div> -->
     </div>
   </div>  
 </section>

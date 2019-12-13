@@ -34,6 +34,7 @@ include("loginc.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php include_once("seo-meta-data.php");?>
+     <link rel="canonical" href=<?php echo $urllogin?> />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $domain?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $domain?>css/style.css">
@@ -102,6 +103,9 @@ include("loginc.php");
     border-color: #023e86;
     text-transform: uppercase;
 }
+.ui-tooltip {
+  text-align:left;
+}  
     </style>
     <!--Google Ads tag-->    
      <!--  <script async="async" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
@@ -188,8 +192,8 @@ function onSignIn(googleUser) {
               <div class="d-flex justify-content-center h-50">
               <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" />                
                 <form method="post" id="songs-search-form">                            
-                <div class="searchbar">
-                  <input class="search_input" type="text" name="songs-search-text" id="songs-search-text" placeholder="Search..." required="required">
+                <div class="searchbar" >
+                  <input class="search_input" type="text" name="songs-search-text" id="songs-search-text" placeholder="Search..." required="required" style="text-align: left;">
                   <button type="submit" class="search_icon"><i class="fa fa-search"></i></button>
                 </div>
                </form>
@@ -222,7 +226,7 @@ function onSignIn(googleUser) {
                     </div>
                   </li>                    
                   <?php endif;?>  
-                  <li class="list-inline-item"><a href="<?php echo $domain?>"><img src="<?php echo $domain?>images/footer-logo.png" class="img-fluid" alt="" style="width: 140px;"></a></li>
+                  <li class="list-inline-item"><a href="<?php echo $domain?>"><img src="<?php echo $domain?>images/footer-logo.png" class="img-fluid mobile-logo" alt=""></a></li>
                 </ul>
               </div>
               <button class="navbar-toggler nav-toggle-icon" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -247,20 +251,20 @@ function onSignIn(googleUser) {
                   <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>students" alt="Students" title="Students">   طلبہ
                     <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
+<!--                   <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
                   <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>photos" alt="Photos" title="Photos">  تصویریں <span class="sr-only">(current)</span></a></li>
-                  <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
-                  <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>videos" alt="Videos" title="Videos">    ویڈیوز   <span class="sr-only">(current)</span></a></li>                  
+ -->                  <!-- <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li> -->
+                  <!-- <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>videos" alt="Videos" title="Videos">    ویڈیوز   <span class="sr-only">(current)</span></a></li>                   -->
                 </ul>
               </div>              
               <?php else:?>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto mr-3 mr-lg-0">
-                      <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>videos" alt="Videos" title="Videos">    ویڈیوز   <span class="sr-only">(current)</span></a></li>
+                      <!-- <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>videos" alt="Videos" title="Videos">    ویڈیوز   <span class="sr-only">(current)</span></a></li> -->
+                      <!-- <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li> -->
+<!--                       <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>photos" alt="Photos" title="Photos">  تصویریں <span class="sr-only">(current)</span></a></li>
                       <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
-                      <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>photos" alt="Photos" title="Photos">  تصویریں <span class="sr-only">(current)</span></a></li>
-                      <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>
-                      <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>students" alt="Students" title="Students">   طلبہ
+ -->                      <li class="nav-item active"><a class="nav-link text-white font-weight-bold" href="<?php echo $domain?>students" alt="Students" title="Students">   طلبہ
                           <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item d-none d-lg-block"><span class="nav-link text-white font-weight-bold">|</span></li>

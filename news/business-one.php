@@ -4,7 +4,7 @@ $strWhere = "category_id=14 and sub_category_id=13 and article_date1 <='$shedate
 $newsbusinessOne    = $objnewsbusinessOne->selectAll($strWhere, 0, 6);
 ?>
 <div class="article-listing-border p-2 mt-3">
-  <div class="article-listing-p1-icon">تفریحی تصاویر</div>
+  <!-- <div class="article-listing-p1-icon">تفریحی تصاویر</div> -->
   <div class="row">
     <?php
       if ($newsbusinessOne[0] > 0):

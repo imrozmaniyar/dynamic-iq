@@ -1,14 +1,12 @@
 <?php 
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
 include('../top.php'); ?>
     <!-- first section -->
     <section>
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" class="" alt="Students" title="Students"> طلبہ  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" alt="Home" title="Home"> تھئیٹر  </a></li>
+            <li class="breadcrumb-item font-weight-bold text-black" class="" alt="Students" title="Students"> طلبہ  </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" alt="Home" title="Home"> ابتداء  </a></li>
           </ol>
         </nav>
         <div class="border p-3 mt-3">

@@ -371,6 +371,7 @@ position: relative;
     background: #787878;
     color: #fff;
     text-align: right;
+    padding: 0.5rem;
 }
 .news-details-title{
     font-size: 28px;
@@ -396,6 +397,14 @@ position: relative;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     padding: 3px 20px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+.btn-tag a{
+    color: #fff;
+}
+.mobile-logo{
+    width: 140px;
 }
 .btn-tag:hover{
     color: #fff;
@@ -606,6 +615,14 @@ position: relative;
 
 }
 
+@media only screen and (max-width: 360px)  {
+    .mobile-logo{width: 100px;}
+    .video-play-icon {top: 50px;}
+    .photo-camera-icon{top: 50px;}
+    .photo-camera-icon-single-mobile-grid{top: 120px;}
+    .video-play-icon-single-mobile-grid {top: 120px;}
+
+}
 
 @media only screen 
   and (min-device-width: 768px) 

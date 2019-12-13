@@ -6,7 +6,7 @@ $newsMumbaiOne    = $objnewsMumbaiOne->selectAll($strWhere, 0, 6);
 //echo $strWhere;
 ?>
 <div class="article-listing-border p-2 mt-3">
-  <div class="article-listing-p1-icon">تفریحی تصاویر</div>
+  <!-- <div class="article-listing-p1-icon">تفریحی تصاویر</div> -->
   <div class="row">
     <?php
       if ($newsMumbaiOne[0] > 0):

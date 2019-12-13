@@ -29,7 +29,7 @@ $objMsg = new message($id);
           <div class="form-group mt-3"><input type="text" name="txtname" required="required" class="form-control register-form-control" placeholder="Name"></div>
           <div class="form-group mt-3"><input type="email" name="txtemail" required="required" class="form-control register-form-control" placeholder="Email"></div>
           <div class="form-group mt-3"><input type="password" name="txtpass" title="Password must contain: Minimum 8 characters atleast 1 Capital Letter and 1 Number" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" class="form-control register-form-control" placeholder="Password" data-placement="right" title="Tooltip Text"></div>
-          <div class="form-group mt-3"><input type="number" name="txtmobile"  required="required" title="10 Numbers Only" pattern="^\d{10}$" class="form-control register-form-control" placeholder="Mobile"></div>
+          <div class="form-group mt-3"><input type="text" name="txtmobile" maxlength="10" required="required" title="10 Numbers Only" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" class="form-control register-form-control" placeholder="Mobile"></div>
           <div class="form-group">
               <select name="cbocountry" id="country" required="required" class="custom-select text-black font-family-roboto register-select-dropdown">
                 <option value="">Select your Country</option>
@@ -109,7 +109,7 @@ $objMsg = new message($id);
           <div class="form-group">
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" name="customCheck1" id="customCheck1" required="required">
-                <label class="custom-control-label font-family-roboto register-checkbox-label" for="customCheck1">I have read the <a href="#">Privacy Policy</a> and the <a href="#">Terms and Conditions.</a>I provide consent for my data to be processed for the purposes as described and receive communications for service related information.</label>
+                <label class="custom-control-label font-family-roboto register-checkbox-label" for="customCheck1">I have read the <a href="<?php echo $domain?>privacy-policy" target="_blank">Privacy Policy</a> and the <a href="<?php echo $domain?>terms" target="_blank">Terms and Conditions.</a>I provide consent for my data to be processed for the purposes as described and receive communications for service related information.</label>
             </div>
           </div>
             <input type="image" src="<?php echo $domain?>images/register.png" class="img-fluid mx-auto" border="0" alt="Submit">

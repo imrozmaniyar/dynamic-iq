@@ -3,7 +3,7 @@
       <div class="container clearfix">
         <div class="photo-section-bg p-3">
           <div class="col-md-12">
-            <h1 class="photo-section-title"><a href="<?php echo $domain?>students/naye-sitare" class="text-white" alt="Naye Sitare" title="Naye Sitare"> ادب و ثقافت </a></h1>
+            <h1 class="photo-section-title"><a href="<?php echo $domain?>students/naye-sitare" class="text-white" alt="Naye Sitare" title="Naye Sitare"> نئے ستارے   </a></h1>
            </div>
           <div class="row">
 <?php            

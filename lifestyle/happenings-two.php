@@ -1,6 +1,10 @@
 <?php
 $objenttTwo = new db_article_master;
+if ($article_epoch=="") {
+$strWhere = "category_id=18 and sub_category_id=31 and active='Y'";
+}else{
 $strWhere = "category_id=18 and sub_category_id=31 and article_date1 <='$shedate' and article_epoch<=$timestamps and active='Y'";
+}
 $enttTwo    = $objenttTwo->selectAll($strWhere, 7, 3);
 ?>
 <section class="mt-3 pt-1">

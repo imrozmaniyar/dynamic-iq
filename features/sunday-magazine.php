@@ -4,9 +4,9 @@
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" Alt="Sunday Magazine" title="Sunday Magazine"> سنڈے میگزین  </a></li>
-    <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>features" class="text-black" alt="Features" title="Features"> فیچرس </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" alt="Home" title="Home">  ابتداء  </a></li>
+            <li class="breadcrumb-item font-weight-bold text-black" Alt="Sunday Magazine" title="Sunday Magazine"> سنڈے میگزین  </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>features"  alt="Features" title="Features"> فیچرس </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>"  alt="Home" title="Home">  ابتداء  </a></li>
           </ol>
           </ol>
         </nav>
@@ -14,7 +14,7 @@
       </div>  
           <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
     <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
-    <div class="horizontal-border mt-3"></div>
+    <!-- <div class="horizontal-border mt-3"></div> -->
     <?php endif;?>  
     </section>
     <!-- first section -->

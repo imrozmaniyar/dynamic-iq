@@ -4,9 +4,9 @@
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" Alt="Tech" title="Tech"> ٹیکنالوجی </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>lifestyle" class="text-black" alt="Lifestyle" title="Lifestyle"> طرزِ زندگی </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" alt="Home" title="Home"> تھئیٹر </a></li>
+            <li class="breadcrumb-item font-weight-bold text-black" Alt="Tech" title="Tech"> ٹیکنالوجی </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>lifestyle" alt="Lifestyle" title="Lifestyle"> طرزِ زندگی </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>"  alt="Home" title="Home"> تابتداء</a></li>
           </ol>
           </ol>
         </nav>
@@ -19,10 +19,10 @@
     <?php include('tech-two.php'); ?>
         <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
     <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
-    <div class="horizontal-border mt-3"></div>
+    <!-- <div class="horizontal-border mt-3"></div> -->
     <?php endif;?>  
     <!-- photo section -->
-    <?php include('lifestyle-photos.php'); ?>
+    <?php //include('lifestyle-photos.php'); ?>
     <!-- photo section -->
     <!-- article-news-listing Section -->
     <?php//include('women-three.php'); ?>

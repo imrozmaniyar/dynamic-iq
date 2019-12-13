@@ -1,10 +1,10 @@
 <?php include('top.php'); ?>
 <?php include('home-top-stories.php'); ?>
 <?php include('home-photo-gallery.php'); ?>
-<?php include('home-video.php'); ?>
+<?php ///include('home-video.php'); ?>
 <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
  <div class="container clearfix"><div style="margin-top: 5px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
- <div class="horizontal-border"></div>
+ <!-- <div class="horizontal-border"></div> -->
  <?php endif;?>
  
 <!-- News and other sections -->

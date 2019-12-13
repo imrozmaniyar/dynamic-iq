@@ -4,9 +4,9 @@
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" alt="International" title="International"> عالم </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>news" class="text-black" alt="news" title="news"> خبریں</a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" alt="Home" title="Home">  ابتداء </a></li>
+            <li class="breadcrumb-item font-weight-bold text-black" alt="International" title="International"> عالم </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>news" alt="news" title="news"> خبریں</a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>"  alt="Home" title="Home">  ابتداء </a></li>
           </ol>
           </ol>
         </nav>
@@ -19,20 +19,20 @@
     <?php include('international-two.php'); ?>
     <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
     <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
-    <div class="horizontal-border mt-3"></div>
+   <!--  <div class="horizontal-border mt-3"></div> -->
     <?php endif;?>      
     <!-- photo section -->
-    <?php include('news-photos.php'); ?>
+    <?php// include('news-photos.php'); ?>
     <!-- photo section -->
     <!-- article-news-listing Section -->
     <?php include('international-three.php'); ?>
     <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
     <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushA3"></div></div></div>
-    <div class="horizontal-border mt-3"></div>
+    <!-- <div class="horizontal-border mt-3"></div> -->
     <?php endif;?>    
     <!-- article-news-listing Section -->
     <!-- Video section -->
-    <?php include('news-videos.php'); ?>  
+    <?php //include('news-videos.php'); ?>  
     <!-- Video section -->
     <!-- article-news-listing Section -->
      <?php //include('national-four.php'); ?>

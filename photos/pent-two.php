@@ -1,7 +1,8 @@
 <?php
 $objentvTwo = new db_gallery_master;
 $strWhere = "category_id=15 and gallery_date1<='$shedate' and gallery_epoch<=$timestamp and active='Y'";
-$entvTwo    = $objentvTwo->selectAll($strWhere, 7, 3);
+//$entvTwo    = $objentvTwo->selectAll($strWhere, 7, 3);
+$entvTwo    = $objentvTwo->selectAll($strWhere, 7, 50);
 ?>
     <section class="mt-3">
       <div class="container clearfix">

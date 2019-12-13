@@ -1,6 +1,6 @@
 <section class="mt-3">
       <div class="container clearfix">
-        <h2 class="article-news-listing-title"><a href="<?php echo $domain?>photos/sports" class="article-news-listing-title" alt="Sports" title="Sports">  کھیل کود  </a></h2>
+        <h2 class="article-news-listing-title" class="article-news-listing-title" alt="Sports" title="Sports"><!-- <a href="<?php echo $domain?>photos/sports" > -->  کھیل کود  <!-- </a> --></h2>
         <div class="row mt-4">
           <?php
             if ($photosportshome[0] > 0):
@@ -33,9 +33,9 @@
         </div>
         <div class="row">
           <div class="col-md-12 text-left  mt-3">
-            <a href="<?php echo $domain?>photos/sports" class=" read-more clearfix" alt="More" title="More">مزید </a>
+            <!-- <a href="<?php echo $domain?>photos/sports" class=" read-more clearfix" alt="More" title="More">مزید </a> -->
           </div>
         </div>
-        <div class="horizontal-border mt-3"></div>
+        <!-- <div class="horizontal-border mt-3"></div> -->
       </div>  
     </section>

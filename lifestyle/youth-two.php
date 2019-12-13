@@ -5,7 +5,7 @@ $enttTwo    = $objenttTwo->selectAll($strWhere, 7, 3);
 ?>
 <section class="mt-3 pt-1">
   <div class="container clearfix">
-    <h2 class="article-news-listing-title" alt="Youth" title="Youth"> ہو رہا ہے۔ </h2>
+    <h2 class="article-news-listing-title" alt="Youth" title="Youth"> طبقہ نوجواں</h2>
 <?php
   if ($enttTwo[0] > 0):
     $i = 1;

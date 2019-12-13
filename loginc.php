@@ -76,17 +76,18 @@ $strWhere = "position IN (2,3,4)";
 $MumbaiWithoutPhoto    = $objMumbaiWithoutPhoto->selectAll($strWhere, 0, 3);
 ///// Home Mumbai Without Photos
 ///// Home ENT with photo//////
-$objEntPhoto = new db_users_ent;
+$objEntPhoto = new db_users_lifestyle;
 $strWhere = "position=1";
 $EntPhoto    = $objEntPhoto->selectAll($strWhere, 0, 1);
 ///// Home ENT with photo//////
 ///// Home ENT Without Photos/
-$objEntWithoutPhoto = new db_users_ent;
+$objEntWithoutPhoto = new db_users_lifestyle;
 $strWhere = "position IN (2,3,4)";
 $EntWithoutPhoto    = $objEntWithoutPhoto->selectAll($strWhere, 0, 3);
 ///// Home ENT Without Photos
 ///// Home Lifestyle //////
-$objlifestyle = new db_users_lifestyle;
+//$objlifestyle = new db_users_lifestyle;
+$objlifestyle = new db_users_ent;
 $strWhere = "";
 $lifestyle    = $objlifestyle->selectAll($strWhere, 0, 4);
 ///// Home Lifestyle //////

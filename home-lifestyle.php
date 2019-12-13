@@ -1,6 +1,6 @@
 <!-- Entertainment Section -->
 <div class="col-md-7 order-0 order-md-1 col-lg-8">
-  <h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domain?>lifestyle" alt="Lifestyle" title="Lifestyle"> طرزِ زندگی  </a></h1>
+  <h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domain?>entertainment" alt="Entertainment" title="Entertainment"> تفریح  </a></h1>
   <div class="row mt-3">
 <?php
  if ($lifestyle[0] > 0):
@@ -68,7 +68,7 @@
   endwhile;
 endif;
 ?>    
-    <a href="<?php echo $domain?>lifestyle" class="float-left read-more pr-md-4 pl-md-4 float-left read-more mt-3" alt="Lifestyle News" title="Lifestyle News">مزید </a>
+    <a href="<?php echo $domain?>entertainment" class="float-left read-more pr-md-4 pl-md-4 float-left read-more mt-3" alt="Entertainment News" title="Entertainment News">مزید </a>
   </div>
 </div>
 <!-- Entertainment Section -->

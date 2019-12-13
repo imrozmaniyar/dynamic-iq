@@ -28,11 +28,11 @@
     <?php include('theatre-three.php'); ?>
     <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
     <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushA3"></div></div></div>
-    <div class="horizontal-border mt-3"></div>
+    <!-- <div class="horizontal-border mt-3"></div> -->
     <?php endif;?>     
     <!-- article-news-listing Section -->
     <!-- Video section -->
-    <?php include('ent-videos.php'); ?>  
+    <?php //include('ent-videos.php'); ?>  
     <!-- Video section -->
     <!-- article-news-listing Section -->
      <?php //include('national-four.php'); ?>

@@ -4,10 +4,9 @@
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" alt="Auto" title="Auto"> آٹوموبائل کی خبریں </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>lifestyle" class="text-black" alt="Lifestyle" title="Lifestyle"> طرزِ زندگی  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" alt="Home" title="Home"> تھئیٹر  </a></li>
-          </ol>
+            <li class="breadcrumb-item font-weight-bold text-black" alt="Auto" title="Auto"> آٹو موبائل</li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>lifestyle" alt="Lifestyle" title="Lifestyle"> طرزِ زندگی  </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" alt="Home" title="Home"> ابتداء </a></li>
           </ol>
         </nav>
         <?php include('auto-one.php'); ?>        
@@ -19,10 +18,10 @@
     <?php include('auto-two.php'); ?>
         <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
     <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
-    <div class="horizontal-border mt-3"></div>
+    <!-- <div class="horizontal-border mt-3"></div> -->
     <?php endif;?>  
     <!-- photo section -->
-    <?php include('lifestyle-photos.php'); ?>
+    <?php //include('lifestyle-photos.php'); ?>
     <!-- photo section -->
     <!-- article-news-listing Section -->
     <?php//include('women-three.php'); ?>
@@ -39,7 +38,7 @@ $enttFour    = $objenttFour->selectAll($strWhere, 10, 3);
 ?>    
 <section class="mt-3">
   <div class="container clearfix" id="load_data_table">
-    <h2 class="article-news-listing-title" alt="Auto" title="Auto">  آٹوموبائل کی خبریں </h2>
+    <h2 class="article-news-listing-title" alt="Auto" title="Auto">  آٹو موبائل</h2>
 <?php
   if ($enttFour[0] > 0):
     $i = 1;

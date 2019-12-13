@@ -4,9 +4,9 @@
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" Alt="Cricket" title="Cricket"> کرکٹ</a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>sports" class="text-black" Alt="Sports" title="Sports"> کھیل کود </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" Alt="Home" title="Home">  ابتداء  </a></li>
+            <li class="breadcrumb-item font-weight-bold text-black" Alt="Cricket" title="Cricket"> کرکٹ  </li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>sports" Alt="Sports" title="Sports"> کھیل کود </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" Alt="Home" title="Home">  ابتداء  </a></li>
           </ol>
           </ol>
         </nav>
@@ -19,7 +19,7 @@
     <?php include('cricket-two.php'); ?>
     <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
     <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
-    <div class="horizontal-border mt-3"></div>
+    <!-- <div class="horizontal-border mt-3"></div> -->
     <?php endif;?>    
     <!-- photo section -->
     <?php include('sports-photos.php'); ?>
@@ -28,11 +28,11 @@
     <?php include('cricket-three.php'); ?>
     <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
     <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushA3"></div></div></div>
-    <div class="horizontal-border mt-3"></div>
+    <!-- <div class="horizontal-border mt-3"></div> -->
     <?php endif;?>     
     <!-- article-news-listing Section -->
     <!-- Video section -->
-    <?php include('sports-videos.php'); ?>  
+    <?php //include('sports-videos.php'); ?>  
     <!-- Video section -->
     <!-- article-news-listing Section -->
      <?php //include('national-four.php'); ?>

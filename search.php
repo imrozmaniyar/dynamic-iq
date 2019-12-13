@@ -10,7 +10,8 @@ $url = str_replace("-all","", $url);
 $explodeResultArray = str_replace("-"," ", $url);
 $keyword = mysql_escape_mimic($explodeResultArray);
 //echo $explodeResultArray;
-$keyword2 = str_replace(' ','|', $keyword);
+//$keyword2 = str_replace(' ','|', $keyword);
+$keyword2 = str_replace(' ',' ', $keyword);
 
 //echo $keyword2;
 ///for articles/////////////////
@@ -153,6 +154,7 @@ $strWhere5 = "gallery_url REGEXP ('($keywordC)') or gallery_keywords REGEXP('($k
 $photosSearchFull = $objphotosSearchFull->selectAll($strWhere5, 0, 4);
 ///for articles full /////////////////
 ?>
+
 <section>
       <div class="container">
       	<div class="search-nav">
@@ -234,8 +236,8 @@ $photosSearchFull = $objphotosSearchFull->selectAll($strWhere5, 0, 4);
 <?php elseif($tocond=='articles'):
 $aurl = str_replace("-articles","", $url);
 $keywordA = str_replace(" articles","",$keyword);
-$keywordB = str_replace("|articles","",$keywordA);
-$keywordC = str_replace(" ","|",$keywordB);
+$keywordB = str_replace(" articles","",$keywordA);
+$keywordC = str_replace(" "," ",$keywordB);
 //echo $keywordC;
 ///for articles full /////////////////
 $objArticleSearchFull = new db_article_master;
@@ -249,7 +251,7 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
           <h6 class="mt-5 mb-2 text-black font-weight-bold font-family-roboto text-uppercase"><?php echo str_replace("articles","",htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8'))?></h6>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs justify-content-end">
-            <?php if($tocond=='videos'):?>
+            <!-- <?php if($tocond=='videos'):?>
             <li class="nav-item nav-link active text-black"> ویڈیوز </li>	
             <?php else:?>
             <li class="nav-item"><a class="nav-link text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($aurl,ENT_QUOTES, 'UTF-8'))?>-videos">مضامین</a></li>
@@ -258,16 +260,16 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
             <li class="nav-item nav-link active text-black"> فوٹو  </li>	
             <?php else:?>
             <li class="nav-item"><a class="nav-link text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($aurl,ENT_QUOTES, 'UTF-8'))?>-photos">مضامین</a></li>
-            <?php endif;?>
+            <?php endif;?> -->
             <?php if($tocond=='articles'):?>
             <li class="nav-item nav-link active text-black"> مضامین </li>		
             <?php else:?>
             <li class="nav-item"><a class="nav-link text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($aurl,ENT_QUOTES, 'UTF-8'))?>-articles">مضامین</a></li>
             <?php endif;?>
             <?php if($tocond=='all'):?>
-            <li class="nav-item nav-link active text-black">  سب  </li>	
+            <li class="nav-item nav-link  text-black">  سب  </li>	
             <?php else:?>
-            <li class="nav-item"><a class="nav-link active text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($aurl,ENT_QUOTES, 'UTF-8'))?>-all">سب</a></li>
+            <li class="nav-item"><a class="nav-link  text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($aurl,ENT_QUOTES, 'UTF-8'))?>-all">سب</a></li>
         	<?php endif;?>
           </ul>
 	        <div class="" id="load_data_table">
@@ -328,7 +330,7 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
           <h6 class="mt-5 mb-2 text-black font-weight-bold font-family-roboto text-uppercase"><?php echo htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8')?></h6>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs justify-content-end">
-            <?php if($tocond=='videos'):?>
+            <!-- <?php if($tocond=='videos'):?>
             <li class="nav-item nav-link active text-black"> ویڈیوز </li>	
             <?php else:?>
             <li class="nav-item"><a class="nav-link text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8'))?>-videos">مضامین</a></li>
@@ -337,7 +339,7 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
             <li class="nav-item nav-link active text-black"> فوٹو  </li>	
             <?php else:?>
             <li class="nav-item"><a class="nav-link text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8'))?>-photos">مضامین</a></li>
-        	<?php endif;?>
+        	<?php endif;?> -->
             <?php if($tocond=='articles'):?>
             <li class="nav-item nav-link active text-black"> مضامین </li>		
             <?php else:?>
@@ -388,6 +390,7 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
                 </div>  
               </div>
               <div class="horizontal-border"></div>
+              <!-- <div class="horizontal-border"></div>
               <h6 class="mt-3 mb-0 text-black text-uppercase font-weight-bold"> فوٹو <span class="font-family-roboto ml-1"><?php echo htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8')?></span> </h6>
               <div class="row">
 				<?php            
@@ -421,8 +424,8 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
                 <div class="col-md-12 text-left mt-4">
                   <p><a href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8'))?>-photos" class="text-decoration-none"><i class="fa fa-caret-left text-black"></i><span class="text-black font-weight-bold ml-2">مزید دیکھیں</span></a></p>
                 </div>  
-              </div>
-              <div class="horizontal-border"></div>
+              </div> -->
+              <!-- <div class="horizontal-border"></div>
 				<h6 class="mt-3 mb-0 text-black text-uppercase font-weight-bold"> فوٹو   <span class="font-family-roboto ml-1"><?php echo htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8')?></span> </h6>
               <div class="row">
 				<?php            
@@ -457,7 +460,7 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
                 <div class="col-md-12 text-left mt-4">
                   <p><a href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8'))?>-videos" class="text-decoration-none"><i class="fa fa-caret-left text-black"></i><span class="text-black font-weight-bold ml-2">مزید دیکھیں</span></a></p>
                 </div>  
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -488,66 +491,6 @@ $(document).ready(function(){
                       $('#load_data_table').append(data);  
                     }  else  {  
                       $('#btn_more').html("No Data");  
-                    }  
-                }  
-            }); 
-          } 
-            return false;
-        });  
-    });  
-</script>
-<script>  
-$(document).ready(function(){  
-    $(document).on('click', '#btn_more1', function(){  
-        var last_blog_id1 = $(this).data("bid1");  
-        var last_blog_key1 = $(this).data("key1");  
-        //alert(last_blog_key);
-          if (last_blog_id1 != 'end') { 
-            $('#btn_more1').html("Loading..."); 
-            $.ajax({  
-              url:"<?php echo $domain?>photo-paging.php",  
-              method:"POST",  
-              data:{last_blog_id1:last_blog_id1,last_blog_key1:last_blog_key1},  
-              //data:{last_blog_key:last_blog_key},  
-              dataType:"text",  
-              success:function(data)  
-                {  
-                  if(data != '')  
-                    {  
-                      $('#remove_row1').remove();  
-                      $('#load_data_tablep').append(data);  
-                    }  else  {  
-                      $('#btn_more1').html("No Data");  
-                    }  
-                }  
-            }); 
-          } 
-            return false;
-        });  
-    });  
-</script>
-<script>  
-$(document).ready(function(){  
-    $(document).on('click', '#btn_more2', function(){  
-        var last_blog_id2 = $(this).data("bid2");  
-        var last_blog_key2 = $(this).data("key2");  
-        //alert(last_blog_key);
-          if (last_blog_id2 != 'end') { 
-            $('#btn_more2').html("Loading..."); 
-            $.ajax({  
-              url:"<?php echo $domain?>video-paging.php",  
-              method:"POST",  
-              data:{last_blog_id2:last_blog_id2,last_blog_key2:last_blog_key2},  
-              //data:{last_blog_key:last_blog_key},  
-              dataType:"text",  
-              success:function(data)  
-                {  
-                  if(data != '')  
-                    {  
-                      $('#remove_row2').remove();  
-                      $('#load_data_tablev').append(data);  
-                    }  else  {  
-                      $('#btn_more2').html("No Data");  
                     }  
                 }  
             }); 

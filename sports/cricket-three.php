@@ -5,7 +5,7 @@ $cricketThree    = $objcricketThree->selectAll($strWhere, 10, 3);
 ?>
 <section class="mt-3">
   <div class="container clearfix">
- <h2 class="article-news-listing-title" Alt="Cricket" Title="Cricket"> کرکٹ۔  </h2>
+ <h2 class="article-news-listing-title" Alt="Cricket" Title="Cricket"> ککرکٹ </h2>
 <?php
   if ($cricketThree[0] > 0):
     $i = 1;

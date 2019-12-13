@@ -84,10 +84,15 @@ $stractive			       = $objbmaster->Get_active();
 							<div class="col-md-6"><input type="text" class="form-control" name="txturl" id="txturl" size="55" required="required" placeholder="Article Page Url" value="<?php echo htmlspecialchars($article_page_url,ENT_QUOTES, 'UTF-8');?>"><br><font color="Red">Note : The URL entry will be in english only</font></div>
 						</div>
 						<?php endif?>	
-						<div class="form-group" align="left">
+<!-- 						<div class="form-group" align="left">
 							<label class="col-md-3 control-label" for="inputDefault">Article Short Description</label>
 							<div class="col-md-6"><textarea name="txtshortdesc" id="txtshortdesc" class="" rows="4" cols="85" data-plugin-maxlength maxlength="250"><?php echo htmlspecialchars($article_short_description,ENT_QUOTES, 'UTF-8');?></textarea><p><code>Count</code> 250.</p></div>
 						</div>
+ -->						<div class="form-group" align="left">
+							<label class="col-md-3 control-label" for="inputDefault">Article Short Description</label>
+							<div class="col-md-6"><textarea name="txtshortdesc" id="txtshortdesc" class="" rows="4" cols="85"><?php echo htmlspecialchars($article_short_description,ENT_QUOTES, 'UTF-8');?></textarea></div>
+						</div>
+
 						<div class="form-group" align="left">
 							<label class="col-md-3 control-label" for="inputDefault">Article Description<br><font color='Red'><b>Type on : <a href="http://www.write-urdu.com/" target="_blank" style="text-decoration:none; text-decoration-color:red; ">http://www.write-urdu.com/</a></b></font></label>
 							<div class="col-md-6"><textarea class="" name="txtstory"  id="txtstory" rows="20" cols="80" ><?php echo htmlspecialchars($article_description,ENT_QUOTES, 'UTF-8');?></textarea></div>

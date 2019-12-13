@@ -65,13 +65,24 @@
                   <h1 class="first-section-title text-right mt-2"><?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?></h1>
                   <p class="text-right first-section-desc"><?php echo htmlspecialchars($ahps,ENT_QUOTES, 'UTF-8')?></p>
                 </a>
+                <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile): 
+     else:
+ ?>
+
                 <a href="<?php echo $domain?>features/columnists" class="text-right read-more mt-1" alt="More" title="More">مزید </a>
+                 <?php endif;?>
               </div>
           <?php
             endwhile;
           endif;  
           ?>    
             </div>  
+                           <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile): 
+
+ ?>
+
+                <a href="<?php echo $domain?>features/columnists" class="text-right read-more mt-1" alt="More" title="More">مزید </a>
+                 <?php endif;?>
           </div>
         </div>
       </div>

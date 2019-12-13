@@ -5,7 +5,7 @@ $last_blog_id = $_POST['last_blog_id'];
 if (isset($last_blog_id) && is_numeric($last_blog_id)) {
 $last_blog_id = $_POST['last_blog_id'];
 $objentfPaging  = new db_article_master;
-$strWhere1 = "article_id < $last_blog_id and category_id=23 and sub_category_id=21 and active='Y'";
+$strWhere1 = "article_id < $last_blog_id and category_id=17 and sub_category_id=23 and active='Y'";
 $entfPaging     = $objentfPaging->selectAll($strWhere1, 0, 3);
 ?>
 

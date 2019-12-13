@@ -13,7 +13,7 @@ $releatedNews = $objreleatedNews->selectAll($strWhere1, 0, 4);
 ?>
 <section class="mt-3">
   <div class="container clearfix">
-  <h1 class="lifestyle-section-title"><a href="#">متعلقہ خبریں۔</a></h1>
+  <h1 class="lifestyle-section-title">  متعلقہ خبریں  </h1>
     <div class="row mt-3">
 <?php
     if ($releatedNews[0]           > 0):

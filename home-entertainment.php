@@ -1,5 +1,5 @@
 <div class="col-md-4 vertical-border-content-seperator order-2 order-md-0">
-<h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domai?>entertainment" alt="Entertainment" Title="Entertainment">طفریح </a></h1>
+<h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domai?>lifestyle" alt="Lifestyle" Title="Lifestyle">  طرزِ زندگی      </a></h1>
 <?php
  if ($EntPhoto[0] > 0):
         $i = 1;
@@ -122,5 +122,5 @@ endif;
 	endwhile;
 endif;	
 ?>	
-	<a href="<?php echo $domai?>entertainment" class="float-left read-more mt-3" alt="Entertainment News" title="Entertainment News">مزید </a>
+	<a href="<?php echo $domai?>lifestyle" class="float-left read-more mt-3" alt="Lifestyle News" title="Lifestyle News">مزید </a>
 </div>

@@ -4,9 +4,9 @@ include('../top.php'); ?>
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" alt="Entertainment" title="Entertainment"> تفریحات  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>photos" class="text-black" alt="Photos" title="Photos">  ویڈیوز </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black" alt="Home" title="Home">  ابتداء   </a></li>
+            <li class="breadcrumb-item font-weight-bold text-black" alt="Entertainment" title="Entertainment">فریحات  </li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>photos" alt="Photos" title="Photos">  ویڈیوز </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>"  alt="Home" title="Home">  ابتداء   </a></li>
           </ol>
           </ol>
         </nav>
@@ -19,15 +19,15 @@ include('../top.php'); ?>
     <?php include('pent-two.php'); ?>
             <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
     <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
-    <div class="horizontal-border mt-3"></div>
+    <!-- <div class="horizontal-border mt-3"></div> -->
     <?php endif;?>
     <!-- Entertainment Photos Section -->
 
     <!-- photo section -->
-   <?php include('pent-videos.php'); ?>
+   <?php //include('pent-videos.php'); ?>
     <!-- photo section -->
     <!-- Entertainment Photos Section -->
-<?php
+<!-- <?php
 $objentvFour = new db_gallery_master;
 $strWhere = "category_id=15 and gallery_date1<='$shedate' and gallery_epoch<=$timestamp and active='Y'";
 $entvFour    = $objentvFour->selectAll($strWhere, 10, 9);
@@ -65,7 +65,7 @@ $entvFour    = $objentvFour->selectAll($strWhere, 10, 9);
       <?php if ($entvFour[0] != 9) { ?><div id="remove_row"><div class="mt-5 mb-5"><img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center" data-bid="<?php echo $aID; ?>" id="btn_more"></div></div><?php } ?>   
 
   </div>
-    </section>
+    </section> -->
     <!-- Entertainment Photos Section -->
 <?php include('../bottom.php'); ?>
  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->

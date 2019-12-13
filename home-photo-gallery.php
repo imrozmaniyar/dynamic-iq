@@ -2,7 +2,7 @@
 <section class="mt-3">
   <div class="container clearfix">
     <div class="photo-section-bg p-3">
-      <div class="col-md-12"><h1 class="photo-section-title"><a href="<?php echo $domain?>photos" class="text-white" alt="Photos" title="Photos">تصاوی</a></h1></div>
+      <div class="col-md-12"><h1 class="photo-section-title"><a href="<?php echo $domain?>photos" class="text-white" alt="Photos" title="Photos">  تصاویر  </a></h1></div>
       <div class="row">
         <?php
         if ($homephoto[0] > 0):

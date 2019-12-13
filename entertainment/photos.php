@@ -24,7 +24,7 @@ $plsql = "SELECT MAX(gallery_id) FROM gallery_master WHERE category_id = $Gcat a
 $last1234 = mysql_query($plsql);
 $num_count1234 = mysql_fetch_row($last1234);
 $next_slide_id = $num_count1234[0];
-
+if($next_slide_id!=''):
 $objMaingallery1    = new db_gallery_master($next_slide_id);
 //$GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
 $GalleryHeadLine1   = $objMaingallery1->Get_gallery_name(); 
@@ -49,15 +49,15 @@ $objgalleryR = new db_gallery_master;
 $strWhere2 = "category_id=$Gcat and active='Y' and gallery_id !=$id and gallery_id !=$next_slide_id";
 $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
 ///for releated gallery/////
+endif;
 ?>
     <section>
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" class="" title="Photos"> تصویریں  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>news" class="" title="News"> خبریں  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="" title="Home"> گھر  </a></li>
-          </ol>
+            <!-- <li class="breadcrumb-item font-weight-bold text-black" class="" title="Photos"> تصویریں  </li> -->
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>entertainment" class="" title="entertainment"> تفریحات </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="" title="Home">  ابتداء  </a></li>
           </ol>
         </nav>
         <div class="row mt-3">
@@ -99,8 +99,9 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
       </div>  
     </section>
     <!-- first section -->
+        <!-- New photo Section -->
+    <!-- <?php if($next_slide_id!=''):?>
 
-    <!-- New photo Section -->
     <section class="mt-3">
       <div class="photo-details-bg-seperator">
         <p class="text-center text-black pt-3 pb-3 font-weight-bold" title="Next Gallery">اگلی گیلری</p>
@@ -108,10 +109,9 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" class="" title="Photos"> تصویریں  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>news" class="" title="News"> خبریں  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="" title="Home"> گھر  </a></li>
-          </ol>
+           <li class="breadcrumb-item font-weight-bold text-black" class="" title="Photos"> تصویریں  </li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>entertainment" class="" title="entertainment"> تفریحات </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="" title="Home">  ابتداء </a></li>
           </ol>
         </nav>
         <div class="row mt-3">
@@ -150,11 +150,13 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
         </div>  
       </div>
     </section>
+  <?php endif;?> -->
     <!-- New photo Section -->
     <!-- Related News -->
+     <?php if($next_slide_id!=''):?>
     <section class="mt-3">
       <div class="container clearfix">
-        <h1 class="lifestyle-section-title"><a href="#">متعلقہ خبریں۔</a></h1>
+        <h1 class="lifestyle-section-title">  متعلقہ خبریں   </h1>
         <div class="row mt-3">
           <?php
               if ($galleryR[0] > 0):
@@ -180,6 +182,7 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
         </div>
       </div>  
     </section>
+  <?php endif;?>
     <!-- Related News -->
     <?php include('../bottom.php'); ?>  
       <?php if($uid==""):?>
