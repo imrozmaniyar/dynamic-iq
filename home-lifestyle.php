@@ -1,6 +1,6 @@
 <!-- Entertainment Section -->
 <div class="col-md-7 order-0 order-md-1 col-lg-8">
-  <h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domain?>lifestyle">طرز زندگی۔  </a></h1>
+  <h1 class="lifestyle-section-title mb-3"><a href="<?php echo $domain?>entertainment" alt="Entertainment" title="Entertainment"> تفریح  </a></h1>
   <div class="row mt-3">
 <?php
  if ($lifestyle[0] > 0):
@@ -58,15 +58,17 @@
 ?>    
     <div class="col-md-6 col-6">
       <div class="pl-lg-4">
-        <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block lifestyle-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
-        <a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href"><p class="lifestyle-section-desc pr-1 pt-2"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p></a>
+        <a href="<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
+        <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block lifestyle-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
+        <p class="lifestyle-section-desc pr-1 pt-2"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p>
+        </a>
       </div>
     </div>
 <?php
   endwhile;
 endif;
 ?>    
-    <a href="<?php echo $domain?>lifestyle" class="float-left read-more-sports-entertainment pr-md-4 pl-md-4">مزید </a>
+    <a href="<?php echo $domain?>entertainment" class="float-left read-more pr-md-4 pl-md-4 float-left read-more mt-3" alt="Entertainment News" title="Entertainment News">مزید </a>
   </div>
 </div>
 <!-- Entertainment Section -->

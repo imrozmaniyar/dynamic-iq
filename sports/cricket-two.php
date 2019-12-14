@@ -1,11 +1,11 @@
 <?php
 $objcricketTwo = new db_article_master;
-$strWhere = "category_id=16 and sub_category_id=17 and active='Y'";
+$strWhere = "category_id=16 and sub_category_id=17 and article_date1 <='$shedate' and article_epoch<=$timestamp and active='Y'";
 $cricketTwo    = $objcricketTwo->selectAll($strWhere, 7, 3);
 ?>
 <section class="mt-3 pt-1">
   <div class="container clearfix">
-    <h2 class="article-news-listing-title"> کرکٹ۔  </h2>
+    <h2 class="article-news-listing-title" Alt="Cricket" Title="Cricket"> کرکٹ۔  </h2>
 <?php
   if ($cricketTwo[0] > 0):
     $i = 1;
@@ -27,6 +27,7 @@ $cricketTwo    = $objcricketTwo->selectAll($strWhere, 7, 3);
     $year1        = date("Y",$da);
     $day1         = date("d",$da);              
     $aTime        = $objcricketTwos->article_time;
+    $aTime           = date("g:i a", strtotime($aTime));
    $i=$i+1;  
    ?>    
     <div class="row mt-3">
@@ -40,7 +41,7 @@ $cricketTwo    = $objcricketTwo->selectAll($strWhere, 7, 3);
         <?php endif;?>
         
       </div>
-      <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>sports/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center"></div></a></div>
+      <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>sports/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center news-business-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>"></div></a></div>
     </div>
 <?php
   endwhile;

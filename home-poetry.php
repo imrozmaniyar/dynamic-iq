@@ -18,7 +18,7 @@
               <img src="images/poetry_pen.png" class="img-fluid mx-auto d-block" alt="">
             </div>
             <div class="col-md-2 mt-xs-2">
-              <img src="<?php echo htmlspecialchars($pimage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block mt-2 rounded-circle" alt="">
+              <img src="<?php echo htmlspecialchars($pimage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block mt-2 rounded-circle" alt="<?php echo htmlspecialchars($title,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($title,ENT_QUOTES, 'UTF-8')?>">
               <p class="text-center text-white font-weight-bold mt-3"><?php echo htmlspecialchars($title,ENT_QUOTES, 'UTF-8')?></p>
             </div>
             <div class="col-md-6">

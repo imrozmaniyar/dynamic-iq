@@ -131,7 +131,8 @@ switch ($mode):
         endif;
 endswitch;     
     $_SESSION['security_code_used'] += 1;
-    header("Location:register/".$msgid);
+    //header("Location:register/".$msgid);
+    header("Location:$domain"."confirmation");
     exit();
 else:
 ?>

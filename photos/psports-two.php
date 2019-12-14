@@ -1,11 +1,11 @@
 <?php
 $objentvTwo = new db_gallery_master;
-$strWhere = "category_id=16 and active='Y'";
+$strWhere = "category_id=16 and gallery_date1<='$shedate' and gallery_epoch<=$timestamp and active='Y'";
 $entvTwo    = $objentvTwo->selectAll($strWhere, 7, 3);
 ?>
     <section class="mt-3">
       <div class="container clearfix">
-        <h2 class="article-news-listing-title"><a href="#" class="article-news-listing-title"> کھیل  </a></h2>
+        <h2 class="article-news-listing-title mb-0" alt="Sports" title="Sports"> کھیل کود </h2>
         <div class="row mt-4">
         <?php
 
@@ -22,8 +22,8 @@ $entvTwo    = $objentvTwo->selectAll($strWhere, 7, 3);
           <div class="col-md-4 order-2 order-md-0">
               <a href="<?php echo $domain?>sports/photos/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>" class="home-href">
               <div class="card-shadow zoom">
-                <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="">
-                <i class="fa fa-camera photo-camera-icon-single-mobile-grid" aria-hidden="true"></i>
+                <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
+                <i class="fa fa-camera photo-camera-icon-grid-3" aria-hidden="true"></i>
                 <p class="first-section-sub-desc"><?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?></p>
               </div>
             </a>

@@ -11,7 +11,7 @@
               <input type="image" src="<?php echo $domain?>images/submit-password.png" class="img-fluid mx-auto" border="0" alt="Submit">
               <h5 class="text-center text-black font-family-roboto font-weight-normal mt-4 mb-4">OR</h5>
               <h4 class="text-center text-black font-family-roboto font-weight-bold mt-4 mb-4">Existing User?</h4>
-              <p class="text-center font-family-roboto font-weight-bold mt-4 mb-4 login-text"><a href="#" class="login-text">Log In</a></p>
+              <p class="text-center font-family-roboto font-weight-bold mt-4 mb-4 login-text"><a href="<?php echo $domain?>login" class="login-text">Log In</a></p>
             </form>  
           </div>
         </div>  

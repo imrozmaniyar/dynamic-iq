@@ -64,7 +64,7 @@
         </div>  
         <div class="col-md-6 order-1 order-md-2">
           <a href="<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
-            <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid d-block mx-auto" alt="" width="525px;" height="300px;"></a><div class="latest-text">Latest</div></div>
+            <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid d-block mx-auto first-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>"></a><div class="latest-text">Latest</div></div>
       </div>
       <?php
         endwhile;
@@ -130,7 +130,7 @@
       ?>        
         <div class="col-md-3 zoom col-6 mt-3 mt-md-3">
           <a href="<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
-            <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" style="height:165px;" class="img-fluid mx-auto d-block" alt="">
+            <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block first-section-sub-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
             <i class="<?php echo htmlspecialchars($fafa,ENT_QUOTES, 'UTF-8')?>" aria-hidden="true"></i>
             <p class="first-section-sub-desc"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p>
           </a>

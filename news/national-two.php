@@ -1,11 +1,11 @@
 <?php
 $objnewsnationalTwo = new db_article_master;
-$strWhere = "category_id=14 and sub_category_id=11 and active='Y'";
+$strWhere = "category_id=14 and sub_category_id=11 and article_date1 <='$shedate' and article_epoch<=$timestamp and active='Y'";
 $newsnationalTwo    = $objnewsnationalTwo->selectAll($strWhere, 7, 3);
 ?>
 <section class="mt-3 pt-1">
   <div class="container clearfix">
-    <h2 class="article-news-listing-title"> قومی  </h2>
+    <h2 class="article-news-listing-title" alt="National" title="National"> وطن</h2>
 <?php
   if ($newsnationalTwo[0] > 0):
     $i = 1;
@@ -27,6 +27,7 @@ $newsnationalTwo    = $objnewsnationalTwo->selectAll($strWhere, 7, 3);
     $year1        = date("Y",$da);
     $day1         = date("d",$da);
     $aTime        = $objnewsnationalTwos->article_time;
+    $aTime           = date("g:i a", strtotime($aTime));
    $i=$i+1;  
    ?>    
     <div class="row mt-3">
@@ -39,7 +40,7 @@ $newsnationalTwo    = $objnewsnationalTwo->selectAll($strWhere, 7, 3);
           <p class="news-details-author mt-3 font-weight-normal"><?php echo htmlspecialchars($month1,ENT_QUOTES, 'UTF-8')?> <?php echo  htmlspecialchars($day1,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($year1,ENT_QUOTES, 'UTF-8')?>, <?php echo  htmlspecialchars($aTime,ENT_QUOTES, 'UTF-8')?> IST</p>            
         <?php endif;?>
       </div>
-      <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>news/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center news-business-img"></div></a></div>
+      <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>news/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center news-business-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>"></div></a></div>
     </div>
 <?php
   endwhile;

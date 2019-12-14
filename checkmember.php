@@ -5,7 +5,25 @@ include_once(DIR_WS_CLASS_SITE."db_registration_master.php");
 $url = htmlspecialchars($_POST["txturllogin"], ENT_QUOTES, 'UTF-8');
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && trim($_POST['txtemailaddress']) !== ''){
 	$email       = $_POST['txtemailaddress'];
-	$pass        = $_POST['txtpassword1'];
+
+		$query1 = "Select * from registration_master where user_email='$email'";
+		$result1 = mysqli_query($con, $query1);
+		if(mysqli_num_rows($result1)==0){
+			$row1 = mysqli_fetch_array($result1);
+			$user_email = $row['user_email'];	
+			if($user_email!=$email){
+			header("Location:$domain"."create-account");
+			exit();								
+			}
+		}
+	/*$obj1         = new db_registration_master();
+	$obj1->set_user_email($email);
+	$userid1  = $obj1->selectAll("user_email!='" . $email . "'");
+	if ($userid1[0]==0){
+		header("Location:$domain"."create-account");
+		exit();				
+	}*/	
+		$pass        = $_POST['txtpassword1'];
 		$query = "Select * from registration_master where user_email='$email'";
 		$result = mysqli_query($con, $query);
 		if(mysqli_num_rows($result)>0){

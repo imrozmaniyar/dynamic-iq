@@ -1,7 +1,7 @@
 <section class="mt-3">
   <div class="container clearfix">
     <div class="news-section-bg p-3">
-      <div class="col-md-12"><h1 class="lifestyle-section-title"><a href="<?php echo $domain?>sports/other-sports"> دوسرے کھیل  </a></h1></div>
+      <div class="col-md-12"><h1 class="lifestyle-section-title"><a href="<?php echo $domain?>sports/other-sports" Alt="Other Sports" title="Other Sports"> دیگر </a></h1></div>
       <div class="news-section-inner-bg p-3">
         <div class="row">
           <div class="col-md-7 order-1 order-md-0">
@@ -27,7 +27,7 @@
           ?>  
               <div class="col-md-6">
                 <a href="<?php echo $domain?>sports/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
-                  <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
+                  <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block news-national-section-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
                   <p class="lifestyle-section-desc pr-1 pt-2"><?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?></p>
                 </a>
               </div> 
@@ -60,17 +60,28 @@
           ?>           
           <div class="col-md-5 order-0 order-md-1">
             <a href="<?php echo $domain?>sports/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
-              <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid d-block mx-auto" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
+              <img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid d-block mx-auto news-national-sub-section-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>">
               <h1 class="first-section-title text-right mt-2"><?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?></h1>
               <p class="text-right first-section-desc"><?php echo htmlspecialchars($ahps,ENT_QUOTES, 'UTF-8')?></p>
             </a>
-            <a href="<?php echo $domain?>sports/other-sports" class="text-right read-more mt-1">مزید </a>
+                          <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile): 
+                  else:
+                ?>
+
+            <a href="<?php echo $domain?>sports/other-sports" class="text-right read-more mt-1" alt="More" Title="More">مزید </a>
+              <?php endif;?>
           </div>
           <?php
             endwhile;
           endif;  
           ?>
-        </div>  
+        </div> 
+         </a>
+                          <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile): 
+                  
+                ?>
+             <a href="<?php echo $domain?>sports/other-sports" class="text-right read-more mt-1" alt="More" Title="More">مزید </a>
+              <?php endif;?>
       </div>
     </div>
   </div>

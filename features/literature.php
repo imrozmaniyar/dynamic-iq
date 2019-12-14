@@ -4,14 +4,18 @@
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#">  ادب   </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>features" class="text-black"> خصوصیات   </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black"> گھر</a></li>
+            <li class="breadcrumb-item font-weight-bold text-black" alt="literature" title="literature"> ادب </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>features" alt="Features" title="Features"> فیچرس </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" alt="Home" title="Home">  ابتداء  </a></li>
           </ol>
           </ol>
         </nav>
         <?php include('literature-one.php'); ?>        
       </div>  
+          <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
+    <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
+    <!-- <div class="horizontal-border mt-3"></div> -->
+    <?php endif;?>  
     </section>
     <!-- first section -->
     <!-- article-news-listing Section -->
@@ -30,12 +34,12 @@
      <?php //include('national-four.php'); ?>
 <?php
 $objentfFour = new db_article_master;
-$strWhere = "category_id=17 and sub_category_id=23 and active='Y'";
+$strWhere = "category_id=17 and sub_category_id=23 and article_date1<='$shedate' and article_epoch<=$timestamp and active='Y'";
 $entfFour    = $objentfFour->selectAll($strWhere, 7, 3);
 ?>    
 <section class="mt-3">
   <div class="container clearfix" id="load_data_table">
-    <h2 class="article-news-listing-title">   ادب     </h2>
+    <h2 class="article-news-listing-title" alt="literature" title="literature">  ادب و ثقافت    </h2>
 <?php
   if ($entfFour[0] > 0):
     $i = 1;
@@ -55,8 +59,9 @@ $entfFour    = $objentfFour->selectAll($strWhere, 7, 3);
     $da           = strtotime($aDate1);
     $month1       = date('F', $da);
     $year1        = date("Y",$da);
-    $day1         = date("d",$da)              
+    $day1         = date("d",$da);             
     $aTime        = $objentfFours->article_time;
+       $aTime           = date("g:i a", strtotime($aTime));
    $i=$i+1;  
  ?>    
       <div class="row mt-3">
@@ -70,25 +75,18 @@ $entfFour    = $objentfFour->selectAll($strWhere, 7, 3);
         <?php endif;?>        
           
         </div>
-        <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>features/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center"></div></a></div>
+        <div class="col-md-3 order-0 order-md-1"><a href="<?php echo $domain?>features/articles/<?php echo htmlspecialchars($apu1,ENT_QUOTES, 'UTF-8')?>-<?php echo htmlspecialchars($aID,ENT_QUOTES, 'UTF-8')?>"><div class="bg-grey-mobile"><img src="<?php echo htmlspecialchars($aImage,ENT_QUOTES, 'UTF-8')?>" class="media-object img-fluid d-block mx-auto align-self-center news-business-img" alt="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($ahp,ENT_QUOTES, 'UTF-8')?>"></div></a></div>
       </div>
 <?php
   endwhile;
 endif;
 ?>      
-      <!--div class="mt-5 mb-5">
-        <a href="#">
-          <img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center">
-        </a>
-      </div-->  
-
-      <?php if ($entfFour[0] != 3) { ?><div class="mt-5 mb-5"><div id="remove_row"><img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center" data-bid="<?php echo $aID; ?>" id="btn_more"></div></div><?php } ?>   
+      <?php if ($entfFour[0] != 3) { ?><div id="remove_row"><div class="mt-5 mb-5"><img src="<?php echo $domain?>images/load-more-btn.png" class="img-fluid d-block mx-auto align-self-center" data-bid="<?php echo $aID; ?>" id="btn_more"></div></div><?php } ?>   
 </section>
 
 
     <!-- article-news-listing Section -->
     <?php include('../bottom.php'); ?>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script>  
 $(document).ready(function(){  
     $(document).on('click', '#btn_more', function(){  

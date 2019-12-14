@@ -3,7 +3,6 @@ $url=basename(mysql_escape_mimic($_SERVER['REQUEST_URI']));
 $explodeResultArray = end(explode("-", $url)); 
 $id = intval($explodeResultArray);
 $objMaingallery    = new db_gallery_master($id);
-//$GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
 $GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
 $GDate             = $objMaingallery->Get_gallery_date();         
 $time              = strtotime($GDate);
@@ -25,7 +24,7 @@ $plsql = "SELECT MAX(gallery_id) FROM gallery_master WHERE category_id = $Gcat a
 $last1234 = mysql_query($plsql);
 $num_count1234 = mysql_fetch_row($last1234);
 $next_slide_id = $num_count1234[0];
-
+if($next_slide_id!=''):
 $objMaingallery1    = new db_gallery_master($next_slide_id);
 //$GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
 $GalleryHeadLine1   = $objMaingallery1->Get_gallery_name(); 
@@ -47,18 +46,19 @@ $galleryChild1   = $objgalleryChild1->selectAll($strWhere1, null, null);
 
 ///for releated gallery/////
 $objgalleryR = new db_gallery_master;
-$strWhere2 = "category_id=$Gcat and active='Y' and gallery_id !=$id and gallery_id !=$next_slide_id";
+$strWhere2 = "category_id=$Gcat and active='Y' and gallery_id !=$id";
 $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
 ///for releated gallery/////
+endif;
 ?>
     <section>
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" class="" title="Photos"> تصویریں  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>news" class="" title="News"> خبریں  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="" title="Home"> گھر  </a></li>
-          </ol>
+            <!-- <li class="breadcrumb-item font-weight-bold text-black" class="" title="Photos"> تصویریں  </li> -->
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>sports" class="" title="Sports"> کھیل کود
+ </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="" title="Home"> ابتداء</a></li>
           </ol>
         </nav>
         <div class="row mt-3">
@@ -100,8 +100,9 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
       </div>  
     </section>
     <!-- first section -->
+        <!-- New photo Section -->
+<!-- <?php if($next_slide_id!=''):?>
 
-    <!-- New photo Section -->
     <section class="mt-3">
       <div class="photo-details-bg-seperator">
         <p class="text-center text-black pt-3 pb-3 font-weight-bold" title="Next Gallery">اگلی گیلری</p>
@@ -109,10 +110,11 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
       <div class="container clearfix">
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
-            <li class="breadcrumb-item font-weight-bold"><a href="#" class="" title="Photos"> تصویریں  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>news" class="" title="News"> خبریں  </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="" title="Home"> گھر  </a></li>
-          </ol>
+            <li class="breadcrumb-item font-weight-bold text-black" class="" title="Photos"> تصویریں  </li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>sports" class="" title="Sports"> کھیل کود
+ </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="" title="Home"> ابتداء</a></li>
+
           </ol>
         </nav>
         <div class="row mt-3">
@@ -151,11 +153,13 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
         </div>  
       </div>
     </section>
+  <?php endif;?> -->
     <!-- New photo Section -->
     <!-- Related News -->
+
     <section class="mt-3">
       <div class="container clearfix">
-        <h1 class="lifestyle-section-title"><a href="#">متعلقہ خبریں۔</a></h1>
+        <h1 class="lifestyle-section-title">  متعلقہ خبریں   </h1>
         <div class="row mt-3">
           <?php
               if ($galleryR[0] > 0):
@@ -166,8 +170,10 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
                 $pID          = $galleryRs->gallery_id;
                 $pu           = str_replace($old_pattern1s, $new_pattern1s,$galleryRs->gallery_url);          
                 $url          = 'photos/'.$pu.'-'.$pID;
-                $x=$x+1;           
-          ?>          
+                $x=$x+1;  
+
+          ?>    
+
             <div class="col-md-3 zoom col-6">
               <a href="<?php echo $domain?>sports/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
                 <img src="<?php echo $domain?><?php echo htmlspecialchars($GCImageR,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block" alt="">
@@ -181,5 +187,34 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
         </div>
       </div>  
     </section>
+  
     <!-- Related News -->
     <?php include('../bottom.php'); ?>  
+      <?php if($uid==""):?>
+    <script>
+        var counter = 0;
+        function showalert() {
+            if (localStorage.clickcount > 2) {
+                alert("Login to read more news");
+                window.location="<?php echo $domain?>login";
+            return;
+            }else{
+                clickCounter()
+            }
+            counter++;
+        }
+        function clickCounter() {
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.clickcount < 3) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                // document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+        }
+        showalert();
+    </script>
+<?php endif;?> 

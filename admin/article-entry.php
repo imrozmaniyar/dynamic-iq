@@ -27,11 +27,13 @@ $admin_name 		       = $objbmaster->get_admin_name();
 $admin_name1 			   = $objbmaster->get_admin_name1();
 $article_byline 		   = $objbmaster->get_article_byline();
 $article_date 		       = $objbmaster->get_article_date();
-$time          = strtotime($article_date);
-$month         = date("M",$time);
-$year          = date("Y",$time);
-$article_date1 		       = $objbmaster->get_article_date1();
+$time         			   = strtotime($article_date);
+$month         			   = date("M",$time);
+$year          			   = date("Y",$time);
+$article_date1 		 	   = $objbmaster->get_article_date1();
+$article_date1 		 	   = date("m/d/Y", strtotime($article_date1) );
 $article_time 		       = $objbmaster->get_article_time();
+$article_time  			   = date("g:i a", strtotime($article_time));
 $article_location          = $objbmaster->get_article_location();
 $article_page_title        = $objbmaster->get_article_page_title();
 $article_meta_description  = $objbmaster->get_article_meta_description();
@@ -82,10 +84,15 @@ $stractive			       = $objbmaster->Get_active();
 							<div class="col-md-6"><input type="text" class="form-control" name="txturl" id="txturl" size="55" required="required" placeholder="Article Page Url" value="<?php echo htmlspecialchars($article_page_url,ENT_QUOTES, 'UTF-8');?>"><br><font color="Red">Note : The URL entry will be in english only</font></div>
 						</div>
 						<?php endif?>	
-						<div class="form-group" align="left">
+<!-- 						<div class="form-group" align="left">
 							<label class="col-md-3 control-label" for="inputDefault">Article Short Description</label>
 							<div class="col-md-6"><textarea name="txtshortdesc" id="txtshortdesc" class="" rows="4" cols="85" data-plugin-maxlength maxlength="250"><?php echo htmlspecialchars($article_short_description,ENT_QUOTES, 'UTF-8');?></textarea><p><code>Count</code> 250.</p></div>
 						</div>
+ -->						<div class="form-group" align="left">
+							<label class="col-md-3 control-label" for="inputDefault">Article Short Description</label>
+							<div class="col-md-6"><textarea name="txtshortdesc" id="txtshortdesc" class="" rows="4" cols="85"><?php echo htmlspecialchars($article_short_description,ENT_QUOTES, 'UTF-8');?></textarea></div>
+						</div>
+
 						<div class="form-group" align="left">
 							<label class="col-md-3 control-label" for="inputDefault">Article Description<br><font color='Red'><b>Type on : <a href="http://www.write-urdu.com/" target="_blank" style="text-decoration:none; text-decoration-color:red; ">http://www.write-urdu.com/</a></b></font></label>
 							<div class="col-md-6"><textarea class="" name="txtstory"  id="txtstory" rows="20" cols="80" ><?php echo htmlspecialchars($article_description,ENT_QUOTES, 'UTF-8');?></textarea></div>
@@ -153,7 +160,7 @@ $stractive			       = $objbmaster->Get_active();
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 										<?php if($mode=="Edit"):?>
-											<input type="text" name="txtDate" id="txtDate"  required="required" readonly value="<?php echo htmlspecialchars($article_date,ENT_QUOTES, 'UTF-8');?>">
+											<input type="text" name="txtDate" id="txtDate"  required="required" readonly value="<?php echo htmlspecialchars($article_date1,ENT_QUOTES, 'UTF-8');?>">
 										<?php else:?>
 											<input type='text' id='txtdate' name='txtdate' required="required" readonly/>
 										<?php endif;?>
@@ -195,7 +202,11 @@ $stractive			       = $objbmaster->Get_active();
 									<span class="input-group-addon">
 										<i class="fa fa-clock-o"></i>
 									</span>
+									<?php if($mode=='Edit'):?>
 									<input type="text" data-plugin-timepicker class="form-control" name="txttime" id="txttime" value="<?php echo htmlspecialchars($article_time,ENT_QUOTES, 'UTF-8');?>">
+									<?php else:?>
+									<input type="text" data-plugin-timepicker class="form-control" name="txttime" id="txttime">
+									<?php endif;?>								
 								</div>
 							</div>
 						</div>		
@@ -204,12 +215,12 @@ $stractive			       = $objbmaster->Get_active();
 							<div class="col-md-6"><input type="text" class="form-control" name="txtlocation" id="txtlocation" size="55" placeholder="Article Location" value="<?php echo htmlspecialchars($article_location,ENT_QUOTES, 'UTF-8');?>"></div>
 						</div>
 						<div class="form-group" align="left">
-							<label class="col-md-3 control-label" for="inputDefault">Article Page Title</label>
-							<div class="col-md-6"><input type="text" class="form-control" name="txttitle" id="txttitle" size="55" placeholder="Article Page Title" value="<?php echo htmlspecialchars($article_page_title,ENT_QUOTES, 'UTF-8');?>"></div>
+							<label class="col-md-3 control-label" for="inputDefault">Article Page Title<br><font color='Red'><b>(English Title | Urdu Title)*</b></font></label>
+							<div class="col-md-6"><input type="text" class="form-control" name="txttitle" id="txttitle" size="55" placeholder="Article Page Title" required="required" value="<?php echo htmlspecialchars($article_page_title,ENT_QUOTES, 'UTF-8');?>"></div>
 						</div>
 						<div class="form-group" align="left">
-							<label class="col-md-3 control-label" for="inputDefault">Article Meta Descripton</label>
-							<div class="col-md-6"><textarea name="txtdesc" id="txtdesc" class="" rows="4" cols="85"><?php echo htmlspecialchars($article_meta_description,ENT_QUOTES, 'UTF-8');?></textarea></div>
+							<label class="col-md-3 control-label" for="inputDefault">Article Meta Descripton<br><font color='Red'><b>(Use only English Text)*</b></font></label>
+							<div class="col-md-6"><textarea name="txtdesc" id="txtdesc" class="" rows="4" cols="85" required="required"><?php echo htmlspecialchars($article_meta_description,ENT_QUOTES, 'UTF-8');?></textarea></div>
 						</div>
 						<div class="form-group" align="left">
 							<label class="col-md-3 control-label" for="inputDefault">Article Meta Keywords</label>

@@ -1,6 +1,6 @@
 <?php include('../top.php');
-$url=basename(mysql_escape_mimic($_SERVER['REQUEST_URI']));
-$explodeResultArray = end(explode("-", $url)); 
+$urlg=basename(mysql_escape_mimic($_SERVER['REQUEST_URI']));
+$explodeResultArray = end(explode("-", $urlg)); 
 $id = intval($explodeResultArray);
 $objMaingallery    = new db_gallery_master($id);
 //$GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
@@ -88,7 +88,7 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
             endif;  
             ?>
           </div>
-          <div class="col-md-1 text-center order-0 order-md-1 mb-3 mb-md-0">
+          <div class="col-md-1 text-right order-0 order-md-1 mb-3 mb-md-0">
             <a href="https://www.facebook.com/sharer.php?u=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/fb-icon.png" class="img-fluid mx-auto"></a>
             <a href="https://twitter.com/share?url=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>&amp;text=<?php echo htmlspecialchars($articleHeadline,ENT_QUOTES, 'UTF-8')?>!&amp;amp;via=The Inquilab&amp;amp;" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/tweet-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
             <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile) :?>
@@ -183,3 +183,31 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
     </section>
     <!-- Related News -->
     <?php include('../bottom.php'); ?>  
+    <?php if($uid==""):?>
+    <script>
+        var counter = 0;
+        function showalert() {
+            if (localStorage.clickcount > 2) {
+                alert("Login to read more news");
+                window.location="<?php echo $domain?>login";
+            return;
+            }else{
+                clickCounter()
+            }
+            counter++;
+        }
+        function clickCounter() {
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.clickcount < 3) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                // document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+        }
+        showalert();
+    </script>
+<?php endif;?> 

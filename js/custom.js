@@ -53,4 +53,25 @@
             }, 100);
         }           
     });
+
+    $('#songs-search-form').on("click",(function(e){
+  $(".searchbar").addClass("sb-search-open");
+  $(".search_input").addClass("pl-3");
+    e.stopPropagation()
+  }));
+   $(document).on("click", function(e) {
+    if ($(e.target).is("#search") === false && $(".search_input").val().length == 0) {
+      $(".searchbar").removeClass("sb-search-open");
+      $(".search_input").removeClass("pl-3");
+    }
+  });
+    $(".search_icon").click(function(e){
+      $(".search-icon-js").each(function(){
+        if($(".search-icon-js").val().length == 0){
+
+          //e.preventDefault();
+        }
+    })
+  })
+
             });

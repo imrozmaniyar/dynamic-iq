@@ -31,46 +31,59 @@ body {
 }
 .btn-login:focus {box-shadow:none;}
 .searchbar{
-    margin-bottom: auto;
-    margin-top: auto;
     background-color: transparent;
-    border-radius: 30px;
+    border-radius: 40px;
     border: 1px solid #000;
+    position: relative;
+    width: 0%;
+    min-width: 40px;
+    height: 40px;
+    overflow: hidden;
+    transition: width 1s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .search_input{
     color: #000;
     border: 0;
-    outline: 0;
     background: none;
-    width: 0;
-    caret-color:transparent;
     line-height: 30px;
     transition: width 0.4s linear;
     font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    z-index: 10;
+    padding-left: 40px;
 }
 
-.searchbar:hover > .search_input{
+/*.searchbar:hover > .search_input{
     padding: 0 10px;
     width: 250px;
     caret-color:red;
     transition: width 0.4s linear;
-}
+}*/
 
 .searchbar:hover > .search_icon{
     background: white;
-    color: #e74c3c;
+    color: #000;
 }
 
 .search_icon{
-    height: 30px;
-    width: 30px;
-    float: right;
-    display: flex;
+   height: 40PX;
+    width: 40px;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     color: #000;
+    border: 0;
+    padding: 0;
+    background: #fff;
 }
 .right-topbar a {
     color: #555;
@@ -198,10 +211,20 @@ body {
     border-radius: 50%;
 }
 
+.photo-camera-icon-grid-3{
+    position: absolute;
+    top: 170px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px !important;
+    background: rgb(0, 0, 0, 0.6);
+    padding: 12px 12px 12px 12px;
+    border-radius: 50%;
+}
 .video-play-icon-grid-3 {
     position: absolute;
-    bottom: 100px;
-    right: 40px;
+    top: 170px;
+    right: 10px;
     color: #fff;
     font-size: 20px !important;
     background: rgb(0, 0, 0, 0.6);
@@ -244,6 +267,8 @@ body {
     font-weight: 600;
     line-height: 24px;
     text-decoration: underline;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .read-more-sports-entertainment {
@@ -356,6 +381,7 @@ position: relative;
     background: #787878;
     color: #fff;
     text-align: right;
+    padding: 0.5rem;
 }
 .news-details-title{
     font-size: 28px;
@@ -381,6 +407,14 @@ position: relative;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     padding: 3px 20px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+.btn-tag a{
+    color: #fff;
+}
+.mobile-logo{
+    width: 140px;
 }
 .btn-tag:hover{
     color: #fff;
@@ -575,13 +609,7 @@ position: relative;
 .first-section-desc{
     line-height: 30px;
 }
-.video-play-icon-grid-3 {
-    bottom: 135px;
-    right: 20px;
-    color: #fff;
-    font-size: 10px !important;
-    padding: 6px 6px 6px 10px;
-}
+
 .first-section-img{
     height: auto;
     width: auto;}
@@ -597,6 +625,14 @@ position: relative;
 
 }
 
+@media only screen and (max-width: 360px)  {
+    .mobile-logo{width: 100px;}
+    .video-play-icon {top: 50px;}
+    .photo-camera-icon{top: 50px;}
+    .photo-camera-icon-single-mobile-grid{top: 120px;}
+    .video-play-icon-single-mobile-grid {top: 120px;}
+
+}
 
 @media only screen 
   and (min-device-width: 768px) 

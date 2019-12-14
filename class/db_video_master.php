@@ -18,6 +18,7 @@ class db_video_master{
   var $_video_date;
   var $_video_date1;
   var $_video_time;
+  var $_video_epoch;
   var $_video_image;
   var $_video_image1;
   var $_video_image2;
@@ -42,6 +43,7 @@ function db_video_master($id  = NULL){
   $this->_video_date          = NULL;
   $this->_video_date1          = NULL;
   $this->_video_time          = NULL;
+  $this->_video_epoch         = NULL;
   $this->_video_image         = NULL;
   $this->_video_image1        = NULL;
   $this->_video_image2        = NULL;
@@ -71,6 +73,7 @@ function db_video_master($id  = NULL){
         $this->_video_date          = $o_result["video_date"];
         $this->_video_date1          = $o_result["video_date1"];
         $this->_video_time          = $o_result["video_time"];
+        $this->_video_epoch          = $o_result["video_epoch"];
         $this->_video_image         = $o_result["video_image"];
         $this->_video_image1        = $o_result["video_image1"];
         $this->_video_image2        = $o_result["video_image2"];
@@ -101,6 +104,7 @@ function db_video_master($id  = NULL){
             "video_date          ='" . replace_spl_chr($this->_video_date) . "'," .
             "video_date1          ='" . replace_spl_chr($this->_video_date1) . "'," .
             "video_time          ='" . replace_spl_chr($this->_video_time) . "'," .
+            "video_epoch         =" . replace_spl_chr($this->_video_epoch) . "," .
             "video_image         ='" . replace_spl_chr($this->_video_image) . "'," .
             "video_image1        ='" . replace_spl_chr($this->_video_image1) . "'," .
             "video_image2        ='" . replace_spl_chr($this->_video_image2) . "'," .
@@ -128,6 +132,7 @@ function db_video_master($id  = NULL){
                   video_date,
                   video_date1,
                   video_time,
+                  video_epoch,
                   video_image,
                   video_image1,
                   video_image2,
@@ -152,6 +157,7 @@ function db_video_master($id  = NULL){
                 '" . replace_spl_chr($this->_video_date) . "',
                 '" . replace_spl_chr($this->_video_date1) . "',
                 '" . replace_spl_chr($this->_video_time) . "',
+                " . replace_spl_chr($this->_video_epoch) . ",
                 '" . replace_spl_chr($this->_video_image) . "',
                 '" . replace_spl_chr($this->_video_image1) . "',
                 '" . replace_spl_chr($this->_video_image2) . "',
@@ -230,6 +236,7 @@ function selectAllGroup($strWhere = NULL, $cur = NULL, $max = NULL){
     function Get_video_date(){return $this->_video_date;}
     function Get_video_date1(){return $this->_video_date1;}
     function Get_video_time(){return $this->_video_time;}
+    function Get_video_epoch(){return $this->_video_epoch;}
     function Get_video_image(){return $this->_video_image;}
     function Get_video_image1(){return $this->_video_image1;}
     function Get_video_image2(){return $this->_video_image2;}
@@ -253,6 +260,7 @@ function selectAllGroup($strWhere = NULL, $cur = NULL, $max = NULL){
     function Set_video_date($_video_date){$this->_video_date = $_video_date;}
     function Set_video_date1($_video_date1){$this->_video_date1 = $_video_date1;}
     function Set_video_time($_video_time){$this->_video_time = $_video_time;}
+    function Set_video_epoch($_video_epoch){$this->_video_epoch = $_video_epoch;}
     function Set_video_image($_video_image){$this->_video_image = $_video_image;}
     function Set_video_image1($_video_image1){$this->_video_image1 = $_video_image1;}
     function Set_video_image2($_video_image2){$this->_video_image2 = $_video_image2;}

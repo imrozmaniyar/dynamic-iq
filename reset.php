@@ -23,9 +23,6 @@ $email = $_SESSION['email'];
 if(!isset($_POST['password'])):
 
     include_once 'reset_password_html.php';
-	echo 'ceome here12345678900000000000000000000000000000';
-	return;
-   
 endif;
 
 if(isset($_POST['password']) && isset($email)):

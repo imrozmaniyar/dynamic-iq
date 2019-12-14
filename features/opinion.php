@@ -87,7 +87,7 @@ endif;
 
     <!-- article-news-listing Section -->
     <?php include('../bottom.php'); ?>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
 <script>  
 $(document).ready(function(){  
     $(document).on('click', '#btn_more', function(){  

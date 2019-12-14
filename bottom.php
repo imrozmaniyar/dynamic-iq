@@ -1,4 +1,9 @@
  <!-- Footer Section -->
+<?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
+ <div class="container clearfix"><div style="margin-top: 5px; margin-right: 19px;"><div id="iq_pagepushMB"></div></div></div>
+ <?php else:?>
+<div class="container clearfix"><div style="margin-top: 8px; margin-right: 200px; margin-bottom: -16px;"><div id="iq_pagepushB"></div></div></div>             
+<?php endif;?>
     <section class="container-fluid footer-bg mt-4">
       <div class="container">
         <div class="row">
@@ -26,30 +31,23 @@
               <li class="list-inline-item mt-1 mt-md-0"><a href="https://www.inquilab.com" title="The Inquilab"><img src="<?php echo $domain?>images/footer-logo.png" class="img-fluid mx-auto" alt=""></a></li>
               <li class="list-inline-item ml-4 mt-5 mt-md-0"><a href="https://www.facebook.com/theinquilabin/" title="Facebook" target="_blank"><img src="<?php echo $domain?>images/facebook-icon.png" class="img-fluid mx-auto" alt=""></a></li>
               <li class="list-inline-item ml-4 mt-5 mt-md-0"><a href="https://twitter.com/theinquilabin" title="Twitter" target="_blank"><img src="<?php echo $domain?>images/twitter-icon.png" class="img-fluid mx-auto" alt=""></a></li>
-              <li class="list-inline-item ml-4 mt-5 mt-md-0"><a href="#"><img src="<?php echo $domain?>images/insta-icon.png" class="img-fluid mx-auto" alt=""></a></li>
+              <li class="list-inline-item ml-4 mt-5 mt-md-0"><a href="https://www.youtube.com/channel/UCn6dyhupxktN8sgBMRGaO_w" target="_blank"><img src="<?php echo $domain?>images/youtube-icon.png" class="img-fluid mx-auto" alt=""></a></li>
             </ul>
              <ul class="list-inline text-center mt-5 clearfix mb-5">
-              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="https://www.mid-day.com/about-us" title="About Us">About Us</a></li>
+              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>aboutus" title="About Us">About Us</a></li>
               <li class="list-inline-item text-white text-left mt-3 mt-md-0">|</li>
-              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="https://www.mid-day.com/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
               <li class="list-inline-item text-white text-left mt-3 mt-md-0">|</li>
-              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="https://www.mid-day.com/terms-and-conditions" title="Terms & Conditions">Terms & Conditions</a></li>
+              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>terms" title="Terms & Conditions">Terms & Conditions</a></li>
               <li class="list-inline-item text-white text-left mt-3 mt-md-0">|</li>
-              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="https://www.mid-day.com/contact-us" title="Contact Us">Contact Us</a></li>
+              <li class="list-inline-item text-white text-left mt-3 mt-md-0"><a href="<?php echo $domain?>contact" title="Contact Us">Contact Us</a></li>
             </ul>
           </div>  
         </div>  
       </div>  
     </section>
     <!-- Footer Section -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="<?php echo $domain?>js/popper.min.js"></script>
-    <script src="<?php echo $domain?>js/bootstrap.min.js"></script>
-    <script src="<?php echo $domain?>js/custom.js"></script>
-        <!-- start gdpr-->
+    <!-- start gdpr-->
 <div id="gdprbx">
    <div class="cookiebox">This website uses cookie or similar technologies, to enhance your browsing experience
       and provide personalised recommendations. By continuing to use our website, you agree
@@ -62,7 +60,16 @@
   @keyframes slideup{ 100% {transform: translateY(-100px); }}
   @-webkit-keyframes slideup{100% { -webkit-transform: translateY(-100px); }}
   @-moz-keyframes slideup{100% { -moz-transform: translateY(-100px); }}
-</style><script>
+</style>
+    <!-- end gdpr-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>var domain_name="<?php echo mysql_escape_mimic($domain)?>" </script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="<?php echo $domain?>js/popper.min.js"></script>
+    <script src="<?php echo $domain?>js/bootstrap.min.js"></script>
+    <script src="<?php echo $domain?>js/custom.js"></script>
+    <script>
       (function() { 
         var name = "gdpr-consent=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -71,7 +78,7 @@
           var c = ca[i];
           while (c.charAt(0) == ' ') {  c = c.substring(1);   }
           if (c.indexOf(name) == 0) {
-          console.log(c.substring(name.length, c.length));
+          //console.log(c.substring(name.length, c.length));
           document.getElementById('gdprbx').style.display='none';
           return c.substring(name.length, c.length);
           }
@@ -97,17 +104,60 @@
         setTimeout( function(){ $('.popEntBox').removeClass('slidepop');
         $('.alertPot').removeClass('closeArelt'); }, 5000);
       });
-    </script>    
-    <!-- end gdpr-->
-                  <script type="text/javascript">
-            $(document).on("submit", "#songs-search-form", function(e) {
-            e.preventDefault();
-            var a = $("#songs-search-text").val(),
-                t = domain_name + a + "-" + "all";
-                alert(t);
-                window.location = t
+    </script>  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" /> -->
+        <link rel="stylesheet" type="text/css" href="<?php echo $domain?>css/jquery-ui.css" />
+ <?php 
+      $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile');
+      if ($isMobile):    
+  ?>
+    <script type="text/javascript">
+        $(document).ready(function() {
+  $("#songsM-search-text").autocomplete({
+    source: '<?php echo $domain?>tags-json.php',
+    minLength: 3
+  });
+});
+    </script>  
+<?php else:?>
+    <script type="text/javascript">
+        $(document).ready(function() {
+  $("#songs-search-text").autocomplete({
+    source: '<?php echo $domain?>tags-json.php',
+    minLength: 3
+  });
+});
+    </script>   
+<?php endif;?>    
+ <?php 
+      $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile');
+      if ($isMobile):    
+  ?>
+    <script type="text/javascript">
+      $(document).on("submit", "#songsM-search-form", function(e) {
+        e.preventDefault();
+        var a = $("#songsM-search-text").val(),
+        a = a.replace(/\s+/g, "-");
+        t = domain_name +"search/"+a+"-all";
+          //alert(t);
+          window.location = t
               //  e(location.pathname);
-             })
-              </script>
+      });
+    </script>  
+  <?php else:?>      
+    <script type="text/javascript">
+      $(document).on("submit", "#songs-search-form", function(e) {
+        e.preventDefault();
+        var a = $("#songs-search-text").val(),
+        a = a.replace(/\s+/g, "-");
+        t = domain_name +"search/"+a+"-all";
+          //alert(t);
+          window.location = t
+              //  e(location.pathname);
+      });
+    </script>
+  <?php endif;?>  
   </body>
 </html>

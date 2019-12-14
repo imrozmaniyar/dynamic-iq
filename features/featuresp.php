@@ -59,9 +59,9 @@
           endif;     
         $i=$i+1;
 ?>  
-  <div class="col-md-3 zoom col-6 mt-3">
-    <a href="<?php echo $domain?>features/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
-      <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" style="height:165px;" class="img-fluid mx-auto d-block" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
+   <div class="col-md-3 zoom col-6 mt-3">
+    <a href="<?php echo $domain?>entertainment/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
+      <img src="<?php echo htmlspecialchars($hi,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block first-section-sub-section-img" alt="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>" Title="<?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?>">
       <p class="first-section-sub-desc"><?php echo htmlspecialchars($ht,ENT_QUOTES, 'UTF-8')?></p>
     </a>
   </div>

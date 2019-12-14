@@ -21,7 +21,7 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
             <li class="breadcrumb-item font-weight-bold"><a href="#"> ویڈیوز </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>/sports" class="text-black"> کھیل  </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>/entertainment" class="text-black"> تفریح </a></li>
             <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black"> گھر  </a></li>
           </ol>
         </nav>
@@ -61,7 +61,7 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
       <div class="container clearfix">
         <!-- <h2 class="article-news-listing-title"><a href="#" class="article-news-listing-title">کھیل  ویڈیوز</a></h2> -->
         <div class="row mt-4">
-        <?php include('sports-p-videos.php');?>
+        <?php include('ent-p-videos.php');?>
        
         </div>
         <div class="horizontal-border mt-4"></div>
@@ -70,6 +70,34 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
     <!-- Entertainment Photos Section -->
 
     <!-- photo section -->
-<?php include('sports-photos.php');?>
+<?php include('ent-photos.php');?>
     <!-- photo section -->
   <?php include('../bottom.php'); ?>  
+    <?php if($uid==""):?>
+    <script>
+        var counter = 0;
+        function showalert() {
+            if (localStorage.clickcount > 2) {
+                alert("Login to read more news");
+                window.location="<?php echo $domain?>login";
+            return;
+            }else{
+                clickCounter()
+            }
+            counter++;
+        }
+        function clickCounter() {
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.clickcount < 3) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                // document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+        }
+        showalert();
+    </script>
+<?php endif;?> 
