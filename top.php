@@ -106,10 +106,13 @@ include("loginc.php");
 .ui-tooltip {
   text-align:left;
 }  
+<<<<<<< HEAD
 .sb-search-open,
 .no-js .sb-search-open{
   width:250px;
 }
+=======
+>>>>>>> 423e4bc024d8eebd3ead8125e490f2d985eb6469
     </style>
     <!--Google Ads tag-->    
      <!--  <script async="async" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
