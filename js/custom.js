@@ -68,7 +68,6 @@
     $(".search_icon").click(function(e){
       $(".search-icon-js").each(function(){
         if($(".search-icon-js").val().length == 0){
-
           //e.preventDefault();
         }
     })
