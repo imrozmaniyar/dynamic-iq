@@ -1,6 +1,10 @@
 <?php
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
+// server should keep session data for AT LEAST 1 hour
+//ini_set('session.gc_maxlifetime', 3600000000);
+// each client should remember their session id for EXACTLY 1 hour
+//session_set_cookie_params(3600000000);
 //session_regenerate_id();
 session_start();
 include("../secure.php");
@@ -14,7 +18,7 @@ endif;
 if(isset($_SESSION['Sflag'])):
     $userflag = $_SESSION['Sflag'];
 endif;
-$urllogin = "http://" . mysql_escape_mimic($_SERVER['HTTP_HOST']). mysql_escape_mimic($_SERVER['REQUEST_URI']);
+$urllogin = "https://" . mysql_escape_mimic($_SERVER['HTTP_HOST']). mysql_escape_mimic($_SERVER['REQUEST_URI']);
 //$params = explode( "/",  mysql_real_escape_string($url));-----for some use do not delete
 
 $string = $Ffullname;
@@ -28,21 +32,27 @@ function initials($str) {
 include("loginc.php");
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="ur">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
     <?php include_once("seo-meta-data.php");?>
      <link rel="canonical" href=<?php echo $urllogin?> />
+     <?php //include_once("ogtags.php");
+      $rrurlname = $_SERVER['HTTP_REFERER'];
+     ?>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $domain?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $domain?>css/style.css">
     <link rel="stylesheet" href="<?php echo $domain?>css/font-awesome.min.css">
     <?php include("gacom.php");?>
     <script>var domain_name="<?php echo mysql_escape_mimic($domain)?>search/" </script> 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>var rrname="<?php echo mysql_escape_mimic($rrurlname)?>" </script> 
+    <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="330923446263-u77b5tghhfukfk0ael26dd6bprpjc1cs.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>    
     <style type="text/css">
       .animate {
     -webkit-transition: all 0.3s ease-in-out;
@@ -138,42 +148,123 @@ include("loginc.php");
         googletag.display("iq_pagepushSM");
     }); 
     </script>      
-    <!--Google Ads tag-->    
+    <!--Google Ads tag-->   
+     <!--iZooto Implementation-->
+     <script> window._izq = window._izq || []; window._izq.push(["init" ]); </script> <script src="https://cdn.izooto.com/scripts/4a58ff1d453a2c430df82f807d1f542e91cf8c1e.js"></script>   
+     <!--iZooto Implementation-->   
   </head>
   <body>
-<!-- <script src="http://connect.facebook.net/en_US/all.js"></script>
+   <script>
+window.fbAsyncInit = function() {
+    // FB JavaScript SDK configuration and setup
+    FB.init({
+      appId      : '289797971716379', // FB App ID
+      cookie     : true,  // enable cookies to allow the server to access the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v3.0' // use graph api version 2.8
+    });
+    
+    // Check whether the user already logged in
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            //display user data
+           // getFbUserData();
+        }
+    });
+};
+
+// Load the JavaScript SDK asynchronously
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// Facebook login with JavaScript SDK
+function fbLogin() {
+    FB.login(function (response) {
+        if (response.authResponse) {
+            // Get and display the user profile data
+            getFbUserData();
+        } else {
+            document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
+        }
+    }, {scope: 'email'});
+}
+
+// Fetch the user profile data from facebook
+function getFbUserData(){
+    FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email'},
+    function (response) {
+      fbid = response.id;
+      en = response.first_name+' '+response.last_name;
+      em = response.email;
+      //alert(fbid+" "+en+" "+em); 
+      //pn = $("#image").attr('title');
+      var dataString = 'fbid='+fbid+'&en='+en+'&em='+em;
+      //alert(dataString);
+      $.ajax({
+    type: "POST",
+    url: "checkmember_fb.php",
+    data: dataString,
+    success: function(data)
+    {
+      alert("You are logged in now to your account.");
+      window.location=document.referrer;
+    }
+    });
+       
+    });
+}
+
+// Logout from facebook
+function fbLogout() {
+    FB.logout(function() {
+        document.getElementById('fbLink').setAttribute("onclick","fbLogin()");
+        document.getElementById('fbLink').innerHTML = '<img src="fblogin.png"/>';
+        document.getElementById('userData').innerHTML = '';
+        document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
+    });
+}
+</script> 
+  
 <script>
-FB.init(
-  {
-    appId: '289797971716379', cookie: true,
-    status: true, xfbml: true
-  }
-);
-</script>
-<script>
-  function FBlogin(){
-    FB.api('/me', function(response){
-        alert("You are logged in now to your account.");
-        var profile_fbid = response.id;
-        var profile_fname = response.first_name;
-        var profile_lname = response.last_name;
-        var profile_email = response.email;
-        var profile_gender = response.gender;
-        window.location="<?php //echo $domain?>registration/checkmember_fb.php?p_fname=" + profile_fname + "&p_lname=" + profile_lname + "&p_fbid=" + profile_fbid + "&p_email=" + profile_email + "&p_gender=" + profile_gender;
-      }
-    );
-  }
-</script> -->  
-<!-- <script type="text/javascript">
 function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}  
-</script>     -->
-    <section id="topbar" class="d-none d-lg-block">
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        //console.log("Provider-specific UID: " + profile.uid());
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+        console.log(document.referrer);
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+        window.location='<?php echo $domain?>checkmember_g.php?fg_id=' + profile.getId() + '&name=' + profile.getName()+ '&email=' + profile.getEmail()+'&rrname='+rrname;        
+      }
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    window.location='<?php echo $domain?>logout';              
+    });
+  }
+
+function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+    }
+
+</script>
+
+ <section id="topbar" class="d-none d-lg-block">
       <div class="container clearfix">
         <div class="left-topbar float-left mt-2">
           <ul class="list-inline mb-0">
@@ -183,11 +274,24 @@ function onSignIn(googleUser) {
             <li class="list-inline-item mr-3">
               <div class="dropdown">
               <button type="button" class="btn btn-login text-white dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo htmlspecialchars($Ffullname,ENT_QUOTES, 'UTF-8');?></button>
+              <?php if(($userflag=='G') || ($userflag=='F')):?>
               <div class="dropdown-menu font-family-roboto" aria-labelledby="dropdownMenu2">
                 <a href="<?php echo $domain?>myprofile"><button class="dropdown-item text-black" type="button">My Profile</button></a>
+                <?php if($userflag=='G'):?>
+                <button class="dropdown-item text-black" type="button" onclick="signOut();">Logout</button>
+                <?php else: ?>
+                  <a href="<?php echo $domain?>logout"><button class="dropdown-item text-black" type="button">Logout</button></a>
+              <?php endif;?>
+              </div>
+              <?php else:?>  
+              <div class="dropdown-menu font-family-roboto" aria-labelledby="dropdownMenu2">
+                <a href="<?php echo $domain?>myprofile"><button class="dropdown-item text-black" type="button">My Profile</button></a>
+                <?php if($userflag=='I'):?>
                 <a href="<?php echo $domain?>changepassword"><button class="dropdown-item text-black" type="button">Change Password</button></a>
+                <?php endif;?>
                 <a href="<?php echo $domain?>logout"><button class="dropdown-item text-black" type="button">Logout</button></a>
               </div>
+            <?php endif;?>
             </div>
             </li>
           <?php endif;?>
@@ -198,7 +302,7 @@ function onSignIn(googleUser) {
                 <form method="post" id="songs-search-form">                            
                 <div class="searchbar" >
                   <input class="search_input" type="text" name="songs-search-text" id="songs-search-text" placeholder="Search..." required="required" style="text-align: left;">
-                  <button type="submit" class="search_icon search-icon-js"><i class="fa fa-search"></i></button>
+                  <button type="submit" class="search_icon search-icon-js"><i class="fa fa-search" href="#"></i></button>
                 </div>
                </form>
               </div>
@@ -222,11 +326,24 @@ function onSignIn(googleUser) {
                   <li class="list-inline-item mr-3">
                     <div class="dropdown">
                       <button type="button" class="btn btn-login text-white dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo initials($string);?></button>
+                      <?php if(($userflag=='G')|| ($userflag=='F')) :?>
                       <div class="dropdown-menu font-family-roboto" aria-labelledby="dropdownMenu2">
                           <a href="<?php echo $domain?>myprofile"><button class="dropdown-item text-black" type="button">My Profile</button></a>
+                          <?php if($userflag=='G'):?>
+                          <button class="dropdown-item text-black" type="button" onclick="signOut();">Logout</button>
+                          <?php else:?> 
+                          <a href="<?php echo $domain?>logout"><button class="dropdown-item text-black" type="button">Logout</button></a>  
+                          <?php endif;?> 
+                        </div>
+                      <?php else:?>  
+                      <div class="dropdown-menu font-family-roboto" aria-labelledby="dropdownMenu2">
+                          <a href="<?php echo $domain?>myprofile"><button class="dropdown-item text-black" type="button">My Profile</button></a>
+                          <?php if($userflag=='I'):?>
                           <a href="<?php echo $domain?>changepassword"><button class="dropdown-item text-black" type="button">Change Password</button></a>
+                          <?php endif;?> 
                           <a href="<?php echo $domain?>logout"><button class="dropdown-item text-black" type="button">Logout</button></a>
                         </div>
+                      <?php endif;?>  
                     </div>
                   </li>                    
                   <?php endif;?>  

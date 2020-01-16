@@ -267,9 +267,9 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
             <li class="nav-item"><a class="nav-link text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($aurl,ENT_QUOTES, 'UTF-8'))?>-articles">مضامین</a></li>
             <?php endif;?>
             <?php if($tocond=='all'):?>
-            <li class="nav-item nav-link  text-black">  سب  </li>	
+            <li class="nav-item nav-link  text-black">  تمام  </li>	
             <?php else:?>
-            <li class="nav-item"><a class="nav-link  text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($aurl,ENT_QUOTES, 'UTF-8'))?>-all">سب</a></li>
+            <li class="nav-item"><a class="nav-link  text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($aurl,ENT_QUOTES, 'UTF-8'))?>-all"> تمام  </a></li>
         	<?php endif;?>
           </ul>
 	        <div class="" id="load_data_table">
@@ -346,9 +346,9 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
             <li class="nav-item"><a class="nav-link text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8'))?>-articles">مضامین</a></li>
             <?php endif;?>
             <?php if($tocond=='all'):?>
-            <li class="nav-item nav-link active text-black">  سب  </li>	
+            <li class="nav-item nav-link active text-black">  تمام</li>	
             <?php else:?>
-            <li class="nav-item"><a class="nav-link active text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8'))?>-all">سب</a></li>
+            <li class="nav-item"><a class="nav-link active text-black" href="<?php echo $domain?>search/<?php echo str_replace(" ","-",htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8'))?>-all"> تمام </a></li>
         	<?php endif;?>
           </ul>
 
@@ -356,7 +356,15 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
           <div class="">
             <div class="" id="all">
               <h6 class="mt-3 mb-0 text-black text-uppercase font-weight-bold">مضامین <span class="font-family-roboto ml-1"><?php echo htmlspecialchars($keyword,ENT_QUOTES, 'UTF-8')?></span> </h6>
-              <div class="row">
+<style> 
+#main12 {
+display: -webkit-flex; /* Safari */
+-webkit-flex-direction: row-reverse; /* Safari 6.1+ */
+display: flex;
+flex-direction: row-reverse;
+}
+</style>              
+              <div class="row" id="main12">
 				<?php            
 				 if ($ArticleSearch[0] > 0):
 				        $i = 0;
@@ -370,9 +378,11 @@ $ArticleSearchFull = $objArticleSearchFull->selectAll($strWhere4, 0, 4);
 				          $catname                   = strtolower($objcatPP->Get_category_master_name());
 				          $url                       = $catname.'/articles/'.$article_page_url.'-'.$aid;           
 				        $i=$i+1;  
-				?>                     	
-                <div class="col-md-6 mt-4">
-                  <div class="row">
+				?>  
+				                   	
+                <div class="col-md-6 mt-4" >
+
+                  <div class="row" >
                     <div class="col-md-6 order-1 order-md-0">
                       <h3><a href="<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="article-news-listing-sub-title"><?php echo htmlspecialchars($article_homepage_headline,ENT_QUOTES, 'UTF-8')?></a></h3>
                     </div>

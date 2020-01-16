@@ -80,7 +80,7 @@
 
  ?>
 
-                <a href="<?php echo $domain?>features/literature" class="text-right read-more mt-1" alt="More" title="More">مزید </a>
+                <a href="<?php echo $domain?>features/juma-magazine" class="text-right read-more mt-1" alt="More" title="More">مزید </a>
  <?php endif;?>
           </div>
         </div>

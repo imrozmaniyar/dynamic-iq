@@ -1,9 +1,8 @@
 <?php include('../top.php');
-$urlg=basename(mysql_escape_mimic($_SERVER['REQUEST_URI']));
-$explodeResultArray = end(explode("-", $urlg)); 
+$url=basename(mysql_escape_mimic($_SERVER['REQUEST_URI']));
+$explodeResultArray = end(explode("-", $url)); 
 $id = intval($explodeResultArray);
 $objMaingallery    = new db_gallery_master($id);
-//$GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
 $GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
 $GDate             = $objMaingallery->Get_gallery_date();         
 $time              = strtotime($GDate);
@@ -25,7 +24,7 @@ $plsql = "SELECT MAX(gallery_id) FROM gallery_master WHERE category_id = $Gcat a
 $last1234 = mysql_query($plsql);
 $num_count1234 = mysql_fetch_row($last1234);
 $next_slide_id = $num_count1234[0];
-
+if($next_slide_id!=''):
 $objMaingallery1    = new db_gallery_master($next_slide_id);
 //$GalleryHeadLine   = $objMaingallery->Get_gallery_name(); 
 $GalleryHeadLine1   = $objMaingallery1->Get_gallery_name(); 
@@ -50,6 +49,7 @@ $objgalleryR = new db_gallery_master;
 $strWhere2 = "category_id=$Gcat and active='Y' and gallery_id !=$id and gallery_id !=$next_slide_id";
 $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
 ///for releated gallery/////
+endif;
 ?>
     <section>
       <div class="container clearfix">
@@ -88,11 +88,11 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
             endif;  
             ?>
           </div>
-          <div class="col-md-1 text-right order-0 order-md-1 mb-3 mb-md-0">
-            <a href="https://www.facebook.com/sharer.php?u=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/fb-icon.png" class="img-fluid mx-auto"></a>
-            <a href="https://twitter.com/share?url=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>&amp;text=<?php echo htmlspecialchars($articleHeadline,ENT_QUOTES, 'UTF-8')?>!&amp;amp;via=The Inquilab&amp;amp;" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/tweet-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
+          <div class="col-md-1 text-center order-0 order-md-1 mb-3 mb-md-0">
+            <a href="https://www.facebook.com/sharer.php?u=<?php echo $domain?>news/photos/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/fb-icon.png" class="img-fluid mx-auto"></a>
+            <a href="https://twitter.com/share?url=<?php echo $domain?>news/photos/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>&amp;text=<?php echo htmlspecialchars($articleHeadline,ENT_QUOTES, 'UTF-8')?>!&amp;amp;via=theinquilabin&amp;amp;" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/tweet-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
             <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile) :?>
-            <a href="whatsapp://send?text=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8');?>" data-action="share/whatsapp/share" target="_blank"><img src="<?php echo $domain?>images/whatsapp-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
+            <a href="whatsapp://send?text=<?php echo $domain?>news/photos/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8');?>" data-action="share/whatsapp/share" target="_blank"><img src="<?php echo $domain?>images/whatsapp-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
             <?php endif;?>
 
           </div>
@@ -100,7 +100,7 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
       </div>  
     </section>
     <!-- first section -->
-
+    <?php if($next_slide_id!=''):?>
     <!-- New photo Section -->
     <section class="mt-3">
       <div class="photo-details-bg-seperator">
@@ -142,20 +142,22 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
             ?>
           </div>
           <div class="col-md-1 text-center order-0 order-md-1 mb-3 mb-md-0">
-            <a href="https://www.facebook.com/sharer.php?u=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/fb-icon.png" class="img-fluid mx-auto"></a>
-            <a href="https://twitter.com/share?url=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>&amp;text=<?php echo htmlspecialchars($articleHeadline,ENT_QUOTES, 'UTF-8')?>!&amp;amp;via=The Inquilab&amp;amp;" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/tweet-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
+            <a href="https://www.facebook.com/sharer.php?u=<?php echo $domain?>news/photos/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/fb-icon.png" class="img-fluid mx-auto"></a>
+            <a href="https://twitter.com/share?url=<?php echo $domain?>news/photos/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>&amp;text=<?php echo htmlspecialchars($articleHeadline,ENT_QUOTES, 'UTF-8')?>!&amp;amp;via=The Inquilab&amp;amp;" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/tweet-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
             <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile) :?>
-            <a href="whatsapp://send?text=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8');?>" data-action="share/whatsapp/share" target="_blank"><img src="<?php echo $domain?>images/whatsapp-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
+            <a href="whatsapp://send?text=<?php echo $domain?>news/photos/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8');?>" data-action="share/whatsapp/share" target="_blank"><img src="<?php echo $domain?>images/whatsapp-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
             <?php endif;?>
           </div>
         </div>  
       </div>
     </section>
+  <?php endif;?>
     <!-- New photo Section -->
     <!-- Related News -->
+     <?php if($next_slide_id!=''):?>
     <section class="mt-3">
       <div class="container clearfix">
-        <h1 class="lifestyle-section-title"><a href="#">متعلقہ خبریں۔</a></h1>
+        <h1 class="lifestyle-section-title">متعلقہ خبریں۔</h1>
         <div class="row mt-3">
           <?php
               if ($galleryR[0] > 0):
@@ -169,8 +171,8 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
                 $x=$x+1;           
           ?>          
             <div class="col-md-3 zoom col-6">
-              <a href="<?php echo $domain?>news/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
-                <img src="<?php echo $domain?><?php echo htmlspecialchars($GCImageR,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block first-section-sub-section-img" alt="">
+              <a href="<?php echo $domain?>entertainment/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
+                <img src="<?php echo $domain?><?php echo htmlspecialchars($GCImageR,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block" alt="">
                 <p class="first-section-sub-desc"><?php echo htmlspecialchars($gallery_nameR,ENT_QUOTES, 'UTF-8');?></p>
             </a>
             </div>
@@ -181,9 +183,10 @@ $galleryR   = $objgalleryR->selectAll($strWhere2, 0, 4);
         </div>
       </div>  
     </section>
+  <?php endif;?>
     <!-- Related News -->
     <?php include('../bottom.php'); ?>  
-    <?php if($uid==""):?>
+      <?php if($uid==""):?>
     <script>
         var counter = 0;
         function showalert() {

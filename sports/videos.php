@@ -21,7 +21,7 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
             <li class="breadcrumb-item font-weight-bold"><a href="#"> ویڈیوز </a></li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>/entertainment" class="text-black"> تفریح </a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>/news" class="text-black"> خبریں  </a></li>
             <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>" class="text-black"> گھر  </a></li>
           </ol>
         </nav>
@@ -52,6 +52,10 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
           </div>  
         </div>
         <div class="horizontal-border mt-4"></div> 
+            <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
+    <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushVM"></div></div></div>
+    <div class="horizontal-border mt-4"></div>
+    <?php endif;?>
       </div>  
     </section>
     <!-- first section -->
@@ -61,8 +65,12 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
       <div class="container clearfix">
         <!-- <h2 class="article-news-listing-title"><a href="#" class="article-news-listing-title">کھیل  ویڈیوز</a></h2> -->
         <div class="row mt-4">
-        <?php include('ent-p-videos.php');?>
-       
+        <?php include('news-p-videos.php');?>
+           <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile):?>
+           <div class="horizontal-border mt-3"></div>
+    <div class="container clearfix"><div style="margin-top: 10px; margin-right: 19px;"><div id="iq_pagepushA3"></div></div></div>
+    
+    <?php endif;?> 
         </div>
         <div class="horizontal-border mt-4"></div>
       </div>  
@@ -70,10 +78,10 @@ $aMainDesc         = $objMainVideo->Get_article_description();*/
     <!-- Entertainment Photos Section -->
 
     <!-- photo section -->
-<?php include('ent-photos.php');?>
+<?php include('news-photos.php');?>
     <!-- photo section -->
   <?php include('../bottom.php'); ?>  
-    <?php if($uid==""):?>
+  <?php if($uid==""):?>
     <script>
         var counter = 0;
         function showalert() {

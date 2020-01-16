@@ -30,7 +30,7 @@ $mode            = "New";
 $objregistration = new db_registration_master();
 switch ($mode):
         case "New":
-                $checkExist = $objregistration->selectAll("user_email='" . $user_email . "' and user_flag='" . $user_flag . "'");
+                $checkExist = $objregistration->selectAll("user_email='" . $user_email . "'");
                 if ($checkExist[0] > 0):
                     // error
                     $msgid = 114;

@@ -30,7 +30,7 @@ $newspVideos    = $objnewspVideos->selectAll($strWhere, 0, 3);
                $i=$i+1;          
         ?>
 
-          <div class="col-md-4 mt-3 order-2 order-md-0">
+                <div class="col-md-4 mt-3 order-2 order-md-0">
           <a href="<?php echo $domain?>news/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="home-href">
             <div class="card-shadow zoom">
               <img src="<?php echo $domain?><?php echo htmlspecialchars($pImage,ENT_QUOTES, 'UTF-8')?>" class="img-fluid mx-auto d-block photo-gallery-img" alt="<?php echo htmlspecialchars($pahp,ENT_QUOTES, 'UTF-8')?>" title="<?php echo htmlspecialchars($pahp,ENT_QUOTES, 'UTF-8')?>">

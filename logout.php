@@ -10,5 +10,9 @@ if (ini_get("session.use_cookies")):
     );
 endif;
 session_destroy();
+ unset($_SESSION['Suserid']);
+ unset($_SESSION['fullname']);
+ unset($_SESSION['Sflag']);
 //header("Location: " . mysql_escape_mimic($_SERVER['HTTP_REFERER']));
 header("Location: $domain");
+?>

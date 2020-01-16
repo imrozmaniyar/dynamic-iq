@@ -1,7 +1,7 @@
 <?php
 $hostname = $_SERVER['SERVER_NAME'];
 //$domain = "http://".$hostname."/dashboard/iq/";/////for local
-$domain = "http://".$hostname."/";/////for test server
+$domain = "https://".$hostname."/";/////for test server
 define('DIR_WS_CLASS', '../class/');
 define('DIR_WS_CLASS_DATABASE_TABLES', '../class/database_tables/');
 

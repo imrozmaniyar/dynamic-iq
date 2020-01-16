@@ -31,3 +31,8 @@ define('TABLE_USERS_VIDEO_INNER', 'users_video_inner');
 define('TABLE_USERS_PHOTO_INNER', 'users_photo_inner');
 define('TABLE_REGISTRATION_MASTER', 'registration_master');
 define('TABLE_POETRY_MASTER', 'poetry_master');
+define('TABLE_IQ_ABOUTUS_TEXT', 'iq_aboutus_text');
+define('TABLE_IQ_PP_TEXT', 'iq_pp_text');
+define('TABLE_IQ_TC_TEXT', 'iq_tc_text');
+define('TABLE_IQ_CONTACT_TEXT', 'iq_contact_text');
+define('TABLE_IQ_CC_TEXT', 'iq_cc_text');

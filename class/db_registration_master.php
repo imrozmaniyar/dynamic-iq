@@ -55,7 +55,7 @@ function db_registration_master($id = NULL){
         $user_id = preg_replace('#[^0-9]#i', '', $this->_user_id);
         //update
         $Query           = sprintf("UPDATE " . TABLE_REGISTRATION_MASTER . " SET " .
-        "fg_id           =" . replace_spl_chr($this->_fg_id) . "," .
+        "fg_id           ='" . replace_spl_chr($this->_fg_id) . "'," .
         "user_name       ='" . replace_spl_chr($this->_user_name) . "'," .
         "user_email      ='" . replace_spl_chr($this->_user_email) . "'," .
         "user_password   ='" . replace_spl_chr($this->_user_password) . "'," .
@@ -81,7 +81,7 @@ function db_registration_master($id = NULL){
         )" .
         "values
         (
-            "  . replace_spl_chr($this->_fg_id) . ",
+            '"  . replace_spl_chr($this->_fg_id) . "',
             '" . replace_spl_chr($this->_user_name) . "',
             '" . replace_spl_chr($this->_user_email) . "',
             '" . replace_spl_chr($this->_user_password) . "',

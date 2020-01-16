@@ -25,10 +25,11 @@ $objMsg = new message($id);
             <p class="need_talk new_user" align="center" style="text-transform:none; color:#FF0000; font-size:18px;"><?php echo htmlspecialchars($objMsg->get_message(),ENT_QUOTES, 'UTF-8')?></p>
           <?php endif;?>
 
-        <form class="register-placeholder" id="registration" method="post" action="registration_submit" enctype="multipart/form-data">
+        <form class="register-placeholder" id="registration" method="post" action="<?php echo $domain?>registration_submit" enctype="multipart/form-data">
           <div class="form-group mt-3"><input type="text" name="txtname" required="required" class="form-control register-form-control" placeholder="Name"></div>
           <div class="form-group mt-3"><input type="email" name="txtemail" required="required" class="form-control register-form-control" placeholder="Email"></div>
-          <div class="form-group mt-3"><input type="password" name="txtpass" title="Password must contain: Minimum 8 characters atleast 1 Capital Letter and 1 Number" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" class="form-control register-form-control" placeholder="Password" data-placement="right" title="Tooltip Text"></div>
+          <div class="form-group mt-3"><input type="password" name="txtpass" id="txtpass" title="Password must contain: Minimum 8 characters atleast 1 Capital Letter and 1 Number" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" class="form-control register-form-control" placeholder="Password" data-placement="right" title="Tooltip Text"></div>
+          <div class="form-group mt-3"><input type="password" name="txtcpass" id="txtcpass" required pattern="^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" class="form-control register-form-control" placeholder="Confirm Password"></div>
           <div class="form-group mt-3"><input type="text" name="txtmobile" maxlength="10" required="required" title="10 Numbers Only" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" class="form-control register-form-control" placeholder="Mobile"></div>
           <div class="form-group">
               <select name="cbocountry" id="country" required="required" class="custom-select text-black font-family-roboto register-select-dropdown">
@@ -128,4 +129,21 @@ $objMsg = new message($id);
     $(document).ready(function(){
     $('input').tooltip();
 });
+</script>
+<script type="text/javascript">
+  
+var newpassword = document.getElementById("txtpass")
+  , cpassword = document.getElementById("txtcpass");
+
+function validatePassword(){
+  if(newpassword.value != cpassword.value) {
+    cpassword.setCustomValidity("Passwords Don't Match");
+  } else {
+    cpassword.setCustomValidity('');
+  }
+}
+
+newpassword.onchange = validatePassword;
+cpassword.onkeyup = validatePassword;
+
 </script>

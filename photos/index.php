@@ -7,7 +7,7 @@ include('../top.php'); ?>
         <nav aria-label="breadcrumb" class="clearfix">
           <ol class="breadcrumb float-right mb-0 pb-0 news-breadcrumb">
             <li class="breadcrumb-item font-weight-bold text-black" class="" alt="Photos" title="Photos">تصویریں  </li>
-            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>"  alt="Home" title="Home">گھر</a></li>
+            <li class="breadcrumb-item active font-weight-bold" aria-current="page"><a href="<?php echo $domain?>"  alt="Home" title="Home"> ابتداء  </a></li>
           </ol>
           </ol>
         </nav>

@@ -2,7 +2,7 @@
 session_start();
 include_once("configure.php");
 include_once(DIR_WS_CLASS_SITE."db_registration_master.php");
-$url = htmlspecialchars($_POST["txturllogin"], ENT_QUOTES, 'UTF-8');
+$rrurl = htmlspecialchars($_POST["txtrrlogin"], ENT_QUOTES, 'UTF-8');
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && trim($_POST['txtemailaddress']) !== ''){
 	$email       = $_POST['txtemailaddress'];
 
@@ -29,8 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && trim($_POST['txtemailaddress']) !==
 		if(mysqli_num_rows($result)>0){
 			$row = mysqli_fetch_array($result);
 			$password_hash = $row['user_password'];
-			if(password_verify($pass, $password_hash))
-			{
+			$active=$row['active'];
+			if($active=='N'){
+				header("Location:$domain"."verify");
+			exit();
+			}elseif(password_verify($pass, $password_hash)){
 				$obj         = new db_registration_master();
 				$obj->set_user_email($email);
 				$userid  = $obj->selectAll("user_email='" . $email . "' and active = 'Y' and user_flag = 'I'");
@@ -40,10 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && trim($_POST['txtemailaddress']) !==
 						$_SESSION['fullname']     = $objId->user_name . chr(32);
 						$_SESSION['Sflag']        = $objId->user_flag;
 					}
-?>	
+?>					
 					<script language="javascript">
 						alert("You are logged in now to your account.");
-						window.location="<?php echo $domain?>";
+						window.location="<?php echo htmlspecialchars($rrurl,ENT_QUOTES, 'UTF-8')?>";
 					</script>
 <?php
 					}else{

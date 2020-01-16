@@ -74,10 +74,10 @@ endif;
             <p><?php echo $aMainDesc?></p>
           </div>
           <div class="col-md-1 text-center order-0 order-md-1 mb-3 mb-md-0">
-            <a href="https://www.facebook.com/sharer.php?u=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/fb-icon.png" class="img-fluid mx-auto"></a>
-            <a href="https://twitter.com/share?url=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>&amp;text=<?php echo htmlspecialchars($articleHeadline,ENT_QUOTES, 'UTF-8')?>!&amp;amp;via=The Inquilab&amp;amp;" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/tweet-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
+            <a href="https://www.facebook.com/sharer.php?u=<?php echo $domain?>lifestyle/articles/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/fb-icon.png" class="img-fluid mx-auto"></a>
+            <a href="https://twitter.com/share?url=<?php echo $domain?>lifestyle/articles/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8')?>&amp;text=<?php echo htmlspecialchars($articleHeadline,ENT_QUOTES, 'UTF-8')?>!&amp;amp;via=theinquilabin&amp;amp;" class="mr-2 mr-md-0" target="_blank"><img src="<?php echo $domain?>images/tweet-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
                         <?php $isMobile = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'Mobile'); if ($isMobile) :?>
-            <a href="whatsapp://send?text=<?php echo $domain?><?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8');?>" data-action="share/whatsapp/share" target="_blank"><img src="<?php echo $domain?>images/whatsapp-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
+            <a href="whatsapp://send?text=<?php echo $domain?>lifestyle/articles/<?php echo htmlspecialchars($url,ENT_QUOTES, 'UTF-8');?>" data-action="share/whatsapp/share" target="_blank"><img src="<?php echo $domain?>images/whatsapp-icon.png" class="img-fluid mt-md-2 mx-auto"></a>
             <?php endif;?>
 
           </div>
@@ -123,7 +123,7 @@ endif;
     <script>
         var counter = 0;
         function showalert() {
-            if (localStorage.clickcount > 2) {
+            if (localStorage.clickcount > 14) {
                 alert("Login to read more news");
                 window.location="<?php echo $domain?>login";
             return;
@@ -134,7 +134,7 @@ endif;
         }
         function clickCounter() {
             if (typeof(Storage) !== "undefined") {
-                if (localStorage.clickcount < 3) {
+                if (localStorage.clickcount < 15) {
                     localStorage.clickcount = Number(localStorage.clickcount) + 1;
                 } else {
                     localStorage.clickcount = 1;

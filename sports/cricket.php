@@ -43,7 +43,7 @@ $cricketFour    = $objcricketFour->selectAll($strWhere, 13, 3);
 ?>    
 <section class="mt-3">
   <div class="container clearfix" id="load_data_table">
-    <h2 class="article-news-listing-title" Alt="Cricket" Title="Cricket"> کرکٹ۔  </h2>
+    <h2 class="article-news-listing-title" Alt="Cricket" Title="Cricket"> کرکٹ   </h2>
 <?php
   if ($cricketFour[0] > 0):
     $i = 1;

@@ -51,7 +51,7 @@
 <div id="gdprbx">
    <div class="cookiebox">This website uses cookie or similar technologies, to enhance your browsing experience
       and provide personalised recommendations. By continuing to use our website, you agree
-      to our <a href="https://mid-day.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and <a target="_blank" rel="noopener" href="https://mid-day.com/cookie-policy">Cookie Policy</a>. <a class="close" href="#" onclick="document.getElementById('gdprbx').style.display='none';setCookie('gdpr-consent','yes','60');return false;">OK</a></div>
+      to our <a href="<?php echo $domain?>privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and <a target="_blank" rel="noopener" href="<?php echo $domain?>cookie-policy">Cookie Policy</a>. <a class="close" href="#" onclick="document.getElementById('gdprbx').style.display='none';setCookie('gdpr-consent','yes','60');return false;">OK</a></div>
 </div><style>
   #gdprbx{padding:10px; position:fixed; bottom:-100px; z-index:9999; left:0; right:0; background:#ededed; box-shadow:0px 1px 5px rgba(0, 0, 0, 0.4); text-align:center; animation:slideup 5s 1.0s 1 ease forwards;  -webkit-animation:slideup 5s 1.0s 1 ease forwards; -moz-animation: slideup 5s 1.0s 1 ease forwards;}
   #gdprbx .close{background:#484647; padding:4px 10px; font-size:11px; border-radius:2px; color:#fff; margin-left:5px;}
@@ -123,12 +123,20 @@
     </script>  
 <?php else:?>
     <script type="text/javascript">
+
         $(document).ready(function() {
-  $("#songs-search-text").autocomplete({
-    source: '<?php echo $domain?>tags-json.php',
-    minLength: 3
+        $("#songs-search-text").autocomplete({
+        source: '<?php echo $domain?>tags-json.php',
+    minLength: 3,select:function(e,ui){
+      var a = ui.item.label;
+        a = a.replace(/\s+/g, "-");
+        t = domain_name +"search/"+a+"-all";
+        window.location = t
+      //$("#songs-search-form").submit();
+    }
   });
 });
+
     </script>   
 <?php endif;?>    
  <?php 
@@ -136,7 +144,7 @@
       if ($isMobile):    
   ?>
     <script type="text/javascript">
-      $(document).on("submit", "#songsM-search-form", function(e) {
+      $(document).on("submit", "#songsM-search-form", function(e){
         e.preventDefault();
         var a = $("#songsM-search-text").val(),
         a = a.replace(/\s+/g, "-");

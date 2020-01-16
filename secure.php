@@ -10,6 +10,6 @@ if(
 	$_SERVER['PHP_SELF'] != 'checkmember' 	&& 
 	$_SERVER['PHP_SELF'] != 'forgot-password-submit'
   ):
-    header("Location: http://i.radiocity.in");
+    header("Location: https://demo.inquilab.com/");
     exit();
 endif;

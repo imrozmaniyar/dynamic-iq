@@ -6,9 +6,16 @@
   $name = $obj->Get_user_name();
   $email = $obj->Get_user_email();
   $phone = $obj->Get_user_mobile();
+  if($phone==""):
+     $phone= 'N/A';
+  endif;    
   $flag = $obj->Get_user_flag();
   if($flag=='I'):
-    $siteflag = 'Inquilab.Com';
+    $siteflag = 'Email';
+  elseif($flag=='G'): 
+   $siteflag = 'Google';
+  elseif($flag=='F'): 
+   $siteflag = 'Facebook';   
   endif;  
 ?>
     <section>
@@ -20,24 +27,24 @@
               <div class="form-group mt-3">
                 <table>
                   <tr>
-                     <td width="30%"><b>Name</b></td> 
+                     <td width="30%" class='font-family-roboto'><b>Name</b></td> 
                      <td width="20%" align="center"><b>:</b></td> 
-                     <td width="50%"><b><?php echo htmlspecialchars($name,ENT_QUOTES, 'UTF-8')?></b></td> 
+                     <td width="50%" class='font-family-roboto'><b><?php echo htmlspecialchars($name,ENT_QUOTES, 'UTF-8')?></b></td> 
                   </tr>
                   <tr>
-                     <td width="30%"><b>Email</b></td> 
+                     <td width="30%" class='font-family-roboto'><b>Email</b></td> 
                      <td width="20%" align="center"><b>:</b></td> 
-                     <td width="50%"><b><?php echo htmlspecialchars($email,ENT_QUOTES, 'UTF-8')?></b></td> 
+                     <td width="50%" class='font-family-roboto'><b><?php echo htmlspecialchars($email,ENT_QUOTES, 'UTF-8')?></b></td> 
                   </tr>
                   <tr>
-                     <td width="30%"><b>Mobile No</b></td> 
+                     <td width="30%" class='font-family-roboto'><b>Mobile No</b></td> 
                      <td width="20%" align="center"><b>:</b></td> 
-                     <td width="50%"><b><?php echo htmlspecialchars($phone,ENT_QUOTES, 'UTF-8')?></b></td> 
+                     <td width="50%" class='font-family-roboto'><b><?php echo htmlspecialchars($phone,ENT_QUOTES, 'UTF-8')?></b></td> 
                   </tr>
                   <tr>
-                     <td width="30%"><b>Registered</b></td> 
+                     <td width="30%" class='font-family-roboto'><b>Registered</b></td> 
                      <td width="20%" align="center"><b>:</b></td> 
-                     <td width="50%"><b><?php echo htmlspecialchars($siteflag,ENT_QUOTES, 'UTF-8')?></b></td> 
+                     <td width="50%" class='font-family-roboto'><b><?php echo htmlspecialchars($siteflag,ENT_QUOTES, 'UTF-8')?></b></td> 
                   </tr>
 
                 </table>

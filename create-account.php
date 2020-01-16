@@ -6,7 +6,10 @@
       <div class="col-md-10 mx-auto text-left">
         <form method="post" action="<?php echo $domain?>checkmember" class="register-placeholder">
           <h4 class="text-center text-black font-family-roboto font-weight-bold mt-4 mb-4">
-          Sorry Couldn't find your Account. <a href="<?php echo $domain?>register" class="login-text">Click Here</a> to creat a account with us.
+         
+
+
+          Sorry, we couldn't find your account. Please <a href="<?php echo $domain?>register" class="login-text">click here</a> to create an account with us.
         </h4>
         </form>  
         <br>

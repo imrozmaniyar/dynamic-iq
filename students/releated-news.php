@@ -14,7 +14,15 @@ $releatedNews = $objreleatedNews->selectAll($strWhere1, 0, 4);
 <section class="mt-3">
   <div class="container clearfix">
   <h1 class="lifestyle-section-title">  متعلقہ خبریں  </h1>
-    <div class="row mt-3">
+  <style> 
+#main12 {
+  display: -webkit-flex; /* Safari */
+  -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
+  display: flex;
+  flex-direction: row-reverse;
+}
+</style>  
+    <div class="row mt-3" id="main12">
 <?php
     if ($releatedNews[0]           > 0):
     $j                             = 0;

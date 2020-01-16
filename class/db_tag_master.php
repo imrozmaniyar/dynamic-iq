@@ -1,5 +1,5 @@
 <?php
-include_once(DIR_WS_CLASS . "database.php");
+include_once("database.php");
 // Class
 class db_tag_master{
   var $_tag_id;

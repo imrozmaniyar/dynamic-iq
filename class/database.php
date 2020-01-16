@@ -5,7 +5,7 @@
  * @author Vikram
  */
 
-   $con = mysqli_connect("localhost","root","","iq");
+    /*$con = mysqli_connect("localhost","root","","iq");
        if (mysqli_connect_errno()){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
@@ -19,18 +19,17 @@
 	define('USE_PCONNECT', 'true'); // use persistent connections?
 	define('STORE_SESSIONS', 'mysql'); // leave empty '' for default handler or set to 'mysql'*/
 
-     /*$con = mysqli_connect("192.168.1.17","vmrc_dbuser","D6Rz4axBzQ4Ny7SK!","iq");
+    $con = mysqli_connect("10.12.175.10","vmrc_dbuser","D6Rz4axBzQ4Ny7SK!","iq");
        if (mysqli_connect_errno()){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-    define('DB_SERVER', '192.168.1.17'); // eg, localhost - should not be empty for productive servers
+    define('DB_SERVER', '10.12.175.10'); // eg, localhost - should not be empty for productive servers
     define('DB_SERVER_USERNAME', 'vmrc_dbuser');
     define('DB_SERVER_PASSWORD', 'D6Rz4axBzQ4Ny7SK!');
     define('DB_DATABASE', 'iq');
     define('USE_PCONNECT', 'true'); // use persistent connections?
-    define('STORE_SESSIONS', 'mysql'); // leave empty '' for default handler or set to 'mysql'*/
-
+    define('STORE_SESSIONS', 'mysql'); // leave empty '' for default handler or set to 'mysql'
     
 /**
  * Include all Database Tables Definations here

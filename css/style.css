@@ -53,9 +53,10 @@ body {
     font-family: 'Roboto', sans-serif;
     position: absolute;
     top: 0;
-    right: 0;
+    /*right: 0;*/
+    left: 0;
     outline: none;
-    width: 100%;
+    width: 88%;
     height: 40px;
     margin: 0;
     z-index: 10;
@@ -650,4 +651,19 @@ position: relative;
     right: 0;
 }
 
+/*/////Added By Vivek*/
+@media only screen 
+  and (max-width: 768px) {
+
+    .btn-back{
+            margin-right: 60px;
+    }
+  }
+@media only screen 
+  and (max-width: 768px) {
+
+    .btn-homepage{
+            margin-right: 100px;
+    }
+  }
 }
